@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constructors in Inheritance &amp; Function Overriding — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Constructors in Inheritance &amp; Function Overriding</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#part-1-constructors-and-destructors-in-inheritance">Part 1 — Constructors and Destructors in Inheritance</a></li><li class="l3"><a href="#why-order-matters">Why order matters</a></li><li class="l3"><a href="#passing-arguments-to-the-base-constructor">Passing arguments to the base constructor</a></li><li class="l2"><a href="#part-2-function-overriding">Part 2 — Function Overriding</a></li><li class="l3"><a href="#the-problem">The problem</a></li><li class="l3"><a href="#the-idea">The idea</a></li><li class="l3"><a href="#name-hiding-a-subtle-trap">Name hiding (a subtle trap)</a></li><li class="l2"><a href="#overloading-vs-overriding">Overloading vs Overriding</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details open><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li class=cur><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 5 · Inheritance &amp; Polymorphism › Lesson 5.3</div><h1>Constructors in Inheritance &amp; Function Overriding</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 3</span></div>
+<p><strong>When a derived object is created, the base part is built first and the derived part second; destruction happens in reverse. And a derived class can <em>override</em> (redefine) a base function to behave its own way.</strong></p>
+<h2 id="part-1-constructors-and-destructors-in-inheritance">Part 1 — Constructors and Destructors in Inheritance</h2>
+<h3 id="why-order-matters">Why order matters</h3>
+<p>A derived object contains a base-class part <em>inside</em> it. The derived constructor may want to use base members — so the base part must already be properly built.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p><strong>Building a house.</strong> First the foundation (base class), then the walls on top (derived class). When demolishing, you take the walls down first, then the foundation. Construction goes bottom-up; destruction goes top-down.</p></div>
+<p><strong>Rules:</strong></p>
+<ol><li>Constructors: <strong>base first, then derived</strong>. Multilevel: from the top-most ancestor down.</li><li>Destructors: <strong>reverse</strong> — derived first, then base.</li><li>Multiple inheritance: base constructors run in the order the bases are <strong>listed in the class declaration</strong> (not the order you write in the initializer list).</li><li>If the base needs arguments, the derived constructor passes them through its <strong>initializer list</strong>: <code>Derived(int a, int b) : Base(a), y(b) { }</code>.</li></ol>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> A { <span class="kw">public</span>: A() { <span class="lib">cout</span> &lt;&lt; <span class="str">"A "</span>; }  ~A() { <span class="lib">cout</span> &lt;&lt; <span class="str">"~A "</span>; } };
+<span class="kw">class</span> B { <span class="kw">public</span>: B() { <span class="lib">cout</span> &lt;&lt; <span class="str">"B "</span>; }  ~B() { <span class="lib">cout</span> &lt;&lt; <span class="str">"~B "</span>; } };
+<span class="kw">class</span> C : <span class="kw">public</span> B, <span class="kw">public</span> A           <span class="com">// DECLARED order: B, then A</span>
+{
+<span class="kw">public</span>:
+    C() : A(), B() { <span class="lib">cout</span> &lt;&lt; <span class="str">"C "</span>; }   <span class="com">// list order doesn't matter</span>
+    ~C() { <span class="lib">cout</span> &lt;&lt; <span class="str">"~C "</span>; }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    {
+        C obj;
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"| "</span>;
+    }
+    <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>B A C | ~C ~A ~B </code></pre></div>
+<h3 id="passing-arguments-to-the-base-constructor">Passing arguments to the base constructor</h3>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Employee
+{
+<span class="kw">protected</span>:
+    <span class="kw">int</span> id;
+    <span class="kw">double</span> salary;
+<span class="kw">public</span>:
+    Employee(<span class="kw">int</span> i, <span class="kw">double</span> s) : id(i), salary(s)
+    {
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"Employee("</span> &lt;&lt; id &lt;&lt; <span class="str">") constructed"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+};
+
+<span class="kw">class</span> Manager : <span class="kw">public</span> Employee
+{
+    <span class="kw">double</span> bonus;
+<span class="kw">public</span>:
+    Manager(<span class="kw">int</span> i, <span class="kw">double</span> s, <span class="kw">double</span> b) : Employee(i, s), bonus(b)   <span class="com">// hand i, s to the base</span>
+    {
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"Manager constructed"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+    <span class="kw">double</span> totalPay() { <span class="kw">return</span> salary + bonus; }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Manager m(<span class="num">7</span>, <span class="num">50000</span>, <span class="num">12000</span>);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Total pay: "</span> &lt;&lt; m.totalPay() &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Employee(7) constructed
+Manager constructed
+Total pay: 62000</code></pre></div>
+<h2 id="part-2-function-overriding">Part 2 — Function Overriding</h2>
+<h3 id="the-problem">The problem</h3>
+<p>A base class <code>Animal</code> has <code>sound()</code> printing "Some sound". A <code>Dog</code> <em>is an</em> animal, but it should bark. Inheriting the generic version isn't good enough — the child needs its <strong>own version</strong> of the same function.</p>
+<h3 id="the-idea">The idea</h3>
+<p><strong>Function overriding</strong> = the derived class provides a function with the <strong>same name and same parameters</strong> as a base-class function. Calls on a derived object use the derived version. The base version is still reachable with <code>Base::function()</code>.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Animal
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> sound() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Some sound"</span> &lt;&lt; <span class="lib">endl</span>; }
+    <span class="kw">void</span> eat()   { <span class="lib">cout</span> &lt;&lt; <span class="str">"Animal eats"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">class</span> Dog : <span class="kw">public</span> Animal
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> sound()                    <span class="com">// overrides Animal::sound</span>
+    {
+        Animal::sound();            <span class="com">// optionally reuse the parent's version</span>
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"Bark"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Dog d;
+    d.sound();          <span class="com">// Dog's version</span>
+    d.eat();            <span class="com">// inherited unchanged</span>
+    d.Animal::sound();  <span class="com">// explicitly call the parent's version</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Some sound
+Bark
+Animal eats
+Some sound</code></pre></div>
+<h3 id="name-hiding-a-subtle-trap">Name hiding (a subtle trap)</h3>
+<p>If the derived class declares a function with the same <strong>name</strong>, it hides <strong>all</strong> base functions of that name — even ones with different parameters.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Base    { <span class="kw">public</span>: <span class="kw">void</span> show(<span class="kw">int</span> x) { <span class="lib">cout</span> &lt;&lt; x; } };
+<span class="kw">class</span> Derived : <span class="kw">public</span> Base { <span class="kw">public</span>: <span class="kw">void</span> show() { <span class="lib">cout</span> &lt;&lt; <span class="str">"D"</span>; } };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Derived d;
+    d.show();      <span class="com">// OK</span>
+    d.show(<span class="num">5</span>);     <span class="com">// ERROR: Base::show(int) is hidden by Derived::show()</span>
+    <span class="kw">return</span> <span class="num">0</span>;      <span class="com">// fix: put  using Base::show;  inside Derived</span>
+}</code></pre></div>
+<h2 id="overloading-vs-overriding">Overloading vs Overriding</h2>
+<div class="tablewrap"><table><thead><tr><th>Function overloading</th><th>Function overriding</th></tr></thead><tbody><tr><td>Same name, <strong>different</strong> parameters</td><td>Same name, <strong>same</strong> parameters</td></tr><tr><td>Usually in the <strong>same</strong> class</td><td>In <strong>base and derived</strong> classes</td></tr><tr><td>No inheritance needed</td><td>Requires inheritance</td></tr><tr><td>Resolved at <strong>compile time</strong></td><td>With <code>virtual</code>, resolved at <strong>run time</strong> (next lesson)</td></tr><tr><td>Return type may differ</td><td>Return type must match</td></tr></tbody></table></div>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Construction: base → derived (multiple bases in declaration order). Destruction: reverse.</li><li>Pass base-constructor arguments via the derived initializer list.</li><li>Overriding = same signature in the derived class; <code>Base::f()</code> still reaches the parent's version.</li><li>A derived function name hides all base overloads with that name.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Thinking the derived constructor runs first.</li><li>Forgetting to call a parameterized base constructor when the base has no default constructor → error.</li><li>Writing <code>Employee(i, s);</code> inside the constructor <strong>body</strong> — that creates a temporary, it doesn't initialize the base.</li><li>Using initializer-list order instead of declaration order for multiple inheritance.</li><li>Confusing overloading and overriding.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>Output questions</em> on constructor/destructor order in multilevel and multiple inheritance (very common).</li><li><em>"How are arguments passed to base class constructors?"</em></li><li><em>"Differentiate function overloading and overriding."</em></li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p>In inheritance, <strong>base class constructors are executed before derived class constructors</strong>, and destructors are executed in the reverse order. <strong>Function overriding</strong> is the redefinition, in a derived class, of a base class member function with the same name and signature, so that the derived version is used for derived objects.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · Predict: <code>class A{public:A(){cout&lt;&lt;"A";}~A(){cout&lt;&lt;"~A";}}; class B:public A{public:B(){cout&lt;&lt;"B";}~B(){cout&lt;&lt;"~B";}};</code> with <code>int main(){ B b; }</code></div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><code>AB~B~A</code></p></div></details></div>
+<div class="q"><div class="qhead">Q2 · <code>Base</code> has only <code>Base(int)</code>. Why does <code>class D : public Base { public: D() { } };</code> fail?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><code>D()</code> implicitly tries to call <code>Base()</code>, which doesn't exist. Fix: <code>D() : Base(0) { }</code>.</p></div></details></div>
+<div class="pager"><a class="nav" href="05_2_types_of_inheritance.html">← Types of Inheritance &amp; the Diamond Problem</a><span></span><a class="nav" href="05_4_polymorphism_virtual.html">Polymorphism &amp; Virtual Functions →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

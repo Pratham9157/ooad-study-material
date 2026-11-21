@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Types of Inheritance &amp; the Diamond Problem — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Types of Inheritance &amp; the Diamond Problem</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-five-shapes">The Five Shapes</a></li><li class="l2"><a href="#multilevel-inheritance">Multilevel Inheritance</a></li><li class="l2"><a href="#multiple-inheritance">Multiple Inheritance</a></li><li class="l2"><a href="#hierarchical-inheritance">Hierarchical Inheritance</a></li><li class="l2"><a href="#ambiguity-in-multiple-inheritance">Ambiguity in Multiple Inheritance</a></li><li class="l2"><a href="#the-diamond-problem-and-virtual-base-classes">The Diamond Problem and Virtual Base Classes</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details open><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li class=cur><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 5 · Inheritance &amp; Polymorphism › Lesson 5.2</div><h1>Types of Inheritance &amp; the Diamond Problem</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 3</span></div>
+<p><strong>Classes can be arranged in different inheritance shapes: a single chain, a family tree with many children, a child with several parents, or a mix. Each shape has a name — and one shape creates a famous problem.</strong></p>
+<h2 id="the-five-shapes">The Five Shapes</h2>
+<div class="codewrap text"><pre><code> Single           Multilevel        Multiple             Hierarchical          Hybrid (here: the "diamond")
+   A                 A              A       B                 A                      A
+   │                 │               \     /               /  |  \                 /   \
+   B                 B                  C                 B   C   D               B     C
+                     │                                                             \   /
+                     C                                                               D</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>Type</th><th>Meaning</th><th>Real-world example</th></tr></thead><tbody><tr><td><strong>Single</strong></td><td>one base → one derived</td><td><code>Car : Vehicle</code></td></tr><tr><td><strong>Multilevel</strong></td><td>a chain: C derives from B, which derives from A</td><td><code>Person → Student → GraduateStudent</code></td></tr><tr><td><strong>Multiple</strong></td><td>one class with <strong>two or more</strong> bases</td><td><code>SmartPhone : Phone, Camera</code></td></tr><tr><td><strong>Hierarchical</strong></td><td><strong>many</strong> classes from <strong>one</strong> base</td><td><code>Circle, Square, Triangle : Shape</code></td></tr><tr><td><strong>Hybrid</strong></td><td>a combination of the above</td><td>multiple + hierarchical → diamond</td></tr></tbody></table></div>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>Family trees. <strong>Single</strong>: a parent and a child. <strong>Multilevel</strong>: grandparent → parent → child (the child inherits from both, through the parent). <strong>Hierarchical</strong>: one parent, several siblings. <strong>Multiple</strong>: a child who inherits traits from two different parents. <strong>Hybrid</strong>: any mix of these.</p></div>
+<h2 id="multilevel-inheritance">Multilevel Inheritance</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Person   { <span class="kw">protected</span>: <span class="kw">char</span> name[<span class="num">20</span>] = <span class="str">"Arjun"</span>; };
+<span class="kw">class</span> Student  : <span class="kw">public</span> Person  { <span class="kw">protected</span>: <span class="kw">int</span> roll = <span class="num">21</span>; };
+<span class="kw">class</span> Graduate : <span class="kw">public</span> Student
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> show() { <span class="lib">cout</span> &lt;&lt; name &lt;&lt; <span class="str">" "</span> &lt;&lt; roll &lt;&lt; <span class="str">" graduated"</span> &lt;&lt; <span class="lib">endl</span>; }  <span class="com">// members from 2 levels up</span>
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Graduate g;
+    g.show();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Arjun 21 graduated</code></pre></div>
+<h2 id="multiple-inheritance">Multiple Inheritance</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Phone  { <span class="kw">public</span>: <span class="kw">void</span> call()  { <span class="lib">cout</span> &lt;&lt; <span class="str">"Calling..."</span> &lt;&lt; <span class="lib">endl</span>; } };
+<span class="kw">class</span> Camera { <span class="kw">public</span>: <span class="kw">void</span> click() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Photo clicked"</span> &lt;&lt; <span class="lib">endl</span>; } };
+
+<span class="kw">class</span> SmartPhone : <span class="kw">public</span> Phone, <span class="kw">public</span> Camera      <span class="com">// two parents</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> browse() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Browsing"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    SmartPhone s;
+    s.call(); s.click(); s.browse();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Calling...
+Photo clicked
+Browsing</code></pre></div>
+<h2 id="hierarchical-inheritance">Hierarchical Inheritance</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Shape
+{
+<span class="kw">protected</span>:
+    <span class="kw">double</span> dim;
+<span class="kw">public</span>:
+    <span class="kw">void</span> setDim(<span class="kw">double</span> d) { dim = d; }
+};
+<span class="kw">class</span> Square : <span class="kw">public</span> Shape { <span class="kw">public</span>: <span class="kw">double</span> area() { <span class="kw">return</span> dim * dim; } };
+<span class="kw">class</span> Circle : <span class="kw">public</span> Shape { <span class="kw">public</span>: <span class="kw">double</span> area() { <span class="kw">return</span> <span class="num">3.14</span> * dim * dim; } };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Square s; s.setDim(<span class="num">4</span>);
+    Circle c; c.setDim(<span class="num">1</span>);
+    <span class="lib">cout</span> &lt;&lt; s.area() &lt;&lt; <span class="str">" "</span> &lt;&lt; c.area() &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>16 3.14</code></pre></div>
+<h2 id="ambiguity-in-multiple-inheritance">Ambiguity in Multiple Inheritance</h2>
+<p>If both parents have a member with the <strong>same name</strong>, the child can't tell which one you mean:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Printer { <span class="kw">public</span>: <span class="kw">void</span> start() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Printer start"</span> &lt;&lt; <span class="lib">endl</span>; } };
+<span class="kw">class</span> Scanner { <span class="kw">public</span>: <span class="kw">void</span> start() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Scanner start"</span> &lt;&lt; <span class="lib">endl</span>; } };
+<span class="kw">class</span> AllInOne : <span class="kw">public</span> Printer, <span class="kw">public</span> Scanner { };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    AllInOne m;
+    <span class="com">// m.start();          // ERROR: ambiguous — which start()?</span>
+    m.Printer::start();    <span class="com">// fix: say which parent with ::</span>
+    m.Scanner::start();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Printer start
+Scanner start</code></pre></div>
+<h2 id="the-diamond-problem-and-virtual-base-classes">The Diamond Problem and Virtual Base Classes</h2>
+<p>In the diamond shape, <code>D</code> inherits from <code>B</code> and <code>C</code>, which <strong>both</strong> inherit from <code>A</code>. Without special care, <code>D</code> ends up containing <strong>two separate copies</strong> of <code>A</code>:</p>
+<div class="codewrap text"><pre><code>        A (int data)                    Without "virtual":        With "virtual":
+       / \                              D = [ B::A::data ]        D = [ one shared A ]
+      B   C                                 [ C::A::data ]
+       \ /                              obj.data → AMBIGUOUS       obj.data → fine
+        D</code></pre></div>
+<p><strong>Solution:</strong> make <code>A</code> a <strong>virtual base class</strong> by inheriting with the keyword <code>virtual</code>. Then <code>B</code> and <code>C</code> share <strong>one</strong> <code>A</code>.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> A
+{
+<span class="kw">public</span>:
+    <span class="kw">int</span> data;
+    A() { <span class="lib">cout</span> &lt;&lt; <span class="str">"A constructed"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+<span class="kw">class</span> B : <span class="kw">virtual</span> <span class="kw">public</span> A { };      <span class="com">// virtual base</span>
+<span class="kw">class</span> C : <span class="kw">virtual</span> <span class="kw">public</span> A { };      <span class="com">// virtual base</span>
+<span class="kw">class</span> D : <span class="kw">public</span> B, <span class="kw">public</span> C { };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    D obj;                           <span class="com">// A is constructed only ONCE</span>
+    obj.data = <span class="num">10</span>;                   <span class="com">// no ambiguity</span>
+    <span class="lib">cout</span> &lt;&lt; obj.B::data &lt;&lt; <span class="str">" "</span> &lt;&lt; obj.C::data &lt;&lt; <span class="lib">endl</span>;   <span class="com">// same variable</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>A constructed
+10 10</code></pre></div>
+<p>Without <code>virtual</code>, "A constructed" would print <strong>twice</strong> and <code>obj.data</code> would be a compile error.</p>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Five types: single, multilevel, multiple, hierarchical, hybrid.</li><li>Name clash in multiple inheritance → resolve with <code>obj.Base::member()</code>.</li><li>Diamond problem: two copies of the common grandparent → fix with <strong>virtual base classes</strong> (<code>class B : virtual public A</code>).</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Confusing a <strong>virtual base class</strong> (fixes the diamond) with a <strong>virtual function</strong> (run-time polymorphism, Lesson 5.4).</li><li>Mixing up multilevel (a chain) and multiple (two parents).</li><li>Drawing inheritance arrows from parent to child — in UML the arrow points <strong>to the parent</strong> (Lesson 8.3).</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the types of inheritance with diagrams and syntax."</em> (Very common — draw all five.)</li><li><em>"What is the diamond problem? How is it solved?"</em> → explanation + virtual base class program.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p>A <strong>virtual base class</strong> is a base class declared with the keyword <code>virtual</code> in the inheritance list (<code>class B : virtual public A</code>), which ensures that only one shared copy of its members is inherited by a class that derives from it through multiple paths, thereby resolving the ambiguity of the diamond problem.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · <code>class X : public A, public B</code> — which type of inheritance? <code>class B : public A; class C : public B</code> — which type?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>The first is <strong>multiple</strong>; the second is <strong>multilevel</strong>.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · In the diamond without <code>virtual</code>, how many times is A's constructor called when creating a D?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Twice</strong> — once through B and once through C.</p></div></details></div>
+<div class="pager"><a class="nav" href="05_1_inheritance.html">← Inheritance: Reusing Classes</a><span></span><a class="nav" href="05_3_ctor_order_overriding.html">Constructors in Inheritance &amp; Function Overriding →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classes and Objects — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Classes and Objects</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-problem-data-without-rules">The Problem: Data Without Rules</a></li><li class="l2"><a href="#understanding-classes-and-objects">Understanding Classes and Objects</a></li><li class="l2"><a href="#writing-your-first-class">Writing Your First Class</a></li><li class="l2"><a href="#methods-the-things-an-object-can-do">Methods: The Things an Object Can Do</a></li><li class="l2"><a href="#defining-methods-inside-vs-outside-the-class">Defining Methods Inside vs Outside the Class</a></li><li class="l2"><a href="#how-objects-live-in-memory">How Objects Live in Memory</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details open><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li class=cur><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 3 · OOP Fundamentals › Lesson 3.3</div><h1>Classes and Objects</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 1 · Unit 3</span></div>
+<p><strong>A class is a blueprint that describes what data an object holds and what it can do. An object is a real "thing" built from that blueprint.</strong> This is the heart of the whole course.</p>
+<h2 id="the-problem-data-without-rules">The Problem: Data Without Rules</h2>
+<p>With a structure, any code can do this:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="kw">struct</span> Account { <span class="kw">int</span> number; <span class="kw">double</span> balance; };
+Account a = {<span class="num">1001</span>, <span class="num">500</span>};
+a.balance = -<span class="num">99999</span>;      <span class="com">// nothing prevents nonsense</span></code></pre></div>
+<p>The data and the rules that should protect it (e.g. "balance can't go negative") are disconnected. We want the account to <strong>own its data and its own operations</strong>, so that the <em>only</em> way to change the balance is through operations that check the rules.</p>
+<h2 id="understanding-classes-and-objects">Understanding Classes and Objects</h2>
+<p>A <strong>class</strong> bundles two things:</p>
+<ul><li><strong>Data members</strong> (attributes) — what each object <em>knows</em>: <code>accNo</code>, <code>balance</code>.</li><li><strong>Member functions</strong> (methods) — what each object <em>can do</em>: <code>deposit()</code>, <code>withdraw()</code>.</li></ul>
+<p>An <strong>object</strong> is an <strong>instance</strong> of a class — a variable of that class type with its own copy of the data.</p>
+<div class="codewrap text"><pre><code>     CLASS (blueprint)                       OBJECTS (instances)
+ ┌────────────────────────┐          ┌──────────────────┐  ┌──────────────────┐
+ │ BankAccount            │  creates │ a1               │  │ a2               │
+ │  data:  accNo, balance │ ───────► │ accNo   = 1001   │  │ accNo   = 1002   │
+ │  funcs: deposit(),     │          │ balance = 750    │  │ balance = 3000   │
+ │         withdraw() ... │          └──────────────────┘  └──────────────────┘
+ └────────────────────────┘          each object has its OWN data; functions are shared</code></pre></div>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>A <strong>cookie cutter and cookies</strong>. The cutter (class) defines the shape; it isn't a cookie itself and you can't eat it. Each cookie (object) has the same shape but its own toppings (data values). One cutter, many cookies.</p></div>
+<h2 id="writing-your-first-class">Writing Your First Class</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> BankAccount
+{
+<span class="kw">private</span>:                          <span class="com">// hidden from the outside world</span>
+    <span class="kw">int</span> accNo;
+    <span class="kw">double</span> balance;
+
+<span class="kw">public</span>:                           <span class="com">// the "buttons" anyone may press</span>
+    <span class="kw">void</span> open(<span class="kw">int</span> no, <span class="kw">double</span> initial)
+    {
+        accNo = no;
+        balance = (initial &gt;= <span class="num">0</span>) ? initial : <span class="num">0</span>;
+    }
+    <span class="kw">void</span> deposit(<span class="kw">double</span> amt)
+    {
+        <span class="kw">if</span> (amt &gt; <span class="num">0</span>) balance += amt;
+    }
+    <span class="kw">bool</span> withdraw(<span class="kw">double</span> amt)
+    {
+        <span class="kw">if</span> (amt &gt; <span class="num">0</span> &amp;&amp; amt &lt;= balance) { balance -= amt; <span class="kw">return</span> <span class="kw">true</span>; }
+        <span class="kw">return</span> <span class="kw">false</span>;             <span class="com">// the rule lives in ONE place</span>
+    }
+    <span class="kw">double</span> getBalance() { <span class="kw">return</span> balance; }
+};                                <span class="com">// &lt;- semicolon!</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    BankAccount a;                <span class="com">// create an object</span>
+    a.open(<span class="num">1001</span>, <span class="num">500</span>);            <span class="com">// call methods with the dot operator</span>
+    a.deposit(<span class="num">250</span>);
+    <span class="lib">cout</span> &lt;&lt; a.getBalance() &lt;&lt; <span class="lib">endl</span>;
+    <span class="lib">cout</span> &lt;&lt; (a.withdraw(<span class="num">1000</span>) ? <span class="str">"ok"</span> : <span class="str">"insufficient funds"</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="com">// a.balance = -99999;        // ERROR: balance is private</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>750
+insufficient funds</code></pre></div>
+<p>Compare with the procedural version in Lesson 3.1: the overdraft that produced <code>-250</code> is now impossible.</p>
+<h2 id="methods-the-things-an-object-can-do">Methods: The Things an Object Can Do</h2>
+<p>The functions inside a class are its <strong>methods</strong>. Common kinds:</p>
+<ul><li><strong>Accessor (getter)</strong> — returns information without changing anything: <code>getBalance()</code>.</li><li><strong>Mutator (setter)</strong> — changes data in a controlled way: <code>deposit()</code>, <code>withdraw()</code>.</li><li><strong>Helper</strong> — an internal function, usually <code>private</code>, used by other methods.</li></ul>
+<p>Calling a method is <strong>message passing</strong>: <code>a.deposit(250)</code> = "object <code>a</code>, please deposit 250".</p>
+<h2 id="defining-methods-inside-vs-outside-the-class">Defining Methods Inside vs Outside the Class</h2>
+<p>For short methods, define them inside the class. For longer ones, declare inside and define outside with the <strong>scope resolution operator <code>::</code></strong>, which says "this function belongs to that class".</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Rectangle
+{
+    <span class="kw">int</span> length, breadth;                         <span class="com">// private by default in a class</span>
+<span class="kw">public</span>:
+    <span class="kw">void</span> set(<span class="kw">int</span> l, <span class="kw">int</span> b) { length = l; breadth = b; }   <span class="com">// defined inside</span>
+    <span class="kw">int</span> area();                                            <span class="com">// only declared</span>
+    <span class="kw">void</span> show();
+};
+
+<span class="kw">int</span> Rectangle::area()                            <span class="com">// defined outside with ::</span>
+{
+    <span class="kw">return</span> length * breadth;                     <span class="com">// can use private members</span>
+}
+
+<span class="kw">void</span> Rectangle::show()
+{
+    <span class="lib">cout</span> &lt;&lt; length &lt;&lt; <span class="str">" x "</span> &lt;&lt; breadth &lt;&lt; <span class="str">" = "</span> &lt;&lt; area() &lt;&lt; <span class="lib">endl</span>;  <span class="com">// a method calling a method</span>
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Rectangle r1, r2;                            <span class="com">// two objects, separate data</span>
+    r1.set(<span class="num">4</span>, <span class="num">5</span>);
+    r2.set(<span class="num">2</span>, <span class="num">3</span>);
+    r1.show();
+    r2.show();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>4 x 5 = 20
+2 x 3 = 6</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>Defined inside the class</th><th>Defined outside the class</th></tr></thead><tbody><tr><td>Automatically <strong>inline</strong></td><td>Not inline (unless you write <code>inline</code>)</td></tr><tr><td>Best for short methods</td><td>Best for longer methods; keeps the class tidy</td></tr><tr><td>No <code>::</code> needed</td><td>Needs <code>ReturnType ClassName::name(params)</code></td></tr></tbody></table></div>
+<h2 id="how-objects-live-in-memory">How Objects Live in Memory</h2>
+<ul><li>Each object gets <strong>its own copy of the data members</strong> (r1 has its own length; r2 has its own).</li><li><strong>Methods are shared</strong> — only one copy of <code>area()</code>'s code exists for all objects. (How does <code>area()</code> know whose <code>length</code> to use? Through a hidden pointer called <code>this</code> — Lesson 4.1.)</li><li>So <code>sizeof(object)</code> counts only data, never functions.</li><li>An object of an <strong>empty class</strong> still takes <strong>1 byte</strong>, so that every object has a unique address.</li></ul>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Empty { };
+<span class="kw">class</span> TwoInts { <span class="kw">int</span> a, b; <span class="kw">public</span>: <span class="kw">void</span> f() { } <span class="kw">void</span> g() { } };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; <span class="kw">sizeof</span>(Empty) &lt;&lt; <span class="str">" "</span> &lt;&lt; <span class="kw">sizeof</span>(TwoInts) &lt;&lt; <span class="lib">endl</span>;   <span class="com">// functions add nothing</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>1 8</code></pre></div>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Class = blueprint with data members + member functions; object = an instance.</li><li>A class takes no memory for data until objects are created; each object has its own data, methods are shared.</li><li>Use <code>.</code> to call methods: <code>obj.method()</code>; define outside with <code>ClassName::</code>.</li><li>Getters read, setters change data under the class's own rules.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Forgetting the <code>;</code> after the class.</li><li>Accessing private members from <code>main</code> (<code>r1.length = 5;</code>) → error.</li><li>Defining a method outside without <code>ClassName::</code> → it becomes an unrelated global function.</li><li>Calling a method on the class name (<code>Rectangle.area()</code>) instead of an object (<code>r1.area()</code>).</li><li>Saying an empty class's object has size 0 — it's 1.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Define class and object. Explain with an example program."</em></li><li><em>"How are member functions defined inside and outside a class?"</em></li><li><em>"Explain how memory is allocated for objects."</em></li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p>A <strong>class</strong> is a user-defined data type that binds together data members and member functions that operate on them, and acts as a blueprint for creating objects. An <strong>object</strong> is an instance of a class: a run-time entity that has its own state (values of data members), behaviour (member functions) and identity.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · If a class has 3 int data members and 10 member functions, how many bytes does each object take (with 4-byte ints, ignoring padding)?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>12 bytes</strong> — only data members occupy space in each object; functions are shared code.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · What does <code>::</code> mean in <code>int Rectangle::area()</code>?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>It's the scope resolution operator — it says <code>area</code> is a member function <strong>of class <code>Rectangle</code></strong>, so it can access Rectangle's members.</p></div></details></div>
+<div class="q"><div class="qhead">Q3 · What is message passing?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Objects interacting by calling each other's methods, e.g. <code>acc.withdraw(500)</code> sends the message "withdraw 500" to the object <code>acc</code>.</p></div></details></div>
+<div class="pager"><a class="nav" href="03_2_structures.html">← Structures: Grouping Different Data</a><span></span><a class="nav" href="03_4_encapsulation.html">Encapsulation &amp; Access Specifiers →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

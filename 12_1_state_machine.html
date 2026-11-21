@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State Machine Diagrams — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">State Machine Diagrams</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-problem-same-request-different-answers">The Problem: Same Request, Different Answers</a></li><li class="l2"><a href="#key-terms">Key Terms</a></li><li class="l2"><a href="#the-notation">The Notation</a></li><li class="l2"><a href="#example-the-life-of-a-bookcopy">Example: The Life of a BookCopy</a></li><li class="l2"><a href="#from-state-machine-to-c">From State Machine to C++</a></li><li class="l2"><a href="#when-to-use-state-machine-diagrams">When to Use State Machine Diagrams</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details open><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li class=cur><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 12 · State, Activity &amp; Implementation Diagrams › Lesson 12.1</div><h1>State Machine Diagrams</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 5</span></div>
+<p><strong>A state machine diagram shows the life-cycle of one object: the states it can be in, the events it reacts to, and how each event moves it from one state to another.</strong></p>
+<h2 id="the-problem-same-request-different-answers">The Problem: Same Request, Different Answers</h2>
+<p>Ask a library book copy to be <strong>issued</strong>:</p>
+<ul><li>if it's on the shelf → it gets issued,</li><li>if it's reserved for someone else → refuse (unless it's that person),</li><li>if it's already on loan → refuse,</li><li>if it's lost → refuse.</li></ul>
+<p>The same event (<strong>issue</strong>) has <strong>different effects depending on the object's current state</strong>. Code full of <code>if (status == …)</code> checks becomes confusing quickly. A state machine diagram lays out every state and every legal transition clearly.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>A <strong>traffic light</strong> is a classic state machine: states <em>Red</em>, <em>Green</em>, <em>Yellow</em>; the event "timer expires" moves Red → Green → Yellow → Red. Pressing the pedestrian button means something different in each state. Another example: a <strong>phone</strong> — <em>Idle</em>, <em>Ringing</em>, <em>In Call</em> — "press the green button" means "answer" when Ringing, but "dial" when Idle.</p></div>
+<h2 id="key-terms">Key Terms</h2>
+<ul><li><strong>State</strong> — a condition of the object at a moment in time, between events (<em>Available</em>, <em>OnLoan</em>).</li><li><strong>Event</strong> — something significant that happens (<em>issue</em>, <em>return</em>, <em>due date passes</em>).</li><li><strong>Transition</strong> — the arrow from one state to another, taken when its event occurs (and its guard is true).</li></ul>
+<h2 id="the-notation">The Notation</h2>
+<div class="tablewrap"><table><thead><tr><th>Element</th><th>Symbol</th></tr></thead><tbody><tr><td>Initial state (start)</td><td>filled black circle ●</td></tr><tr><td>State</td><td>rounded rectangle with the state name</td></tr><tr><td>Final state (end)</td><td>bull's-eye ◉</td></tr><tr><td>Transition</td><td>arrow labelled <strong><code>event [guard] / action</code></strong> (each part optional)</td></tr><tr><td>Internal activities</td><td>inside a state: <code>entry / …</code>, <code>exit / …</code>, <code>do / …</code></td></tr><tr><td>Self-transition</td><td>an arrow leaving and re-entering the same state</td></tr><tr><td>Composite state</td><td>a state containing nested sub-states</td></tr><tr><td>History</td><td>circled <strong>H</strong> — return to the last active sub-state</td></tr></tbody></table></div>
+<p><strong>Transition label:</strong> <code>event [guard] / action</code></p>
+<ul><li><strong>event</strong> — what triggers it (<code>return</code>),</li><li><strong>guard</strong> — a condition that must be true (<code>[late]</code>),</li><li><strong>action</strong> — something quick done during the transition (<code>/ chargeFine</code>).</li><li>Special events: <code>after(3 days)</code> (a time event), <code>when(today &gt; dueDate)</code> (a change event).</li></ul>
+<h2 id="example-the-life-of-a-bookcopy">Example: The Life of a BookCopy</h2>
+<div class="svgwrap"><svg viewBox="0 0 900 430" width="100%" style="max-width:900px" xmlns="http://www.w3.org/2000/svg" font-size="13">
+<defs>
+ <marker id="dOpen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L10,6 L0,12" fill="none" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dFill" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,1 L10,6 L0,11 z" fill="#222"/></marker>
+ <marker id="dTri" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dDiaF" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#333"/></marker>
+ <marker id="dDiaH" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+</defs>
+<rect x="300" y="50" width="160" height="60" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="380.0" y="85.0" text-anchor="middle" font-size="12" font-weight="bold">Available</text>
+<rect x="20" y="200" width="150" height="60" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="95.0" y="235.0" text-anchor="middle" font-size="12" font-weight="bold">Reserved</text>
+<rect x="300" y="200" width="170" height="70" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="385.0" y="222" text-anchor="middle" font-size="12" font-weight="bold">OnLoan</text>
+<line x1="300" y1="230" x2="470" y2="230" stroke="#333"/>
+<text x="385.0" y="250" text-anchor="middle" font-size="12" font-style="italic">entry / setDueDate</text>
+<rect x="560" y="200" width="170" height="70" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="645.0" y="222" text-anchor="middle" font-size="12" font-weight="bold">Overdue</text>
+<line x1="560" y1="230" x2="730" y2="230" stroke="#333"/>
+<text x="645.0" y="250" text-anchor="middle" font-size="12" font-style="italic">entry / sendReminder</text>
+<rect x="560" y="340" width="150" height="50" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="635.0" y="370.0" text-anchor="middle" font-size="12" font-weight="bold">Lost</text>
+<circle cx="380" cy="14" r="8" fill="#222"/>
+<polyline points="380,22 380,48" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="388" y="38" text-anchor="start" font-size="11">acquire / catalogue</text>
+<polyline points="312,110 110,198" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="178" y="148" text-anchor="middle" font-size="12">reserve(m)</text>
+<polyline points="70,200 70,80 298,80" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="78" y="72" text-anchor="start" font-size="12">cancel or after(3 days)</text>
+<polyline points="170,235 298,235" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="234" y="228" text-anchor="middle" font-size="11">issue [m = reserver]</text>
+<polyline points="355,110 355,198" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="349" y="160" text-anchor="end" font-size="12">issue(m)</text>
+<polyline points="425,200 425,112" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="432" y="160" text-anchor="start" font-size="12">return</text>
+<polyline points="470,245 558,245" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="515" y="190" text-anchor="middle" font-size="11">when(today</text>
+<text x="515" y="203" text-anchor="middle" font-size="11">> dueDate)</text>
+<polyline points="645,200 645,70 462,70" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="553" y="62" text-anchor="middle" font-size="12">return / chargeFine</text>
+<polyline points="645,270 645,338" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="652" y="310" text-anchor="start" font-size="12">reportLost / chargeReplacement</text>
+<polyline points="710,365 752,365" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="731" y="355" text-anchor="middle" font-size="11">writeOff</text>
+<circle cx="765" cy="365" r="11" fill="#fff" stroke="#222" stroke-width="2"/><circle cx="765" cy="365" r="6" fill="#222"/>
+<text x="450" y="420" text-anchor="middle" font-size="11" fill="#555">Transition label = event [guard] / action · ● initial · ◉ final · rounded boxes = states</text>
+</svg></div>
+<p>Read it like a story: a copy is catalogued → <em>Available</em>. It can be <em>Reserved</em> (and released after 3 days), <em>issued</em> → <em>OnLoan</em> (entry: set the due date). If the due date passes → <em>Overdue</em> (entry: send a reminder). Returning an overdue copy charges a fine. Reporting it lost moves to <em>Lost</em>, and finally it's written off.</p>
+<h2 id="from-state-machine-to-c">From State Machine to C++</h2>
+<p>A common implementation: an <code>enum</code> for states, one method per event, and a <code>switch</code>/<code>if</code> on the current state.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">enum</span> <span class="kw">class</span> CopyState { Available, Reserved, OnLoan, Overdue, Lost };
+
+<span class="kw">class</span> BookCopy
+{
+    CopyState state = CopyState::Available;
+    <span class="kw">double</span> fines = <span class="num">0</span>;
+<span class="kw">public</span>:
+    <span class="kw">void</span> reserve()
+    {
+        <span class="kw">if</span> (state == CopyState::Available) state = CopyState::Reserved;
+        <span class="kw">else</span> <span class="lib">cout</span> &lt;&lt; <span class="str">"  [ignored] reserve"</span> &lt;&lt; <span class="lib">endl</span>;           <span class="com">// not valid in this state</span>
+    }
+    <span class="kw">void</span> issue()
+    {
+        <span class="kw">if</span> (state == CopyState::Available || state == CopyState::Reserved) state = CopyState::OnLoan;
+        <span class="kw">else</span> <span class="lib">cout</span> &lt;&lt; <span class="str">"  [ignored] issue"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+    <span class="kw">void</span> dueDatePassed()                                    <span class="com">// change event: when(today &gt; dueDate)</span>
+    {
+        <span class="kw">if</span> (state == CopyState::OnLoan) state = CopyState::Overdue;
+    }
+    <span class="kw">void</span> giveBack()                                         <span class="com">// event: return</span>
+    {
+        <span class="kw">if</span> (state == CopyState::OnLoan)       state = CopyState::Available;
+        <span class="kw">else</span> <span class="kw">if</span> (state == CopyState::Overdue) { fines += <span class="num">50</span>; state = CopyState::Available; }  <span class="com">// / chargeFine</span>
+        <span class="kw">else</span> <span class="lib">cout</span> &lt;&lt; <span class="str">"  [ignored] return"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+    <span class="kw">void</span> print() <span class="kw">const</span>
+    {
+        <span class="kw">const</span> <span class="kw">char</span> *names[] = {<span class="str">"Available"</span>, <span class="str">"Reserved"</span>, <span class="str">"OnLoan"</span>, <span class="str">"Overdue"</span>, <span class="str">"Lost"</span>};
+        <span class="lib">cout</span> &lt;&lt; names[<span class="kw">static_cast</span>&lt;<span class="kw">int</span>&gt;(state)] &lt;&lt; <span class="str">" (fines: "</span> &lt;&lt; fines &lt;&lt; <span class="str">")"</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    BookCopy c;
+    c.print();
+    c.issue();         c.print();
+    c.dueDatePassed(); c.print();
+    c.giveBack();      c.print();
+    c.giveBack();                      <span class="com">// not valid when Available</span>
+    c.reserve();       c.print();
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Available (fines: 0)
+OnLoan (fines: 0)
+Overdue (fines: 0)
+Available (fines: 50)
+  [ignored] return
+Reserved (fines: 50)</code></pre></div>
+<p>The same <code>giveBack()</code> event has three different effects depending on the state — exactly what the diagram shows.</p>
+<h2 id="when-to-use-state-machine-diagrams">When to Use State Machine Diagrams</h2>
+<p>Use them for objects whose behaviour <strong>depends on their state</strong> — objects that react differently to the same event:</p>
+<ul><li><strong>Reactive/event-driven devices</strong> — ATM, vending machine, traffic light, elevator, phone.</li><li><strong>Domain objects with a life-cycle</strong> — Order (New → Paid → Shipped → Delivered), BookCopy, Loan application, Ticket.</li><li><strong>Legal order of operations / protocols</strong> — e.g. <code>endIssue()</code> is only legal after <code>startIssue()</code>; network connection states.</li><li><strong>UI navigation</strong> — which screen follows which.</li></ul>
+<p><strong>Don't</strong> draw one for every class — most objects (e.g. a <code>Book</code> description) behave the same regardless of state.</p>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>One object's life-cycle: states, events, transitions <code>event [guard] / action</code>.</li><li>● initial, ◉ final, rounded boxes = states, <code>entry/exit/do</code> activities inside states.</li><li>Use for state-dependent, reactive objects, life-cycles and protocols.</li><li>Code: enum of states + methods per event checking the current state.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Naming states as actions ("Calculating fine") instead of conditions ("Overdue").</li><li>Forgetting the initial state.</li><li>Writing labels in the wrong order — it's <code>event [guard] / action</code>.</li><li>Confusing it with an activity diagram: state machine = <strong>one object's states</strong>; activity = <strong>flow of actions</strong>.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the state machine diagram with notation. Draw one for an ATM / order / traffic light / phone."</em></li><li><em>"When should state diagrams be used?"</em></li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p>A <strong>state machine diagram</strong> shows the life-cycle of an object: the states it can be in, the events it responds to, and the transitions between states triggered by events, optionally with guard conditions and actions (<code>event [guard] / action</code>). It is used to model objects with state-dependent behaviour.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · Label this transition: event "withdraw", only if balance ≥ amount, action "dispense cash".</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><code>withdraw [balance &gt;= amount] / dispenseCash</code></p></div></details></div>
+<div class="q"><div class="qhead">Q2 · Give two objects that deserve a state machine diagram and one that doesn't.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Deserve: an <strong>ATM session</strong>, an <strong>Order</strong> (also traffic light, elevator…). Doesn't: a <strong>ProductDescription</strong> / <strong>Book</strong> description — its behaviour doesn't depend on state.</p></div></details></div>
+<div class="pager"><a class="nav" href="11_3_communication_diagrams.html">← Communication (Collaboration) Diagrams</a><span></span><a class="nav" href="12_2_activity.html">Activity Diagrams →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

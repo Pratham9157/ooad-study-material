@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parameter Passing — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Parameter Passing</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-problem-the-swap-that-doesn-t-swap">The Problem: The swap() That Doesn't Swap</a></li><li class="l2"><a href="#the-three-ways">The Three Ways</a></li><li class="l2"><a href="#how-each-one-works-in-memory">How Each One Works in Memory</a></li><li class="l2"><a href="#const-reference-fast-and-safe">const Reference: Fast <em>and</em> Safe</a></li><li class="l2"><a href="#returning-several-results">Returning Several Results</a></li><li class="l2"><a href="#arrays-are-always-passed-by-address">Arrays Are Always Passed "by Address"</a></li><li class="l2"><a href="#returning-by-reference">Returning by Reference</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details open><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li class=cur><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 2 · Functions › Lesson 2.4</div><h1>Parameter Passing</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 2</span></div>
+<p><strong>Parameter passing decides whether a function works on a <em>copy</em> of your data or on the <em>original</em>.</strong> C++ offers three ways: by value, by reference and by address (pointer).</p>
+<h2 id="the-problem-the-swap-that-doesn-t-swap">The Problem: The swap() That Doesn't Swap</h2>
+<p>Here's a function every beginner writes:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> swap1(<span class="kw">int</span> a, <span class="kw">int</span> b)
+{
+    <span class="kw">int</span> t = a; a = b; b = t;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"inside: a="</span> &lt;&lt; a &lt;&lt; <span class="str">" b="</span> &lt;&lt; b &lt;&lt; <span class="lib">endl</span>;
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> x = <span class="num">1</span>, y = <span class="num">2</span>;
+    swap1(x, y);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"outside: x="</span> &lt;&lt; x &lt;&lt; <span class="str">" y="</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>inside: a=2 b=1
+outside: x=1 y=2</code></pre></div>
+<p>Inside the function, the values <em>are</em> swapped… but <code>x</code> and <code>y</code> in <code>main</code> are untouched! Why? Because <code>a</code> and <code>b</code> were <strong>copies</strong>.</p>
+<h2 id="the-three-ways">The Three Ways</h2>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><ul><li><strong>Call by value</strong> = giving a friend a <strong>photocopy</strong> of your notes. They can scribble all over it; your original notes are unchanged.</li><li><strong>Call by reference</strong> = handing over <strong>your actual notebook</strong>. Whatever they write, you'll see.</li><li><strong>Call by address (pointer)</strong> = giving them <strong>your home address</strong>; they go to your house and edit the notebook there.</li></ul></div>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> byValue(<span class="kw">int</span> a, <span class="kw">int</span> b)       { <span class="kw">int</span> t = a; a = b; b = t; }      <span class="com">// works on copies</span>
+<span class="kw">void</span> byReference(<span class="kw">int</span> &amp;a, <span class="kw">int</span> &amp;b) { <span class="kw">int</span> t = a; a = b; b = t; }      <span class="com">// a, b ARE x, y</span>
+<span class="kw">void</span> byPointer(<span class="kw">int</span> *a, <span class="kw">int</span> *b)   { <span class="kw">int</span> t = *a; *a = *b; *b = t; }  <span class="com">// a, b hold addresses</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> x = <span class="num">1</span>, y = <span class="num">2</span>;
+    byValue(x, y);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"after byValue:     "</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    byReference(x, y);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"after byReference: "</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    byPointer(&amp;x, &amp;y);                       <span class="com">// must pass ADDRESSES</span>
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"after byPointer:   "</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>after byValue:     1 2
+after byReference: 2 1
+after byPointer:   1 2</code></pre></div>
+<p>(The last line swapped them back, so it shows 1 2 again.)</p>
+<h2 id="how-each-one-works-in-memory">How Each One Works in Memory</h2>
+<div class="codewrap text"><pre><code>Call by value:            main: x=1  y=2        swap: a=1  b=2   (separate copies)
+Call by reference:        main: x=1  y=2  ◄──── swap: a,b are just new NAMES for x,y
+Call by address:          main: x=1  y=2  ◄──── swap: a=&amp;x  b=&amp;y (they hold addresses)</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th></th><th>By value</th><th>By reference</th><th>By address</th></tr></thead><tbody><tr><td>Parameter</td><td><code>int a</code></td><td><code>int &amp;a</code></td><td><code>int *a</code></td></tr><tr><td>Call</td><td><code>f(x)</code></td><td><code>f(x)</code></td><td><code>f(&amp;x)</code></td></tr><tr><td>Copy made?</td><td>yes, of the value</td><td>no</td><td>only of the address</td></tr><tr><td>Can change caller's variable?</td><td><strong>no</strong></td><td><strong>yes</strong></td><td><strong>yes</strong> (via <code>*a</code>)</td></tr><tr><td>Can pass a literal like <code>f(5)</code>?</td><td>yes</td><td>no (unless <code>const &amp;</code>)</td><td>no</td></tr></tbody></table></div>
+<h2 id="const-reference-fast-and-safe">const Reference: Fast <em>and</em> Safe</h2>
+<p>For big data (like objects later), copying is slow, but passing by reference lets the function change it. The best of both: <strong><code>const</code> reference</strong> — no copy, and the compiler forbids changes:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="kw">void</span> print(<span class="kw">const</span> <span class="lib">string</span> &amp;s);   <span class="com">// fast (no copy) + safe (can't modify s)</span></code></pre></div>
+<p>You'll use this constantly in Chapters 3–6.</p>
+<h2 id="returning-several-results">Returning Several Results</h2>
+<p>A function can only <code>return</code> one value. Reference parameters let it "return" more:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> minMax(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n, <span class="kw">int</span> &amp;mn, <span class="kw">int</span> &amp;mx)
+{
+    mn = mx = a[<span class="num">0</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt; n; i++) {
+        <span class="kw">if</span> (a[i] &lt; mn) mn = a[i];
+        <span class="kw">if</span> (a[i] &gt; mx) mx = a[i];
+    }
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> data[<span class="num">5</span>] = {<span class="num">4</span>, <span class="num">9</span>, <span class="num">1</span>, <span class="num">7</span>, <span class="num">3</span>}, lo, hi;
+    minMax(data, <span class="num">5</span>, lo, hi);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"min="</span> &lt;&lt; lo &lt;&lt; <span class="str">" max="</span> &lt;&lt; hi &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>min=1 max=9</code></pre></div>
+<h2 id="arrays-are-always-passed-by-address">Arrays Are Always Passed "by Address"</h2>
+<p>When you pass an array, C++ passes only the <strong>address of its first element</strong>. So a function can change the caller's array, and it can't know the array's size by itself — that's why we pass <code>n</code> separately.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> doubleAll(<span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++) a[i] *= <span class="num">2</span>;   <span class="com">// changes the ORIGINAL array</span>
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> v[<span class="num">3</span>] = {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>};
+    doubleAll(v, <span class="num">3</span>);
+    <span class="lib">cout</span> &lt;&lt; v[<span class="num">0</span>] &lt;&lt; <span class="str">" "</span> &lt;&lt; v[<span class="num">1</span>] &lt;&lt; <span class="str">" "</span> &lt;&lt; v[<span class="num">2</span>] &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>2 4 6</code></pre></div>
+<h2 id="returning-by-reference">Returning by Reference</h2>
+<p>A function can also <em>return</em> a reference, so the call can appear on the left of <code>=</code>. (This idea comes back for operator overloading in Chapter 4.) <strong>Never</strong> return a reference to a local variable — it is destroyed when the function ends.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span>&amp; element(<span class="kw">int</span> a[], <span class="kw">int</span> i) { <span class="kw">return</span> a[i]; }
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> arr[<span class="num">3</span>] = {<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>};
+    element(arr, <span class="num">1</span>) = <span class="num">50</span>;     <span class="com">// assigns to arr[1]</span>
+    <span class="lib">cout</span> &lt;&lt; arr[<span class="num">1</span>] &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>50</code></pre></div>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li><strong>By value</strong>: function gets a copy → caller unchanged.</li><li><strong>By reference</strong> (<code>&amp;</code>): function works on the original → caller changes.</li><li><strong>By address</strong> (<code>*</code>): pass <code>&amp;x</code>, use <code>*a</code> inside → caller changes.</li><li><code>const &amp;</code> = no copy and no modification (best for big objects).</li><li>Arrays are always passed as addresses.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Expecting a by-value <code>swap</code> to swap the caller's variables.</li><li>Calling a reference-parameter function with a literal: <code>byReference(1, 2)</code> → error.</li><li>Calling a pointer-parameter function without <code>&amp;</code>: <code>byPointer(x, y)</code> → error.</li><li>Using <code>sizeof(a)/sizeof(a[0])</code> inside a function to find an array's length — wrong (gives the pointer size).</li><li>Returning a reference to a local variable.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the parameter passing techniques in C++ with a program."</em> → the swap program with all three + the table. (A favourite 5–8 mark question.)</li><li>Output questions: <code>void f(int a, int &amp;b) { a *= 10; b *= 10; }</code>.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p><strong>Call by value</strong> passes a copy of the argument, so changes inside the function do not affect the caller. <strong>Call by reference</strong> passes an alias of the argument, so changes affect the caller's variable. <strong>Call by address</strong> passes the address of the argument through a pointer, allowing the function to modify the caller's variable by dereferencing.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · What is printed? <code>void f(int a, int &amp;b){ a = a*10; b = b*10; }</code> with <code>int x=2, y=3; f(x, y); cout &lt;&lt; x &lt;&lt; " " &lt;&lt; y;</code></div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><code>2 30</code> — <code>a</code> was a copy; <code>b</code> was a reference to <code>y</code>.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · Why is <code>void show(const Student &amp;s)</code> preferred over <code>void show(Student s)</code>?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>It avoids copying the whole object (faster, less memory) while <code>const</code> guarantees <code>show</code> cannot modify it.</p></div></details></div>
+<div class="pager"><a class="nav" href="02_3_pointers_references.html">← Pointers &amp; References</a><span></span><a class="nav" href="02_5_overloading.html">Function Overloading, Default Arguments &amp; Inline →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polymorphism &amp; Virtual Functions — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Polymorphism &amp; Virtual Functions</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-problem-treating-different-objects-the-same-way">The Problem: Treating Different Objects the Same Way</a></li><li class="l2"><a href="#the-solution-virtual-functions">The Solution: Virtual Functions</a></li><li class="l2"><a href="#why-this-is-powerful">Why This Is Powerful</a></li><li class="l2"><a href="#how-it-works-vtable-and-vptr">How It Works: vtable and vptr</a></li><li class="l2"><a href="#rules-for-virtual-functions">Rules for Virtual Functions</a></li><li class="l2"><a href="#object-slicing-how-to-lose-polymorphism">Object Slicing: How to Lose Polymorphism</a></li><li class="l2"><a href="#the-big-picture-two-kinds-of-polymorphism">The Big Picture: Two Kinds of Polymorphism</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details open><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li class=cur><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 5 · Inheritance &amp; Polymorphism › Lesson 5.4</div><h1>Polymorphism &amp; Virtual Functions</h1><div class="meta"><span>⏱ 7 min read</span><span>📚 Syllabus: Unit 2</span></div>
+<p><strong>Polymorphism means "one interface, many forms": the same function call does different things depending on which object receives it. In C++, run-time polymorphism is achieved with virtual functions.</strong></p>
+<h2 id="the-problem-treating-different-objects-the-same-way">The Problem: Treating Different Objects the Same Way</h2>
+<p>A drawing app holds many shapes — circles, squares, triangles — and wants to draw all of them in a loop. Ideally we'd store them all in <strong>one</strong> array of "shapes" and call <code>draw()</code> on each. C++ allows a <strong>base-class pointer to point to a derived object</strong> (a circle <em>is a</em> shape), so let's try:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Shape  { <span class="kw">public</span>: <span class="kw">void</span> draw() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Drawing shape"</span> &lt;&lt; <span class="lib">endl</span>; } };
+<span class="kw">class</span> Circle : <span class="kw">public</span> Shape { <span class="kw">public</span>: <span class="kw">void</span> draw() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Drawing circle"</span> &lt;&lt; <span class="lib">endl</span>; } };
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Circle c;
+    Shape *p = &amp;c;      <span class="com">// a Shape pointer pointing to a Circle (allowed: "upcasting")</span>
+    p-&gt;draw();          <span class="com">// we want "Drawing circle"...</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Drawing shape</code></pre></div>
+<p>It drew a generic shape! Without extra help, the compiler decides which <code>draw()</code> to call by looking at the <strong>pointer's type</strong> (<code>Shape*</code>) at <strong>compile time</strong>. This is <strong>static (early) binding</strong>. It doesn't know the pointer actually points to a Circle.</p>
+<h2 id="the-solution-virtual-functions">The Solution: Virtual Functions</h2>
+<p>Mark the function <strong><code>virtual</code></strong> in the base class. Now the decision is made at <strong>run time</strong>, by looking at the <strong>actual object</strong> being pointed to. This is <strong>dynamic (late) binding</strong>.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Shape
+{
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> draw() { <span class="lib">cout</span> &lt;&lt; <span class="str">"Drawing shape"</span> &lt;&lt; <span class="lib">endl</span>; }   <span class="com">// virtual!</span>
+    <span class="kw">void</span> info() { <span class="lib">cout</span> &lt;&lt; <span class="str">"I am a shape"</span> &lt;&lt; <span class="lib">endl</span>; }             <span class="com">// not virtual</span>
+};
+
+<span class="kw">class</span> Circle : <span class="kw">public</span> Shape
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> draw() <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Drawing circle"</span> &lt;&lt; <span class="lib">endl</span>; } <span class="com">// override = "please check I really override"</span>
+    <span class="kw">void</span> info() { <span class="lib">cout</span> &lt;&lt; <span class="str">"I am a circle"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">class</span> Square : <span class="kw">public</span> Shape
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> draw() <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Drawing square"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">void</span> render(Shape &amp;s) { s.draw(); }      <span class="com">// works for ANY shape (references are polymorphic too)</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Circle c; Square s; Shape g;
+    Shape *list[<span class="num">3</span>] = {&amp;c, &amp;s, &amp;g};       <span class="com">// one array, different kinds of objects</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">3</span>; i++)
+        list[i]-&gt;draw();                 <span class="com">// each object draws ITSELF</span>
+
+    Shape *p = &amp;c;
+    p-&gt;info();                           <span class="com">// info() is NOT virtual → pointer type decides</span>
+    render(s);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Drawing circle
+Drawing square
+Drawing shape
+I am a shape
+Drawing square</code></pre></div>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>A school principal announces on the speaker: <strong>"Everyone, do your job!"</strong> — one message. The teacher teaches, the guard guards, the cook cooks. The principal doesn't need to know who is listening or check each person's role; <strong>each person responds in their own way</strong>. The announcement is the virtual function call; the staff are the derived objects.</p></div>
+<h2 id="why-this-is-powerful">Why This Is Powerful</h2>
+<p>The loop <code>list[i]-&gt;draw()</code> was written <strong>once</strong>. If tomorrow you add a <code>Triangle</code> class that overrides <code>draw()</code>, the loop works with triangles <strong>without a single change</strong>. Code written against the base class automatically works with future derived classes. This is the foundation of many design patterns in Chapter 14.</p>
+<h2 id="how-it-works-vtable-and-vptr">How It Works: vtable and vptr</h2>
+<ul><li>Every class with virtual functions gets a hidden table — the <strong>virtual table (vtable)</strong> — listing the addresses of its versions of the virtual functions.</li><li>Every object of such a class carries a hidden <strong>virtual pointer (vptr)</strong> pointing to its class's vtable.</li><li><code>p-&gt;draw()</code> becomes: follow <code>p</code> to the object → follow its vptr to the vtable → find <code>draw</code> → call it.</li></ul>
+<div class="codewrap text"><pre><code> Circle object           Circle's vtable                Square object          Square's vtable
+ ┌───────────┐           ┌──────────────────┐           ┌───────────┐          ┌──────────────────┐
+ │ vptr ─────┼─────────► │ &amp;Circle::draw    │           │ vptr ─────┼────────► │ &amp;Square::draw    │
+ │ ...data   │           └──────────────────┘           │ ...data   │          └──────────────────┘
+ └───────────┘                                          └───────────┘</code></pre></div>
+<h2 id="rules-for-virtual-functions">Rules for Virtual Functions</h2>
+<ol><li>Declared with <code>virtual</code> in the base class; must be a <strong>non-static member</strong> function.</li><li>Polymorphism works only through a <strong>pointer or reference</strong> to the base class. Calling through an object directly uses static binding.</li><li>The derived version must have the <strong>same signature</strong> (name, parameters, <code>const</code>-ness). Write <code>override</code> so the compiler catches mistakes.</li><li>Once virtual, always virtual — it stays virtual in all derived classes.</li><li><strong>Constructors cannot be virtual</strong>; <strong>destructors can and often should be</strong> (Lesson 5.5).</li><li>If a derived class doesn't override it, the base version is used.</li></ol>
+<h2 id="object-slicing-how-to-lose-polymorphism">Object Slicing: How to Lose Polymorphism</h2>
+<p>If you copy a derived object into a <strong>base object</strong> (by value), only the base part is copied — the rest is "sliced off". The copy is a plain base object.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Animal { <span class="kw">public</span>: <span class="kw">virtual</span> <span class="kw">void</span> speak() <span class="kw">const</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"..."</span> &lt;&lt; <span class="lib">endl</span>; } };
+<span class="kw">class</span> Cat : <span class="kw">public</span> Animal { <span class="kw">public</span>: <span class="kw">void</span> speak() <span class="kw">const</span> <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Meow"</span> &lt;&lt; <span class="lib">endl</span>; } };
+
+<span class="kw">void</span> byValue(Animal a)      { a.speak(); }   <span class="com">// sliced copy</span>
+<span class="kw">void</span> byRef(<span class="kw">const</span> Animal &amp;a) { a.speak(); }   <span class="com">// polymorphic</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    Cat c;
+    byValue(c);
+    byRef(c);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>...
+Meow</code></pre></div>
+<p><strong>Moral:</strong> for polymorphism, always use <strong>pointers or references</strong>, never pass by value.</p>
+<h2 id="the-big-picture-two-kinds-of-polymorphism">The Big Picture: Two Kinds of Polymorphism</h2>
+<div class="codewrap text"><pre><code>                        Polymorphism ("many forms")
+                       /                            \
+  Compile-time (static / early binding)        Run-time (dynamic / late binding)
+  ├── Function overloading                     └── Virtual functions
+  ├── Operator overloading                         (overriding + base pointer/reference)
+  └── Templates</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>Static (early) binding</th><th>Dynamic (late) binding</th></tr></thead><tbody><tr><td>Decided at compile time</td><td>Decided at run time</td></tr><tr><td>Normal calls, overloading, calls through objects</td><td>Virtual functions via base pointer/reference</td></tr><tr><td>Faster</td><td>Slightly slower (vtable lookup)</td></tr><tr><td>Less flexible</td><td>Flexible, extensible</td></tr></tbody></table></div>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Without <code>virtual</code>, a base pointer calls the base version (static binding).</li><li>With <code>virtual</code>, the actual object's version runs (dynamic binding) via vtable/vptr.</li><li>Works only through pointers/references; pass-by-value slices the object.</li><li>Polymorphism: compile-time (overloading) vs run-time (virtual functions).</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Forgetting <code>virtual</code> in the base and expecting the derived version through a base pointer.</li><li>A slightly different signature in the derived class (e.g. missing <code>const</code>) → it's <strong>not</strong> an override. Use <code>override</code>.</li><li>Expecting polymorphism from <code>Shape s = circle; s.draw();</code> — slicing + static binding.</li><li>Saying constructors can be virtual.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"What is a virtual function? How is run-time polymorphism achieved? Explain with a program."</em> (Top question — include the "without virtual" problem, the fix, and the vtable diagram.)</li><li><em>"Differentiate compile-time and run-time polymorphism / early and late binding."</em></li><li>Output questions mixing virtual and non-virtual calls through base pointers.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p><strong>Polymorphism</strong> is the ability of the same function call or operator to behave differently depending on the type of the object it is applied to. A <strong>virtual function</strong> is a member function declared with the keyword <code>virtual</code> in a base class and overridden in derived classes, such that a call through a base-class pointer or reference is resolved at run time according to the actual object type (<strong>dynamic/late binding</strong>).</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · <code>Base</code> has <code>virtual void f()</code> and non-virtual <code>void g()</code>; <code>Derived</code> overrides both. With <code>Base *p = new Derived;</code>, which versions do <code>p-&gt;f()</code> and <code>p-&gt;g()</code> call?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><code>p-&gt;f()</code> → <strong>Derived::f</strong> (virtual, dynamic binding). <code>p-&gt;g()</code> → <strong>Base::g</strong> (non-virtual, static binding by pointer type).</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · What is object slicing and how do you avoid it?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>When a derived object is copied into a base-class <strong>object</strong> (by value), the derived part is cut off and polymorphism is lost. Avoid it by using base-class <strong>pointers or references</strong>.</p></div></details></div>
+<div class="pager"><a class="nav" href="05_3_ctor_order_overriding.html">← Constructors in Inheritance &amp; Function Overriding</a><span></span><a class="nav" href="05_5_abstract_classes.html">Abstract Classes, Interfaces &amp; Virtual Destructors →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

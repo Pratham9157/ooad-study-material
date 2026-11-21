@@ -1,0 +1,82 @@
+<svg viewBox="0 0 800 535" width="100%" style="max-width:800px" xmlns="http://www.w3.org/2000/svg" font-size="13">
+<defs>
+ <marker id="dOpen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L10,6 L0,12" fill="none" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dTri" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dDiaF" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#333"/></marker>
+ <marker id="dDiaH" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+</defs>
+<rect x="330" y="10" width="150" height="70" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="405.0" y="28" text-anchor="middle" font-weight="bold">Library</text>
+<line x1="330" y1="36" x2="480" y2="36" stroke="#333"/>
+<text x="338" y="54" font-size="12">name</text>
+<text x="338" y="72" font-size="12">address</text>
+<rect x="620" y="10" width="150" height="70" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="695.0" y="28" text-anchor="middle" font-weight="bold">Librarian</text>
+<line x1="620" y1="36" x2="770" y2="36" stroke="#333"/>
+<text x="628" y="54" font-size="12">staffId</text>
+<text x="628" y="72" font-size="12">name</text>
+<rect x="40" y="150" width="150" height="88" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="115.0" y="168" text-anchor="middle" font-weight="bold">Member</text>
+<line x1="40" y1="176" x2="190" y2="176" stroke="#333"/>
+<text x="48" y="194" font-size="12">memberId</text>
+<text x="48" y="212" font-size="12">name</text>
+<text x="48" y="230" font-size="12">/numOfLoans</text>
+<rect x="330" y="150" width="150" height="32" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="405.0" y="168" text-anchor="middle" font-weight="bold">Catalog</text>
+<line x1="330" y1="176" x2="480" y2="176" stroke="#333"/>
+<rect x="620" y="150" width="150" height="88" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="695.0" y="168" text-anchor="middle" font-weight="bold">Book</text>
+<line x1="620" y1="176" x2="770" y2="176" stroke="#333"/>
+<text x="628" y="194" font-size="12">isbn</text>
+<text x="628" y="212" font-size="12">title</text>
+<text x="628" y="230" font-size="12">author</text>
+<rect x="40" y="300" width="150" height="88" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="115.0" y="318" text-anchor="middle" font-weight="bold">Loan</text>
+<line x1="40" y1="326" x2="190" y2="326" stroke="#333"/>
+<text x="48" y="344" font-size="12">issueDate</text>
+<text x="48" y="362" font-size="12">dueDate</text>
+<text x="48" y="380" font-size="12">returnDate</text>
+<rect x="620" y="300" width="150" height="70" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="695.0" y="318" text-anchor="middle" font-weight="bold">BookCopy</text>
+<line x1="620" y1="326" x2="770" y2="326" stroke="#333"/>
+<text x="628" y="344" font-size="12">copyId</text>
+<text x="628" y="362" font-size="12">status</text>
+<rect x="40" y="450" width="150" height="70" fill="#fffbe8" stroke="#333" stroke-width="1.4"/>
+<text x="115.0" y="468" text-anchor="middle" font-weight="bold">Fine</text>
+<line x1="40" y1="476" x2="190" y2="476" stroke="#333"/>
+<text x="48" y="494" font-size="12">amount</text>
+<text x="48" y="512" font-size="12">paid</text>
+<polyline points="480,44 620,44" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="550" y="37" text-anchor="middle" font-size="12">Employs ▶</text>
+<text x="490" y="60" text-anchor="middle" font-size="12">1</text>
+<text x="605" y="60" text-anchor="middle" font-size="12">1..*</text>
+<polyline points="370,80 370,115 115,115 115,150" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="240" y="108" text-anchor="middle" font-size="12">Has-member</text>
+<text x="380" y="94" text-anchor="start" font-size="12">1</text>
+<text x="122" y="145" text-anchor="start" font-size="12">*</text>
+<polyline points="430,80 430,150" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="438" y="120" text-anchor="start" font-size="12">Owns</text>
+<text x="438" y="94" text-anchor="start" font-size="12">1</text>
+<text x="438" y="145" text-anchor="start" font-size="12">1</text>
+<polyline points="480,175 620,175" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="550" y="168" text-anchor="middle" font-size="12">Contains ▶</text>
+<text x="490" y="190" text-anchor="middle" font-size="12">1</text>
+<text x="608" y="190" text-anchor="middle" font-size="12">*</text>
+<polyline points="695,238 695,300" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="703" y="268" text-anchor="start" font-size="12">Describes ▼</text>
+<text x="703" y="252" text-anchor="start" font-size="12">1</text>
+<text x="703" y="295" text-anchor="start" font-size="12">*</text>
+<polyline points="115,238 115,300" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="123" y="266" text-anchor="start" font-size="12">Initiates ▼</text>
+<text x="123" y="252" text-anchor="start" font-size="12">1</text>
+<text x="123" y="295" text-anchor="start" font-size="12">*</text>
+<polyline points="190,330 620,330" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="405" y="323" text-anchor="middle" font-size="12">Is-for ▶</text>
+<text x="200" y="345" text-anchor="start" font-size="12">*</text>
+<text x="608" y="345" text-anchor="middle" font-size="12">1</text>
+<polyline points="115,388 115,450" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="123" y="416" text-anchor="start" font-size="12">May-generate ▼</text>
+<text x="123" y="402" text-anchor="start" font-size="12">1</text>
+<text x="123" y="445" text-anchor="start" font-size="12">0..1</text>
+<text x="480" y="520" text-anchor="middle" font-size="12" fill="#555">Conceptual perspective: no operations, no software classes, multiplicity on every association.</text>
+</svg>

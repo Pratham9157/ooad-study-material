@@ -1,0 +1,47 @@
+<svg viewBox="0 0 900 430" width="100%" style="max-width:900px" xmlns="http://www.w3.org/2000/svg" font-size="13">
+<defs>
+ <marker id="dOpen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L10,6 L0,12" fill="none" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dFill" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,1 L10,6 L0,11 z" fill="#222"/></marker>
+ <marker id="dTri" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+ <marker id="dDiaF" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#333"/></marker>
+ <marker id="dDiaH" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#333" stroke-width="1.4"/></marker>
+</defs>
+<rect x="300" y="50" width="160" height="60" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="380.0" y="85.0" text-anchor="middle" font-size="12" font-weight="bold">Available</text>
+<rect x="20" y="200" width="150" height="60" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="95.0" y="235.0" text-anchor="middle" font-size="12" font-weight="bold">Reserved</text>
+<rect x="300" y="200" width="170" height="70" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="385.0" y="222" text-anchor="middle" font-size="12" font-weight="bold">OnLoan</text>
+<line x1="300" y1="230" x2="470" y2="230" stroke="#333"/>
+<text x="385.0" y="250" text-anchor="middle" font-size="12" font-style="italic">entry / setDueDate</text>
+<rect x="560" y="200" width="170" height="70" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="645.0" y="222" text-anchor="middle" font-size="12" font-weight="bold">Overdue</text>
+<line x1="560" y1="230" x2="730" y2="230" stroke="#333"/>
+<text x="645.0" y="250" text-anchor="middle" font-size="12" font-style="italic">entry / sendReminder</text>
+<rect x="560" y="340" width="150" height="50" rx="14" fill="#fffbe8" stroke="#333" stroke-width="1.5"/>
+<text x="635.0" y="370.0" text-anchor="middle" font-size="12" font-weight="bold">Lost</text>
+<circle cx="380" cy="14" r="8" fill="#222"/>
+<polyline points="380,22 380,48" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="388" y="38" text-anchor="start" font-size="11">acquire / catalogue</text>
+<polyline points="312,110 110,198" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="178" y="148" text-anchor="middle" font-size="12">reserve(m)</text>
+<polyline points="70,200 70,80 298,80" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="78" y="72" text-anchor="start" font-size="12">cancel or after(3 days)</text>
+<polyline points="170,235 298,235" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="234" y="228" text-anchor="middle" font-size="11">issue [m = reserver]</text>
+<polyline points="355,110 355,198" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="349" y="160" text-anchor="end" font-size="12">issue(m)</text>
+<polyline points="425,200 425,112" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="432" y="160" text-anchor="start" font-size="12">return</text>
+<polyline points="470,245 558,245" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="515" y="190" text-anchor="middle" font-size="11">when(today</text>
+<text x="515" y="203" text-anchor="middle" font-size="11">> dueDate)</text>
+<polyline points="645,200 645,70 462,70" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="553" y="62" text-anchor="middle" font-size="12">return / chargeFine</text>
+<polyline points="645,270 645,338" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="652" y="310" text-anchor="start" font-size="12">reportLost / chargeReplacement</text>
+<polyline points="710,365 752,365" fill="none" stroke="#333" stroke-width="1.4" marker-end="url(#dFill)"/>
+<text x="731" y="355" text-anchor="middle" font-size="11">writeOff</text>
+<circle cx="765" cy="365" r="11" fill="#fff" stroke="#222" stroke-width="2"/><circle cx="765" cy="365" r="6" fill="#222"/>
+<text x="450" y="420" text-anchor="middle" font-size="11" fill="#555">Transition label = event [guard] / action · ● initial · ◉ final · rounded boxes = states</text>
+</svg>

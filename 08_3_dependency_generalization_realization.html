@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dependency, Generalization &amp; Realization — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Dependency, Generalization &amp; Realization</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#1-dependency-uses-temporarily">1. Dependency — "uses temporarily"</a></li><li class="l3"><a href="#the-problem">The problem</a></li><li class="l2"><a href="#2-generalization-is-a-kind-of">2. Generalization — "is a kind of"</a></li><li class="l2"><a href="#3-realization-implements">3. Realization — "implements"</a></li><li class="l2"><a href="#all-three-in-c">All Three in C++</a></li><li class="l2"><a href="#the-complete-cheat-sheet-all-six-relationships">The Complete Cheat Sheet: All Six Relationships</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details open><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li class=cur><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 8 · Class Relationships › Lesson 8.3</div><h1>Dependency, Generalization &amp; Realization</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 4</span></div>
+<p><strong>Dependency means "uses for a moment". Generalization means "is a kind of" (inheritance). Realization means "promises to do what an interface says".</strong> With these three, you'll know all six UML class relationships.</p>
+<h2 id="1-dependency-uses-temporarily">1. Dependency — "uses temporarily"</h2>
+<h3 id="the-problem">The problem</h3>
+<p>A <code>ReportPrinter</code> needs a <code>Formatter</code> only while printing — it receives one as a parameter, uses it, and forgets it. It doesn't <em>keep</em> a formatter, so it's not an association. But it still <strong>depends</strong> on it: if <code>Formatter</code>'s interface changes, <code>ReportPrinter</code> may break. We want to show that weaker link.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>You <strong>use a taxi</strong> to get to college. You depend on it for that trip, but you don't own it or keep it — tomorrow you might use a different one. That's a dependency. Owning your own bike would be an association.</p></div>
+<p><strong>Dependency</strong> = one class <strong>uses</strong> another temporarily: as a <strong>parameter</strong>, a <strong>local variable</strong>, a <strong>return type</strong>, or by calling its <strong>static</strong> method. A change in the supplier may affect the client. <strong>UML:</strong> a <strong>dashed arrow</strong> pointing from the user (client) to the used class (supplier).</p>
+<div class="codewrap text"><pre><code>   ┌──────────────┐                    ┌────────┐
+   │ FineCalculator│- - - - - - - - - -&gt;│  Date  │    FineCalculator uses Date only as a parameter
+   └──────────────┘                    └────────┘</code></pre></div>
+<h2 id="2-generalization-is-a-kind-of">2. Generalization — "is a kind of"</h2>
+<p><strong>Generalization</strong> is the UML name for <strong>inheritance</strong> (Chapter 5): a general class (parent) and a more specific class (child). The child <strong>is a</strong> parent. <strong>UML:</strong> a <strong>solid line with a hollow triangle</strong> pointing <strong>to the parent</strong>.</p>
+<div class="codewrap text"><pre><code>   ┌──────────┐            ┌──────────┐
+   │Librarian │───────────▷│  Staff   │       Librarian IS-A Staff
+   └──────────┘            └──────────┘</code></pre></div>
+<h2 id="3-realization-implements">3. Realization — "implements"</h2>
+<p><strong>Realization</strong> is the relationship between an <strong>interface</strong> (a contract: only pure virtual functions, Lesson 5.5) and a class that <strong>implements</strong> it. <strong>UML:</strong> a <strong>dashed line with a hollow triangle</strong> pointing <strong>to the interface</strong>, which is marked <code>«interface»</code>.</p>
+<div class="codewrap text"><pre><code>   ┌─────────────┐            ┌──────────────┐
+   │ CardPayment │- - - - - -▷│ «interface»  │      CardPayment implements Payable
+   └─────────────┘            │   Payable    │
+                              └──────────────┘</code></pre></div>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>An interface is like a <strong>job description</strong>: "must be able to pay(amount)". CardPayment and UPIPayment are <strong>employees who fulfil</strong> that job description in their own way. That's realization. Generalization, by contrast, is family inheritance: a child really <em>is</em> a kind of the parent and inherits its traits.</p></div>
+<h2 id="all-three-in-c">All Three in C++</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Date                                    <span class="com">// used for DEPENDENCY</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">int</span> day;
+    Date(<span class="kw">int</span> d) : day(d) { }
+};
+
+<span class="kw">class</span> FineCalculator
+{
+<span class="kw">public</span>:
+    <span class="kw">int</span> fine(<span class="kw">int</span> dueDay, <span class="kw">const</span> Date &amp;today) <span class="kw">const</span>   <span class="com">// Date only as a parameter → dependency</span>
+    {
+        <span class="kw">return</span> today.day &gt; dueDay ? (today.day - dueDay) * <span class="num">5</span> : <span class="num">0</span>;
+    }
+};
+
+<span class="kw">class</span> Staff                                   <span class="com">// GENERALIZATION parent</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> role() <span class="kw">const</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Staff"</span> &lt;&lt; <span class="lib">endl</span>; }
+    <span class="kw">virtual</span> ~Staff() { }
+};
+<span class="kw">class</span> Librarian : <span class="kw">public</span> Staff                <span class="com">// Librarian ──▷ Staff</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> role() <span class="kw">const</span> <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Librarian"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">class</span> Payable                                 <span class="com">// an INTERFACE (only pure virtual functions)</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> pay(<span class="kw">int</span> amount) = <span class="num">0</span>;
+    <span class="kw">virtual</span> ~Payable() { }
+};
+<span class="kw">class</span> CardPayment : <span class="kw">public</span> Payable            <span class="com">// REALIZATION: CardPayment - - -▷ Payable</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> pay(<span class="kw">int</span> amount) <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"Paid Rs "</span> &lt;&lt; amount &lt;&lt; <span class="str">" by card"</span> &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    FineCalculator calc;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Fine: "</span> &lt;&lt; calc.fine(<span class="num">10</span>, Date(<span class="num">14</span>)) &lt;&lt; <span class="lib">endl</span>;
+
+    Librarian l;
+    Staff &amp;s = l;
+    s.role();
+
+    CardPayment card;
+    Payable &amp;p = card;
+    p.pay(<span class="num">20</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Fine: 20
+Librarian
+Paid Rs 20 by card</code></pre></div>
+<h2 id="the-complete-cheat-sheet-all-six-relationships">The Complete Cheat Sheet: All Six Relationships</h2>
+<div class="svgwrap"><svg viewBox="0 0 860 470" width="100%" style="max-width:860px" xmlns="http://www.w3.org/2000/svg" font-size="13">
+<defs>
+ <marker id="mOpen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L10,6 L0,12" fill="none" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mTri" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#fff" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mDiaH" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mDiaF" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#222" stroke="#222" stroke-width="1.4"/></marker>
+</defs>
+<g font-weight="bold"><text x="10" y="22">Relationship</text><text x="200" y="22">Notation</text><text x="560" y="22">Meaning / example</text></g>
+<line x1="5" y1="30" x2="855" y2="30" stroke="#999"/>
+<g stroke="#222" stroke-width="1.5" fill="none">
+ <rect x="200" y="45" width="80" height="28" fill="#fffbe8"/><rect x="440" y="45" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="59" x2="440" y2="59"/>
+ <rect x="200" y="105" width="80" height="28" fill="#fffbe8"/><rect x="440" y="105" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="119" x2="438" y2="119" marker-end="url(#mOpen)"/>
+ <rect x="200" y="165" width="80" height="28" fill="#fffbe8"/><rect x="440" y="165" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="179" x2="438" y2="179" marker-end="url(#mTri)"/>
+ <rect x="200" y="225" width="80" height="28" fill="#fffbe8"/><rect x="440" y="225" width="80" height="28" fill="#eef5ff"/><line x1="280" y1="239" x2="438" y2="239" stroke-dasharray="6,4" marker-end="url(#mTri)"/>
+ <rect x="200" y="285" width="80" height="28" fill="#fffbe8"/><rect x="440" y="285" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="299" x2="438" y2="299" stroke-dasharray="6,4" marker-end="url(#mOpen)"/>
+ <rect x="200" y="345" width="80" height="28" fill="#fffbe8"/><rect x="440" y="345" width="80" height="28" fill="#fffbe8"/><line x1="281" y1="359" x2="440" y2="359" marker-start="url(#mDiaH)"/>
+ <rect x="200" y="405" width="80" height="28" fill="#fffbe8"/><rect x="440" y="405" width="80" height="28" fill="#fffbe8"/><line x1="281" y1="419" x2="440" y2="419" marker-start="url(#mDiaF)"/>
+</g>
+<g text-anchor="middle" font-size="12">
+ <text x="240" y="63">Member</text><text x="480" y="63">BookCopy</text><text x="360" y="52">Borrows ▶</text><text x="292" y="75">1</text><text x="425" y="75">0..5</text>
+ <text x="240" y="123">Loan</text><text x="480" y="123">BookCopy</text>
+ <text x="240" y="183">Librarian</text><text x="480" y="183">Staff</text>
+ <text x="240" y="243">CardPayment</text><text x="480" y="236">«interface»</text><text x="480" y="249">Payable</text>
+ <text x="240" y="303">FineCalculator</text><text x="480" y="303">Date</text>
+ <text x="240" y="363">Library</text><text x="480" y="363">Member</text><text x="300" y="350">0..1</text><text x="425" y="350">*</text>
+ <text x="240" y="423">Book</text><text x="480" y="423">Chapter</text><text x="298" y="410">1</text><text x="425" y="410">1..*</text>
+</g>
+<g font-weight="bold">
+ <text x="10" y="63">Association</text><text x="10" y="123">Directed association</text><text x="10" y="138" font-weight="normal" font-size="11">(navigability)</text>
+ <text x="10" y="183">Generalization</text><text x="10" y="198" font-weight="normal" font-size="11">(inheritance, is-a)</text>
+ <text x="10" y="243">Realization</text><text x="10" y="258" font-weight="normal" font-size="11">(implements interface)</text>
+ <text x="10" y="303">Dependency</text><text x="10" y="318" font-weight="normal" font-size="11">(uses temporarily)</text>
+ <text x="10" y="363">Aggregation</text><text x="10" y="378" font-weight="normal" font-size="11">(weak whole–part)</text>
+ <text x="10" y="423">Composition</text><text x="10" y="438" font-weight="normal" font-size="11">(strong whole–part)</text>
+</g>
+<g font-size="12">
+ <text x="560" y="56">Solid line. A structural link: objects are</text><text x="560" y="71">connected. Name, ▶ reading direction, multiplicity.</text>
+ <text x="560" y="116">Solid line + open arrowhead: Loan knows its</text><text x="560" y="131">BookCopy (can navigate); not the reverse.</text>
+ <text x="560" y="176">Solid line + hollow triangle pointing to</text><text x="560" y="191">the PARENT (superclass). Librarian is-a Staff.</text>
+ <text x="560" y="236">Dashed line + hollow triangle pointing to the</text><text x="560" y="251">INTERFACE. CardPayment implements Payable.</text>
+ <text x="560" y="296">Dashed line + open arrow to the SUPPLIER:</text><text x="560" y="311">uses Date as a parameter/local only.</text>
+ <text x="560" y="356">Hollow diamond at the WHOLE. Parts can exist</text><text x="560" y="371">independently and be shared.</text>
+ <text x="560" y="416">Filled diamond at the WHOLE. Part belongs to one</text><text x="560" y="431">whole; created/destroyed with it.</text>
+</g>
+</svg></div>
+<div class="tablewrap"><table><thead><tr><th>Relationship</th><th>Meaning</th><th>Line</th><th>End symbol</th><th>C++</th></tr></thead><tbody><tr><td><strong>Dependency</strong></td><td>uses temporarily</td><td>dashed</td><td>open arrow → supplier</td><td>parameter, local, return type</td></tr><tr><td><strong>Association</strong></td><td>knows / connected</td><td>solid</td><td>none (or open arrow for navigability)</td><td>pointer/reference member</td></tr><tr><td><strong>Aggregation</strong></td><td>has (weak whole–part)</td><td>solid</td><td>hollow diamond ◇ at whole</td><td>pointer to external part</td></tr><tr><td><strong>Composition</strong></td><td>made of (strong whole–part)</td><td>solid</td><td>filled diamond ◆ at whole</td><td>member object</td></tr><tr><td><strong>Generalization</strong></td><td>is a</td><td>solid</td><td>hollow triangle ▷ at parent</td><td><code>class Child : public Parent</code></td></tr><tr><td><strong>Realization</strong></td><td>implements</td><td>dashed</td><td>hollow triangle ▷ at interface</td><td>inherit from a pure-abstract class</td></tr></tbody></table></div>
+<p><strong>From weakest to strongest coupling:</strong> dependency &lt; association &lt; aggregation &lt; composition &lt; generalization.</p>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Dependency: dashed arrow; temporary use (parameter/local/return).</li><li>Generalization: solid line + hollow triangle to the parent (inheritance, is-a).</li><li>Realization: dashed line + hollow triangle to the interface (implements).</li><li>Learn the six symbols — they appear in almost every Part II exam question.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Generalization (solid) vs realization (dashed) — mixing up the line style.</li><li>Pointing the triangle at the child — it always points <strong>to the parent/interface</strong>.</li><li>Drawing an association when a class only uses another as a parameter — that's a dependency.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the relationships between classes in UML with notation and examples."</em> → the cheat sheet table + drawings.</li><li><em>"Identify the relationship"</em> in code: member object → composition; pointer member → association/aggregation; parameter → dependency; <code>: public</code> → generalization; implementing a pure-abstract class → realization.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p>A <strong>dependency</strong> is a using relationship in which a change to one class (the supplier) may affect another (the client) that uses it temporarily; shown as a dashed arrow. <strong>Generalization</strong> is a taxonomic "is-a" relationship between a general class and a more specific class (inheritance); shown as a solid line with a hollow triangle pointing to the general class. <strong>Realization</strong> is the relationship between an interface and a class that implements it; shown as a dashed line with a hollow triangle pointing to the interface.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · Which relationship does each line of code show? (a) <code>class Car { Engine e; };</code> (b) <code>void Printer::print(const Report &amp;r)</code> (c) <code>class Dog : public Animal</code> (d) <code>class Car { Driver *driver; };</code></div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>(a) <strong>Composition</strong>, (b) <strong>Dependency</strong>, (c) <strong>Generalization</strong>, (d) <strong>Association/aggregation</strong>.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · Describe the UML symbol for realization.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>A <strong>dashed line</strong> with a <strong>hollow triangle</strong> pointing to the interface (marked «interface»).</p></div></details></div>
+<div class="pager"><a class="nav" href="08_2_aggregation_composition.html">← Aggregation &amp; Composition</a><span></span><a class="nav" href="09_1_use_cases.html">Use Cases, Actors &amp; Scenarios →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

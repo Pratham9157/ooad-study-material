@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>✎ Practice Set 1 (Chapters 1–2) — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">✎ Practice Set 1 (Chapters 1–2)</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#section-a-definitions-short-answers-2-3-marks">Section A · Definitions &amp; Short Answers (2–3 marks)</a></li><li class="l2"><a href="#section-b-multiple-choice-questions-1-mark-each">Section B · Multiple Choice Questions (1 mark each)</a></li><li class="l2"><a href="#section-c-predict-the-output-2-4-marks">Section C · Predict the Output (2–4 marks)</a></li><li class="l2"><a href="#section-d-find-the-error-s">Section D · Find the Error(s)</a></li><li class="l2"><a href="#section-e-write-the-program">Section E · Write the Program</a></li><li class="l2"><a href="#section-f-long-answer-5-8-marks">Section F · Long Answer (5–8 marks)</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details open><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li class=cur><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 2 · Functions</div><h1>✎ Practice Set 1 (Chapters 1–2)</h1><div class="meta"><span>⏱ 25 min read</span><span>📚 Syllabus: Practice</span></div>
+<div class="box tip"><div class="boxtitle">How to use this practice set</div><ol><li>Attempt every question on paper <strong>before</strong> opening the answer.</li><li>For output questions, <strong>trace line by line</strong> with a small table of variable values — that is exactly what examiners expect.</li><li>Mark the ones you got wrong and re-read the matching lesson in Chapters 1–2.</li></ol>
+<p>Use the <strong>Show all answers</strong> button (top right) only for final revision.</p></div>
+<h2 id="section-a-definitions-short-answers-2-3-marks">Section A · Definitions &amp; Short Answers (2–3 marks)</h2>
+<div class="q"><div class="qhead">A1 · Define a token. List the types of tokens in C++.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>A <strong>token</strong> is the smallest individual unit of a program that is meaningful to the compiler. C++ tokens: <strong>keywords</strong> (<code>int</code>, <code>class</code>), <strong>identifiers</strong> (<code>total</code>, <code>main</code>), <strong>literals/constants</strong> (<code>10</code>, <code>'a'</code>, <code>"hi"</code>), <strong>operators</strong> (<code>+</code>, <code>&lt;&lt;</code>, <code>&amp;&amp;</code>), and <strong>punctuators/separators</strong> (<code>;</code>, <code>{}</code>, <code>()</code>, <code>,</code>).</p></div></details></div>
+<div class="q"><div class="qhead">A2 · What is the difference between a declaration and a definition of a function?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><ul><li><strong>Declaration (prototype)</strong> tells the compiler the function's <strong>name, return type and parameter types</strong>, e.g. <code>int add(int, int);</code>. No body; ends with <code>;</code>. Can appear many times.</li><li><strong>Definition</strong> provides the <strong>body</strong> — the actual code, e.g. <code>int add(int a, int b) { return a + b; }</code>. Exactly one definition per function in a program (One Definition Rule).</li></ul></div></details></div>
+<div class="q"><div class="qhead">A3 · Differentiate between entry-controlled and exit-controlled loops with examples.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="tablewrap"><table><thead><tr><th>Entry-controlled</th><th>Exit-controlled</th></tr></thead><tbody><tr><td>Condition tested <strong>before</strong> the body</td><td>Condition tested <strong>after</strong> the body</td></tr><tr><td>Body may execute <strong>zero</strong> times</td><td>Body executes <strong>at least once</strong></td></tr><tr><td><code>while</code>, <code>for</code></td><td><code>do-while</code></td></tr><tr><td><code>while (i &lt; 5) {…}</code></td><td><code>do {…} while (i &lt; 5);</code></td></tr></tbody></table></div></div></details></div>
+<div class="q"><div class="qhead">A4 · What is procedural abstraction? Why are preconditions and postconditions written?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Procedural abstraction</strong> means treating a function as a <strong>black box</strong>: users know <strong>what</strong> the function does (through its name, prototype and comment), not <strong>how</strong> it does it. The implementation can be changed without affecting callers. <strong>Precondition</strong> states what must be true before the call (valid inputs); <strong>postcondition</strong> states what will be true after the call (the result/effect). They document the contract between the function and its caller.</p></div></details></div>
+<div class="q"><div class="qhead">A5 · Define function overloading. Can two functions be overloaded on return type only?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Function overloading</strong> is defining multiple functions with the <strong>same name</strong> but <strong>different parameter lists</strong> (number, type, or order of parameters) in the same scope; the compiler selects the right one at compile time (static polymorphism). <strong>No</strong> — functions differing <strong>only</strong> in return type cannot be overloaded, because the call <code>f();</code> gives the compiler no way to choose. It is a compile error.</p></div></details></div>
+<div class="q"><div class="qhead">A6 · State the difference between call by value and call by reference.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="tablewrap"><table><thead><tr><th>Call by value</th><th>Call by reference</th></tr></thead><tbody><tr><td>A <strong>copy</strong> of the argument is passed</td><td>An <strong>alias</strong> of the argument is passed</td></tr><tr><td>Changes inside the function do <strong>not</strong> affect the caller</td><td>Changes <strong>do</strong> affect the caller's variable</td></tr><tr><td>Formal parameter: <code>int a</code></td><td>Formal parameter: <code>int &amp;a</code></td></tr><tr><td>Literals/expressions allowed as arguments</td><td>Argument must be a variable (lvalue), unless the parameter is <code>const &amp;</code></td></tr><tr><td>Extra memory/time for copying large objects</td><td>No copying → efficient for large objects</td></tr></tbody></table></div></div></details></div>
+<div class="q"><div class="qhead">A7 · What is recursion? What are the two essential parts of a recursive function?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Recursion</strong> is a technique where a function calls itself (directly or indirectly) to solve a problem by reducing it to smaller instances of the same problem. Essential parts: (1) <strong>Base case</strong> – solved directly without recursion; stops recursion. (2) <strong>Recursive case</strong> – calls itself with a smaller/simpler argument that progresses towards the base case. Without a base case → infinite recursion → stack overflow.</p></div></details></div>
+<div class="q"><div class="qhead">A8 · What is the difference between a local variable and a static local variable?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Both have <strong>block scope</strong> (visible only inside the function). A normal local variable is <strong>created on every call and destroyed on return</strong> (value lost, initial value garbage). A <code>static</code> local variable is <strong>initialized only once</strong>, lives for the <strong>entire program</strong>, and <strong>retains its value between calls</strong> (default initial value 0).</p></div></details></div>
+<div class="q"><div class="qhead">A9 · Differentiate between a pointer and a reference (any four points).</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><ol><li>A reference must be initialized when declared; a pointer need not be.</li><li>A reference cannot be re-seated to another variable; a pointer can be changed to point elsewhere.</li><li>A reference cannot be null; a pointer can be <code>nullptr</code>.</li><li>A reference is used directly (<code>r = 5</code>); a pointer needs dereferencing (<code>*p = 5</code>).</li><li>Pointer arithmetic is possible; there is no reference arithmetic.</li></ol></div></details></div>
+<div class="q"><div class="qhead">A10 · What are default arguments? State the rules.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Default arguments</strong> are values specified in a function declaration that are used automatically when the caller omits the corresponding arguments, e.g. <code>void f(int a, int b = 10);</code>. Rules: (1) defaults must be assigned <strong>from right to left</strong> – only trailing parameters can have defaults; (2) specify them <strong>only once</strong> (usually in the prototype); (3) arguments can be omitted only from the right in a call; (4) they can create ambiguity with overloaded functions.</p></div></details></div>
+<h2 id="section-b-multiple-choice-questions-1-mark-each">Section B · Multiple Choice Questions (1 mark each)</h2>
+<div class="q"><div class="qhead">B1 · Which of the following is a valid identifier?</div><p>(a) <code>2ndValue</code>  (b) <code>total-sum</code>  (c) <code>_rate2</code>  (d) <code>double</code></p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(c) <code>_rate2</code></strong>. (a) starts with a digit, (b) contains <code>-</code>, (d) is a keyword.</p></div></details></div>
+<div class="q"><div class="qhead">B2 · What is the value of <code>17 % 5 + 17 / 5</code>?</div><p>(a) 5  (b) 2  (c) 3  (d) 5.4</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(a) 5</strong>. <code>17 % 5</code> = 2, <code>17 / 5</code> = 3 (integer division), 2 + 3 = 5.</p></div></details></div>
+<div class="q"><div class="qhead">B3 · Which loop executes its body at least once?</div><p>(a) <code>for</code>  (b) <code>while</code>  (c) <code>do-while</code>  (d) none</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(c) <code>do-while</code></strong> — it is exit-controlled.</p></div></details></div>
+<div class="q"><div class="qhead">B4 · A <code>switch</code> statement cannot work with which type?</div><p>(a) <code>int</code>  (b) <code>char</code>  (c) <code>double</code>  (d) <code>enum</code></p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(c) <code>double</code></strong>. The switch expression must be of integral or enumeration type.</p></div></details></div>
+<div class="q"><div class="qhead">B5 · Which operator has the highest precedence?</div><p>(a) <code>*</code>  (b) <code>&amp;&amp;</code>  (c) <code>=</code>  (d) <code>!</code></p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(d) <code>!</code></strong> — unary operators have higher precedence than multiplicative, logical and assignment operators.</p></div></details></div>
+<div class="q"><div class="qhead">B6 · <code>int a = 10; int &amp;r = a; r++;</code> What is <code>a</code>?</div><p>(a) 10  (b) 11  (c) error  (d) garbage</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b) 11</strong>. <code>r</code> is an alias of <code>a</code>.</p></div></details></div>
+<div class="q"><div class="qhead">B7 · What does <code>cout &lt;&lt; 7 / 2 * 2.0;</code> print?</div><p>(a) 7  (b) 6  (c) 7.0  (d) 3.5</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b) 6</strong>. Left to right: <code>7 / 2</code> = 3 (integer division), then <code>3 * 2.0</code> = 6.0, printed as <code>6</code>.</p></div></details></div>
+<div class="q"><div class="qhead">B8 · Which statement about inline functions is TRUE?</div><p>(a) The compiler must always inline them (b) They are a request that the compiler may ignore (c) They cannot return values (d) They cannot have parameters</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b)</strong> — <code>inline</code> is only a request (hint) to the compiler.</p></div></details></div>
+<div class="q"><div class="qhead">B9 · Default arguments must be specified:</div><p>(a) from left to right (b) from right to left (c) in any order (d) only for the first parameter</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b) from right to left</strong> (trailing parameters).</p></div></details></div>
+<div class="q"><div class="qhead">B10 · What is the output of <code>cout &lt;&lt; (5 &gt; 3 &gt; 1);</code> ?</div><p>(a) 1  (b) 0  (c) error  (d) true</p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b) 0</strong>. <code>5 &gt; 3</code> → 1; then <code>1 &gt; 1</code> → 0 (false).</p></div></details></div>
+<div class="q"><div class="qhead">B11 · Which of these correctly frees an array allocated as <code>int *p = new int[10];</code>?</div><p>(a) <code>delete p;</code> (b) <code>delete[] p;</code> (c) <code>free(p);</code> (d) <code>delete p[];</code></p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(b) <code>delete[] p;</code></strong> — memory from <code>new[]</code> must be released with <code>delete[]</code>.</p></div></details></div>
+<div class="q"><div class="qhead">B12 · The keyword used to retain a local variable's value between function calls is:</div><p>(a) <code>const</code> (b) <code>auto</code> (c) <code>static</code> (d) <code>extern</code></p>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>(c) <code>static</code></strong>.</p></div></details></div>
+<h2 id="section-c-predict-the-output-2-4-marks">Section C · Predict the Output (2–4 marks)</h2>
+<div class="q"><div class="qhead">C1 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> x = <span class="num">5</span>, y;
+    y = x++ * <span class="num">2</span>;
+    <span class="lib">cout</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    y = ++x * <span class="num">2</span>;
+    <span class="lib">cout</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>6 10
+7 14</code></pre></div>
+<p><code>x++ * 2</code> uses old <code>x</code> (5) → y = 10, then x = 6. <code>++x * 2</code> → x = 7 first → y = 14.</p></div></details></div>
+<div class="q"><div class="qhead">C2 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> i;
+    <span class="kw">for</span> (i = <span class="num">0</span>; i &lt; <span class="num">5</span>; i++);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"i = "</span> &lt;&lt; i &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>i = 5</code></pre></div>
+<p>The <code>;</code> after the <code>for(...)</code> makes an empty body. The loop just increments <code>i</code> to 5; the <code>cout</code> runs once after the loop.</p></div></details></div>
+<div class="q"><div class="qhead">C3 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> n = <span class="num">3</span>;
+    <span class="kw">switch</span> (n)
+    {
+        <span class="kw">case</span> <span class="num">1</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"One "</span>;
+        <span class="kw">case</span> <span class="num">3</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"Three "</span>;
+        <span class="kw">case</span> <span class="num">5</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"Five "</span>;
+                <span class="kw">break</span>;
+        <span class="kw">default</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"Other"</span>;
+    }
+    <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>Three Five </code></pre></div>
+<p>Matches <code>case 3</code>, falls through to <code>case 5</code> (no break), then <code>break</code> stops before <code>default</code>.</p></div></details></div>
+<div class="q"><div class="qhead">C4 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> a = <span class="num">0</span>;
+    <span class="kw">if</span> (a = <span class="num">0</span>)
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"zero"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">else</span>
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"non-zero"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">if</span> (a = <span class="num">7</span>)
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"seven, a="</span> &lt;&lt; a &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>non-zero
+seven, a=7</code></pre></div>
+<p><code>a = 0</code> is an <strong>assignment</strong> whose value is 0 → false → <code>else</code>. <code>a = 7</code> evaluates to 7 → true, and <code>a</code> becomes 7.</p></div></details></div>
+<div class="q"><div class="qhead">C5 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> i = <span class="num">1</span>;
+    <span class="kw">while</span> (i &lt;= <span class="num">10</span>)
+    {
+        <span class="kw">if</span> (i % <span class="num">3</span> == <span class="num">0</span>) { i++; <span class="kw">continue</span>; }
+        <span class="kw">if</span> (i == <span class="num">8</span>) <span class="kw">break</span>;
+        <span class="lib">cout</span> &lt;&lt; i &lt;&lt; <span class="str">" "</span>;
+        i++;
+    }
+    <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>1 2 4 5 7 </code></pre></div>
+<p>Multiples of 3 (3, 6) are skipped; at i = 8 the loop breaks.</p></div></details></div>
+<div class="q"><div class="qhead">C6 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">void</span> change(<span class="kw">int</span> a, <span class="kw">int</span> &amp;b)
+{
+    a = a * <span class="num">10</span>;
+    b = b * <span class="num">10</span>;
+}
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> x = <span class="num">2</span>, y = <span class="num">3</span>;
+    change(x, y);
+    <span class="lib">cout</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; y &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>2 30</code></pre></div>
+<p><code>a</code> is a copy (call by value) → <code>x</code> unchanged; <code>b</code> is a reference → <code>y</code> becomes 30.</p></div></details></div>
+<div class="q"><div class="qhead">C7 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> f(<span class="kw">int</span> n)
+{
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+    <span class="kw">return</span> n + f(n - <span class="num">2</span>);
+}
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; f(<span class="num">8</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>20</code></pre></div>
+<p>f(8) = 8 + f(6) = 8 + 6 + f(4) = 8 + 6 + 4 + f(2) = 8 + 6 + 4 + 2 + f(0) = 20. (Note: <code>f(7)</code> would never reach 0 → infinite recursion → stack overflow. A good follow-up viva question!)</p></div></details></div>
+<div class="q"><div class="qhead">C8 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">void</span> fun(<span class="kw">int</span> n)
+{
+    <span class="kw">if</span> (n &gt; <span class="num">0</span>)
+    {
+        <span class="lib">cout</span> &lt;&lt; n &lt;&lt; <span class="str">" "</span>;
+        fun(n - <span class="num">1</span>);
+        <span class="lib">cout</span> &lt;&lt; n &lt;&lt; <span class="str">" "</span>;
+    }
+}
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    fun(<span class="num">3</span>);
+    <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>3 2 1 1 2 3 </code></pre></div>
+<p>Prints on the way <strong>down</strong> (3 2 1), then again while <strong>unwinding</strong> (1 2 3).</p></div></details></div>
+<div class="q"><div class="qhead">C9 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> counter()
+{
+    <span class="kw">static</span> <span class="kw">int</span> c = <span class="num">10</span>;
+    <span class="kw">return</span> c++;
+}
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; counter() &lt;&lt; <span class="str">" "</span>;
+    <span class="lib">cout</span> &lt;&lt; counter() &lt;&lt; <span class="str">" "</span>;
+    <span class="lib">cout</span> &lt;&lt; counter() &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>10 11 12</code></pre></div>
+<p><code>c</code> is static: initialized once, retains its value. <code>c++</code> returns the old value.</p></div></details></div>
+<div class="q"><div class="qhead">C10 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> x = <span class="num">50</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> x = <span class="num">5</span>;
+    {
+        <span class="kw">int</span> x = <span class="num">1</span>;
+        <span class="lib">cout</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; ::x &lt;&lt; <span class="lib">endl</span>;
+    }
+    <span class="lib">cout</span> &lt;&lt; x &lt;&lt; <span class="str">" "</span> &lt;&lt; ::x &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>1 50
+5 50</code></pre></div>
+<p><code>::x</code> always refers to the <strong>global</strong> <code>x</code>, never to an enclosing local.</p></div></details></div>
+<div class="q"><div class="qhead">C11 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> a[<span class="num">5</span>] = {<span class="num">2</span>, <span class="num">4</span>, <span class="num">6</span>};
+    <span class="kw">int</span> *p = a;
+    <span class="lib">cout</span> &lt;&lt; *p + <span class="num">1</span> &lt;&lt; <span class="str">" "</span> &lt;&lt; *(p + <span class="num">1</span>) &lt;&lt; <span class="str">" "</span> &lt;&lt; a[<span class="num">3</span>] &lt;&lt; <span class="lib">endl</span>;
+    p++;
+    *p = <span class="num">100</span>;
+    <span class="lib">cout</span> &lt;&lt; a[<span class="num">0</span>] &lt;&lt; <span class="str">" "</span> &lt;&lt; a[<span class="num">1</span>] &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>3 4 0
+2 100</code></pre></div>
+<p><code>*p + 1</code> = 2 + 1 = 3 (dereference first). <code>*(p+1)</code> = a[1] = 4. Uninitialized remaining elements in a partially initialized array are 0. After <code>p++</code>, p points to a[1].</p></div></details></div>
+<div class="q"><div class="qhead">C12 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">double</span> d = <span class="num">7</span> / <span class="num">2</span>;
+    <span class="kw">int</span> i = <span class="num">7.9</span>;
+    <span class="kw">char</span> c = <span class="str">'A'</span> + <span class="num">2</span>;
+    <span class="lib">cout</span> &lt;&lt; d &lt;&lt; <span class="str">" "</span> &lt;&lt; i &lt;&lt; <span class="str">" "</span> &lt;&lt; c &lt;&lt; <span class="str">" "</span> &lt;&lt; c + <span class="num">1</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>3 7 C 68</code></pre></div>
+<p><code>7/2</code> is integer division → 3 → stored as 3.0 (prints <code>3</code>). <code>7.9</code> truncated → 7. <code>'A'+2</code> = 67 = <code>'C'</code>. <code>c + 1</code> is an <strong>int</strong> expression (67 + 1) → prints <code>68</code>, not <code>D</code>.</p></div></details></div>
+<div class="q"><div class="qhead">C13 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= <span class="num">3</span>; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="num">1</span>; j &lt;= <span class="num">3</span>; j++)
+        {
+            <span class="kw">if</span> (j == <span class="num">2</span>) <span class="kw">break</span>;
+            <span class="lib">cout</span> &lt;&lt; i &lt;&lt; j &lt;&lt; <span class="str">" "</span>;
+        }
+    }
+    <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>11 21 31 </code></pre></div>
+<p><code>break</code> only exits the <strong>inner</strong> loop; the outer loop continues.</p></div></details></div>
+<div class="q"><div class="qhead">C14 · Predict the output.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> a = <span class="num">4</span>, b = <span class="num">0</span>;
+    <span class="kw">if</span> (b != <span class="num">0</span> &amp;&amp; a / b &gt; <span class="num">1</span>)
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"big"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">else</span>
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"safe"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">bool</span> r = (a || ++b);
+    <span class="lib">cout</span> &lt;&lt; r &lt;&lt; <span class="str">" "</span> &lt;&lt; b &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap output"><div class="codelabel">Output</div><pre><code>safe
+1 0</code></pre></div>
+<p>Short-circuiting: <code>b != 0</code> is false, so <code>a / b</code> is never evaluated (no division by zero). In <code>a || ++b</code>, <code>a</code> is non-zero (true), so <code>++b</code> never runs; <code>b</code> stays 0.</p></div></details></div>
+<h2 id="section-d-find-the-error-s">Section D · Find the Error(s)</h2>
+<div class="q"><div class="qhead">D1 · Find and correct the errors.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">void</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> 2x = <span class="num">5</span>;
+    <span class="kw">float</span> f = <span class="num">3.5</span>;
+    <span class="lib">cout</span> &gt;&gt; f % <span class="num">2</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><ol><li><code>void main()</code> → should be <code>int main()</code> (and <code>return 0;</code>).</li><li><code>2x</code> is an invalid identifier (starts with a digit) → e.g. <code>x2</code>.</li><li><code>cout &gt;&gt; …</code> → must be <code>cout &lt;&lt; …</code>.</li><li><code>%</code> cannot be applied to <code>float</code> → use <code>fmod(f, 2)</code> from <code>&lt;cmath&gt;</code>, or use integers.</li></ol></div></details></div>
+<div class="q"><div class="qhead">D2 · Why does this not compile? Fix it.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> sum(<span class="kw">int</span> a = <span class="num">5</span>, <span class="kw">int</span> b);
+<span class="kw">int</span> <span class="lib">main</span>() { <span class="lib">cout</span> &lt;&lt; sum(<span class="num">3</span>); <span class="kw">return</span> <span class="num">0</span>; }
+<span class="kw">int</span> sum(<span class="kw">int</span> a, <span class="kw">int</span> b) { <span class="kw">return</span> a + b; }</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Default arguments must be given <strong>right-to-left</strong>. <code>b</code> (the last parameter) has no default while <code>a</code> does → error. Fix: <code>int sum(int a, int b = 5);</code> Then <code>sum(3)</code> returns 8.</p></div></details></div>
+<div class="q"><div class="qhead">D3 · Identify the error.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> area(<span class="kw">int</span> s) { <span class="kw">return</span> s * s; }
+<span class="kw">double</span> area(<span class="kw">int</span> s) { <span class="kw">return</span> <span class="num">3.14</span> * s * s; }
+<span class="kw">int</span> <span class="lib">main</span>() { <span class="lib">cout</span> &lt;&lt; area(<span class="num">2</span>); <span class="kw">return</span> <span class="num">0</span>; }</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>The two functions differ <strong>only in return type</strong> — not a valid overload. Error: <em>ambiguating new declaration of 'double area(int)'</em>. Fix: change the parameter list, e.g. <code>double area(double r)</code>.</p></div></details></div>
+<div class="q"><div class="qhead">D4 · Identify the logical error.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> i = <span class="num">1</span>, sum = <span class="num">0</span>;
+    <span class="kw">while</span> (i &lt;= <span class="num">10</span>)
+        sum += i;
+        i++;
+    <span class="lib">cout</span> &lt;&lt; sum;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Without braces, the <code>while</code> controls only <code>sum += i;</code>. <code>i++</code> is <strong>outside</strong> the loop → <code>i</code> never changes → <strong>infinite loop</strong>. Fix: put both statements inside <code>{ }</code>.</p></div></details></div>
+<div class="q"><div class="qhead">D5 · Spot the problem.</div><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="kw">int</span>&amp; getValue()
+{
+    <span class="kw">int</span> x = <span class="num">10</span>;
+    <span class="kw">return</span> x;
+}</code></pre></div>
+<details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>It returns a <strong>reference to a local variable</strong>. <code>x</code> is destroyed when the function returns, so the caller receives a <strong>dangling reference</strong> → undefined behaviour. Return by value (<code>int getValue()</code>) instead.</p></div></details></div>
+<h2 id="section-e-write-the-program">Section E · Write the Program</h2>
+<div class="q"><div class="qhead">E1 · Write a program that reads a number and prints whether it is a palindrome (e.g., 121, 1331).</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> n, original, reversed = <span class="num">0</span>;
+    <span class="lib">cin</span> &gt;&gt; n;
+    original = n;
+    <span class="kw">while</span> (n &gt; <span class="num">0</span>)
+    {
+        reversed = reversed * <span class="num">10</span> + n % <span class="num">10</span>;   <span class="com">// append last digit</span>
+        n /= <span class="num">10</span>;                             <span class="com">// drop last digit</span>
+    }
+    <span class="kw">if</span> (original == reversed)
+        <span class="lib">cout</span> &lt;&lt; original &lt;&lt; <span class="str">" is a palindrome"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">else</span>
+        <span class="lib">cout</span> &lt;&lt; original &lt;&lt; <span class="str">" is not a palindrome"</span> &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<p>Input <code>1331</code>:</p>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>1331 is a palindrome</code></pre></div></div></details></div>
+<div class="q"><div class="qhead">E2 · Write overloaded functions <code>volume()</code> for a cube (side), a cylinder (radius, height) and a cuboid (l, b, h).</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span> volume(<span class="kw">int</span> s)                 { <span class="kw">return</span> s * s * s; }             <span class="com">// cube</span>
+<span class="kw">double</span> volume(<span class="kw">double</span> r, <span class="kw">int</span> h)    { <span class="kw">return</span> <span class="num">3.14</span> * r * r * h; }      <span class="com">// cylinder</span>
+<span class="kw">int</span> volume(<span class="kw">int</span> l, <span class="kw">int</span> b, <span class="kw">int</span> h)   { <span class="kw">return</span> l * b * h; }             <span class="com">// cuboid</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Cube: "</span> &lt;&lt; volume(<span class="num">3</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Cylinder: "</span> &lt;&lt; volume(<span class="num">2.0</span>, <span class="num">5</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Cuboid: "</span> &lt;&lt; volume(<span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Cube: 27
+Cylinder: 62.8
+Cuboid: 24</code></pre></div>
+<p>They are told apart by the <strong>number and type</strong> of parameters.</p></div></details></div>
+<div class="q"><div class="qhead">E3 · Write a recursive function to compute the GCD of two numbers (Euclid's algorithm).</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="com">// gcd(a, 0) = a ; gcd(a, b) = gcd(b, a % b)</span>
+<span class="kw">int</span> gcd(<span class="kw">int</span> a, <span class="kw">int</span> b)
+{
+    <span class="kw">if</span> (b == <span class="num">0</span>) <span class="kw">return</span> a;        <span class="com">// base case</span>
+    <span class="kw">return</span> gcd(b, a % b);        <span class="com">// recursive case</span>
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; gcd(<span class="num">48</span>, <span class="num">18</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>6</code></pre></div>
+<p>Trace: gcd(48,18) → gcd(18,12) → gcd(12,6) → gcd(6,0) → 6.</p></div></details></div>
+<div class="q"><div class="qhead">E4 · Write a program to print Floyd's triangle for n = 4 (rows: 1 · 2 3 · 4 5 6 · 7 8 9 10, one row per line).</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> n = <span class="num">4</span>, k = <span class="num">1</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= n; i++)
+    {
+        <span class="kw">for</span> (<span class="kw">int</span> j = <span class="num">1</span>; j &lt;= i; j++)
+            <span class="lib">cout</span> &lt;&lt; k++ &lt;&lt; <span class="str">" "</span>;
+        <span class="lib">cout</span> &lt;&lt; <span class="lib">endl</span>;
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>1 
+2 3 
+4 5 6 
+7 8 9 10 </code></pre></div></div></details></div>
+<div class="q"><div class="qhead">E5 · Write a menu-driven calculator using <code>switch</code> and <code>do-while</code> (operations + − × ÷, exit on 0). Handle division by zero.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> ch;
+    <span class="kw">double</span> a, b;
+    <span class="kw">do</span> {
+        <span class="lib">cout</span> &lt;&lt; <span class="str">"1.Add 2.Sub 3.Mul 4.Div 0.Exit: "</span>;
+        <span class="lib">cin</span> &gt;&gt; ch;
+        <span class="kw">if</span> (ch &gt;= <span class="num">1</span> &amp;&amp; ch &lt;= <span class="num">4</span>) { <span class="lib">cin</span> &gt;&gt; a &gt;&gt; b; }
+        <span class="kw">switch</span> (ch)
+        {
+            <span class="kw">case</span> <span class="num">1</span>: <span class="lib">cout</span> &lt;&lt; a + b &lt;&lt; <span class="lib">endl</span>; <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="num">2</span>: <span class="lib">cout</span> &lt;&lt; a - b &lt;&lt; <span class="lib">endl</span>; <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="num">3</span>: <span class="lib">cout</span> &lt;&lt; a * b &lt;&lt; <span class="lib">endl</span>; <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="num">4</span>:
+                <span class="kw">if</span> (b == <span class="num">0</span>) <span class="lib">cout</span> &lt;&lt; <span class="str">"Cannot divide by zero"</span> &lt;&lt; <span class="lib">endl</span>;
+                <span class="kw">else</span>        <span class="lib">cout</span> &lt;&lt; a / b &lt;&lt; <span class="lib">endl</span>;
+                <span class="kw">break</span>;
+            <span class="kw">case</span> <span class="num">0</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"Bye"</span> &lt;&lt; <span class="lib">endl</span>; <span class="kw">break</span>;
+            <span class="kw">default</span>: <span class="lib">cout</span> &lt;&lt; <span class="str">"Invalid choice"</span> &lt;&lt; <span class="lib">endl</span>;
+        }
+    } <span class="kw">while</span> (ch != <span class="num">0</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<p>Input <code>1 8 2</code>, <code>4 8 0</code>, <code>0</code>:</p>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>1.Add 2.Sub 3.Mul 4.Div 0.Exit: 10
+1.Add 2.Sub 3.Mul 4.Div 0.Exit: Cannot divide by zero
+1.Add 2.Sub 3.Mul 4.Div 0.Exit: Bye</code></pre></div></div></details></div>
+<div class="q"><div class="qhead">E6 · Write a function that takes an array and its size and returns, through reference parameters, the count of even and odd numbers.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> countEvenOdd(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n, <span class="kw">int</span> &amp;even, <span class="kw">int</span> &amp;odd)
+{
+    even = odd = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++)
+        <span class="kw">if</span> (a[i] % <span class="num">2</span> == <span class="num">0</span>) even++;
+        <span class="kw">else</span>               odd++;
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> a[<span class="num">6</span>] = {<span class="num">3</span>, <span class="num">8</span>, <span class="num">10</span>, <span class="num">7</span>, <span class="num">5</span>, <span class="num">2</span>}, e, o;
+    countEvenOdd(a, <span class="num">6</span>, e, o);
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Even: "</span> &lt;&lt; e &lt;&lt; <span class="str">", Odd: "</span> &lt;&lt; o &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Even: 3, Odd: 3</code></pre></div></div></details></div>
+<h2 id="section-f-long-answer-5-8-marks">Section F · Long Answer (5–8 marks)</h2>
+<div class="q"><div class="qhead">F1 · Explain the different ways of passing parameters to functions in C++ with a single program that demonstrates all three. State when each should be used.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Three ways: <strong>call by value</strong>, <strong>call by reference</strong>, <strong>call by address (pointer)</strong> — see <a href="02_4_parameter_passing.html">Lesson 2.4</a> for the full swap program and comparison table. Write the swap program with all three functions, show the output (<code>1 2</code> / <code>2 1</code> / <code>1 2</code>), and conclude:</p>
+<ul><li><strong>Value</strong> – when the function must not change the argument and the data is small (e.g. <code>int</code>).</li><li><strong>Reference</strong> – when the function must change the caller's variable(s) or return several values; <code>const &amp;</code> for passing large objects efficiently without allowing change.</li><li><strong>Pointer</strong> – when "no object" (<code>nullptr</code>) is a valid possibility, when working with dynamic memory/arrays, or for C-compatibility.</li></ul></div></details></div>
+<div class="q"><div class="qhead">F2 · What is top-down design? Illustrate with a program that computes simple statistics (sum, average, maximum) of 5 numbers using separate functions.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p><strong>Top-down design (stepwise refinement):</strong> start with the overall task, break it into sub-tasks, refine each sub-task further until each is simple enough to code as one function. <code>main()</code> then just calls these functions — the program structure mirrors the problem structure. Benefits: modularity, reuse, easy testing, readability, team work.</p>
+<div class="codewrap text"><pre><code>Statistics
+├── readData
+├── computeSum   ──► used by computeAverage
+├── computeAverage
+├── findMax
+└── report</code></pre></div>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> readData(<span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="kw">int</span> sample[<span class="num">5</span>] = {<span class="num">12</span>, <span class="num">45</span>, <span class="num">7</span>, <span class="num">30</span>, <span class="num">18</span>};   <span class="com">// in an exam you'd use cin</span>
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++) a[i] = sample[i];
+}
+<span class="kw">int</span> computeSum(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="kw">int</span> s = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; n; i++) s += a[i];
+    <span class="kw">return</span> s;
+}
+<span class="kw">double</span> computeAverage(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="kw">return</span> <span class="kw">static_cast</span>&lt;<span class="kw">double</span>&gt;(computeSum(a, n)) / n;   <span class="com">// function calling function</span>
+}
+<span class="kw">int</span> findMax(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="kw">int</span> m = a[<span class="num">0</span>];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt; n; i++) <span class="kw">if</span> (a[i] &gt; m) m = a[i];
+    <span class="kw">return</span> m;
+}
+<span class="kw">void</span> report(<span class="kw">const</span> <span class="kw">int</span> a[], <span class="kw">int</span> n)
+{
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Sum = "</span> &lt;&lt; computeSum(a, n) &lt;&lt; <span class="lib">endl</span>;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Average = "</span> &lt;&lt; computeAverage(a, n) &lt;&lt; <span class="lib">endl</span>;
+    <span class="lib">cout</span> &lt;&lt; <span class="str">"Max = "</span> &lt;&lt; findMax(a, n) &lt;&lt; <span class="lib">endl</span>;
+}
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="kw">int</span> data[<span class="num">5</span>];
+    readData(data, <span class="num">5</span>);
+    report(data, <span class="num">5</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Sum = 112
+Average = 22.4
+Max = 45</code></pre></div></div></details></div>
+<div class="q"><div class="qhead">F3 · Compare recursion and iteration. Write both recursive and iterative versions of a function to find the sum of the first n natural numbers.</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Comparison table: see <a href="02_6_recursion.html">Lesson 2.6</a> (calls itself vs loop; base case vs loop condition; stack memory &amp; overhead vs efficient; stack overflow vs infinite loop; elegant for recursive structures vs better for simple repetition).</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span> sumRec(<span class="kw">int</span> n)
+{
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;          <span class="com">// base case</span>
+    <span class="kw">return</span> n + sumRec(n - <span class="num">1</span>);      <span class="com">// recursive case</span>
+}
+
+<span class="kw">int</span> sumIter(<span class="kw">int</span> n)
+{
+    <span class="kw">int</span> s = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">1</span>; i &lt;= n; i++) s += i;
+    <span class="kw">return</span> s;
+}
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; sumRec(<span class="num">10</span>) &lt;&lt; <span class="str">" "</span> &lt;&lt; sumIter(<span class="num">10</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>55 55</code></pre></div></div></details></div>
+<div class="pager"><a class="nav" href="02_7_dynamic_memory.html">← Dynamic Memory: new &amp; delete</a><span></span><a class="nav" href="03_1_why_oop.html">Why OOP? Procedural vs Object-Oriented Thinking →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Function Overloading, Default Arguments &amp; Inline — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Function Overloading, Default Arguments &amp; Inline</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#the-problem-too-many-names-for-one-idea">The Problem: Too Many Names for One Idea</a></li><li class="l2"><a href="#function-overloading">Function Overloading</a></li><li class="l3"><a href="#how-the-compiler-chooses-simplified">How the compiler chooses (simplified)</a></li><li class="l2"><a href="#default-arguments">Default Arguments</a></li><li class="l2"><a href="#inline-functions">Inline Functions</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details open><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li class=cur><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 2 · Functions › Lesson 2.5</div><h1>Function Overloading, Default Arguments &amp; Inline</h1><div class="meta"><span>⏱ 5 min read</span><span>📚 Syllabus: Unit 2</span></div>
+<p><strong>Function overloading lets several functions share one name, as long as their parameter lists differ. The compiler picks the right one by looking at the arguments.</strong></p>
+<h2 id="the-problem-too-many-names-for-one-idea">The Problem: Too Many Names for One Idea</h2>
+<p>Without overloading you'd write <code>areaOfSquare(int)</code>, <code>areaOfRectangle(int, int)</code>, <code>areaOfCircle(double)</code>. The user has to remember three names for one idea: <em>area</em>. With overloading, they're all just <code>area(…)</code>.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>The word <strong>"open"</strong>: open a door, open a book, open a file. Same word, different action — and you know which action from <em>what</em> is being opened. The compiler does the same with the arguments you pass.</p></div>
+<h2 id="function-overloading">Function Overloading</h2>
+<p>Functions can share a name if they differ in the <strong>number</strong>, <strong>type</strong> or <strong>order</strong> of parameters:</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">int</span>    area(<span class="kw">int</span> side)          { <span class="kw">return</span> side * side; }          <span class="com">// 1 int</span>
+<span class="kw">int</span>    area(<span class="kw">int</span> l, <span class="kw">int</span> b)      { <span class="kw">return</span> l * b; }                <span class="com">// 2 ints  (number differs)</span>
+<span class="kw">double</span> area(<span class="kw">double</span> r)          { <span class="kw">return</span> <span class="num">3.14</span> * r * r; }         <span class="com">// 1 double (type differs)</span>
+<span class="kw">void</span>   show(<span class="kw">int</span> a, <span class="kw">char</span> c)     { <span class="lib">cout</span> &lt;&lt; <span class="str">"int,char"</span> &lt;&lt; <span class="lib">endl</span>; }
+<span class="kw">void</span>   show(<span class="kw">char</span> c, <span class="kw">int</span> a)     { <span class="lib">cout</span> &lt;&lt; <span class="str">"char,int"</span> &lt;&lt; <span class="lib">endl</span>; }  <span class="com">// order differs</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; area(<span class="num">4</span>) &lt;&lt; <span class="str">" "</span> &lt;&lt; area(<span class="num">3</span>, <span class="num">5</span>) &lt;&lt; <span class="str">" "</span> &lt;&lt; area(<span class="num">2.0</span>) &lt;&lt; <span class="lib">endl</span>;
+    show(<span class="num">1</span>, <span class="str">'x'</span>);
+    show(<span class="str">'x'</span>, <span class="num">1</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>16 15 12.56
+int,char
+char,int</code></pre></div>
+<p>Because the choice is made <strong>while compiling</strong>, overloading is called <strong>compile-time (static) polymorphism</strong> — "one name, many forms".</p>
+<h3 id="how-the-compiler-chooses-simplified">How the compiler chooses (simplified)</h3>
+<ol><li><strong>Exact match</strong> wins.</li><li>Otherwise a <strong>promotion</strong> (<code>char</code> → <code>int</code>, <code>float</code> → <code>double</code>).</li><li>Otherwise a <strong>standard conversion</strong> (<code>int</code> → <code>double</code>, <code>double</code> → <code>int</code>, …).</li><li>If two candidates are equally good → <strong>ambiguity error</strong>.</li></ol>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">void</span> f(<span class="kw">int</span> x)   { <span class="lib">cout</span> &lt;&lt; <span class="str">"int"</span> &lt;&lt; <span class="lib">endl</span>; }
+<span class="kw">void</span> f(<span class="kw">float</span> x) { <span class="lib">cout</span> &lt;&lt; <span class="str">"float"</span> &lt;&lt; <span class="lib">endl</span>; }
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    f(<span class="num">5</span>);       <span class="com">// OK: exact match for int</span>
+    f(<span class="num">5.5f</span>);    <span class="com">// OK: exact match for float</span>
+    f(<span class="num">5.5</span>);     <span class="com">// ERROR: 5.5 is a DOUBLE. double-&gt;int and double-&gt;float are</span>
+                <span class="com">// equally good conversions, so the call is AMBIGUOUS</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="box warn"><div class="boxtitle">Return type alone is NOT enough</div><p><code>int get();</code> and <code>double get();</code> cannot coexist. From the call <code>get();</code> the compiler can't tell which one you want. Overloads must differ in their <strong>parameters</strong>.</p></div>
+<h2 id="default-arguments">Default Arguments</h2>
+<p>A <strong>default argument</strong> is a value used automatically when the caller leaves that argument out.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">double</span> interest(<span class="kw">double</span> p, <span class="kw">double</span> rate = <span class="num">8.0</span>, <span class="kw">int</span> years = <span class="num">1</span>);   <span class="com">// defaults in the prototype</span>
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; interest(<span class="num">1000</span>) &lt;&lt; <span class="lib">endl</span>;          <span class="com">// rate = 8, years = 1</span>
+    <span class="lib">cout</span> &lt;&lt; interest(<span class="num">1000</span>, <span class="num">10</span>) &lt;&lt; <span class="lib">endl</span>;      <span class="com">// years = 1</span>
+    <span class="lib">cout</span> &lt;&lt; interest(<span class="num">1000</span>, <span class="num">10</span>, <span class="num">2</span>) &lt;&lt; <span class="lib">endl</span>;   <span class="com">// nothing defaulted</span>
+    <span class="kw">return</span> <span class="num">0</span>;
+}
+
+<span class="kw">double</span> interest(<span class="kw">double</span> p, <span class="kw">double</span> rate, <span class="kw">int</span> years)   <span class="com">// don't repeat the defaults here</span>
+{
+    <span class="kw">return</span> p * rate * years / <span class="num">100</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>80
+100
+200</code></pre></div>
+<p><strong>Rules:</strong></p>
+<ol><li>Defaults must be given <strong>from right to left</strong>: <code>f(int a, int b = 5)</code> ✅, <code>f(int a = 5, int b)</code> ❌.</li><li>Give them <strong>once</strong> (usually in the prototype).</li><li>You can only leave out arguments <strong>from the right</strong>.</li></ol>
+<p>Defaults + overloading can clash: with <code>g(int)</code> and <code>g(int, int = 0)</code>, the call <code>g(5)</code> is <strong>ambiguous</strong>.</p>
+<h2 id="inline-functions">Inline Functions</h2>
+<p>For tiny functions, the cost of "jumping" to a function can be more than the work itself. Writing <code>inline</code> <strong>asks</strong> the compiler to paste the function's body directly at each call.</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">inline</span> <span class="kw">int</span> cube(<span class="kw">int</span> x) { <span class="kw">return</span> x * x * x; }
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    <span class="lib">cout</span> &lt;&lt; cube(<span class="num">3</span>) &lt;&lt; <span class="lib">endl</span>;
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>27</code></pre></div>
+<ul><li><code>inline</code> is only a <strong>request</strong>; the compiler may ignore it (e.g. for big or recursive functions).</li><li>Functions defined inside a class are automatically inline (Chapter 3).</li><li>Better than macros like <code>#define SQ(x) x*x</code>, which have no type checking and break on <code>SQ(2+3)</code> (gives 11, not 25).</li></ul>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Overloading = same name, different parameter lists (number/type/order); chosen at compile time.</li><li>Return type alone cannot distinguish overloads.</li><li>Watch out for ambiguity (<code>5.5</code> is a <code>double</code>).</li><li>Default arguments: right-to-left, specified once.</li><li><code>inline</code> is a request to expand small functions in place.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Overloading on return type only.</li><li>Thinking different parameter <em>names</em> make a different function (<code>f(int a)</code> and <code>f(int b)</code> are the same).</li><li>Defaults in the middle/left of the parameter list.</li><li>Repeating default values in both prototype and definition.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"What is function overloading? Write a program to overload <code>area()</code>/<code>volume()</code>."</em></li><li><em>"Explain default arguments with rules."</em></li><li><em>"Find the error"</em> — ambiguous calls, defaults in the wrong order, overloading by return type.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p><strong>Function overloading</strong> is defining multiple functions with the same name but different parameter lists (number, type or order of parameters) in the same scope; the compiler selects the appropriate one at compile time. A <strong>default argument</strong> is a value automatically assigned to a parameter when the corresponding argument is omitted in the call. An <strong>inline function</strong> is a function whose body the compiler is requested to substitute at the point of each call.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · Can these two functions coexist? <code>int sum(int a, int b);</code> and <code>int sum(int x, int y);</code></div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>No — they have the same parameter types; only the names differ. That's a redefinition error.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · Which call is ambiguous with <code>void p(int); void p(double);</code>: <code>p(3)</code>, <code>p(3.0)</code>, <code>p('A')</code>?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>None of them. <code>p(3)</code> → int (exact), <code>p(3.0)</code> → double (exact), <code>p('A')</code> → int (char → int is a <strong>promotion</strong>, which beats the char → double conversion).</p></div></details></div>
+<div class="q"><div class="qhead">Q3 · Is <code>void f(int a = 1, int b, int c = 3);</code> valid?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>No — <code>b</code> has no default but a parameter to its left does. Defaults must be trailing (right-to-left).</p></div></details></div>
+<div class="pager"><a class="nav" href="02_4_parameter_passing.html">← Parameter Passing</a><span></span><a class="nav" href="02_6_recursion.html">Recursion →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

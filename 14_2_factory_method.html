@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factory Method Pattern — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Factory Method Pattern</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#1-the-problem-sending-reminders">1. The Problem: Sending Reminders</a></li><li class="l3"><a href="#what-s-wrong-with-this">What's wrong with this?</a></li><li class="l2"><a href="#2-understanding-factory-method">2. Understanding Factory Method</a></li><li class="l3"><a href="#participants">Participants</a></li><li class="l2"><a href="#3-how-it-works">3. How It Works</a></li><li class="l2"><a href="#4-implementing-it-step-by-step">4. Implementing It Step by Step</a></li><li class="l2"><a href="#5-what-we-gained">5. What We Gained</a></li><li class="l2"><a href="#when-to-use-it">When to Use It</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details open><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li class=cur><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 14 · Design Patterns › Lesson 14.2</div><h1>Factory Method Pattern</h1><div class="meta"><span>⏱ 6 min read</span><span>📚 Syllabus: Unit 6</span></div>
+<p><strong>The Factory Method pattern (creational) lets a base class define <em>when</em> an object is created and how it's used, while subclasses decide <em>which</em> concrete class to create.</strong></p>
+<p>What varies: <strong>the type of object being created</strong>. What stays the same: <strong>the code that uses it</strong>.</p>
+<h2 id="1-the-problem-sending-reminders">1. The Problem: Sending Reminders</h2>
+<p>The library sends "your book is due tomorrow" reminders. At first only by email. Then SMS is added, then WhatsApp…</p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="pre">#include &lt;string&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> ReminderService
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> remind(<span class="kw">const</span> <span class="lib">string</span> &amp;member, <span class="kw">const</span> <span class="lib">string</span> &amp;channel)
+    {
+        <span class="kw">if</span> (channel == <span class="str">"email"</span>)      <span class="lib">cout</span> &lt;&lt; <span class="str">"[Email] "</span> &lt;&lt; member &lt;&lt; <span class="str">", your book is due tomorrow."</span> &lt;&lt; <span class="lib">endl</span>;
+        <span class="kw">else</span> <span class="kw">if</span> (channel == <span class="str">"sms"</span>)   <span class="lib">cout</span> &lt;&lt; <span class="str">"[SMS] "</span>   &lt;&lt; member &lt;&lt; <span class="str">", your book is due tomorrow."</span> &lt;&lt; <span class="lib">endl</span>;
+        <span class="com">// else if (channel == "whatsapp") ...  ← edit this class again for every new channel</span>
+    }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    ReminderService r;
+    r.remind(<span class="str">"Asha"</span>, <span class="str">"email"</span>);
+    r.remind(<span class="str">"Ravi"</span>, <span class="str">"sms"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>[Email] Asha, your book is due tomorrow.
+[SMS] Ravi, your book is due tomorrow.</code></pre></div>
+<h3 id="what-s-wrong-with-this">What's wrong with this?</h3>
+<ul><li><strong>Violates Open/Closed:</strong> every new channel means <strong>editing</strong> <code>ReminderService</code>.</li><li><strong>Growing if-else chain:</strong> creation logic and business logic are mixed together.</li><li><strong>Tight coupling:</strong> <code>ReminderService</code> must know every concrete kind of message.</li><li><strong>Typos fail silently:</strong> <code>remind("Neel", "SMS")</code> (capital S) does nothing.</li></ul>
+<p>We want the reminder logic to work with <strong>any</strong> kind of message, without knowing which concrete class is created.</p>
+<h2 id="2-understanding-factory-method">2. Understanding Factory Method</h2>
+<blockquote><strong>GoF intent:</strong> "Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses."</blockquote>
+<p>The base class has a <strong>factory method</strong> — a virtual function like <code>createReminder()</code> that returns a new object. The base class's other code calls it to get the object, <strong>without knowing its concrete type</strong>. Each subclass overrides the factory method to create a different concrete product.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>A <strong>logistics company</strong> has a fixed process: plan → <em>get a vehicle</em> → load → deliver. The "get a vehicle" step varies: the <strong>road</strong> division gets a truck, the <strong>sea</strong> division gets a ship. Head office writes the process once; each division decides which vehicle to create.</p></div>
+<h3 id="participants">Participants</h3>
+<div class="codewrap text"><pre><code>      ┌───────────────────────────────┐   creates   ┌─────────────────────┐
+      │ ReminderService   (Creator)   │- - - - - - &gt;│ Reminder (Product)  │
+      │ + remind(name)                │             │ + send(msg) = 0     │
+      │ # createReminder() = 0  ◄─────┼── factory   └──────────△──────────┘
+      └───────────────△───────────────┘   method          ┌────┴─────────┐
+            ┌─────────┴───────────┐                ┌──────────────┐ ┌─────────────┐
+ ┌───────────────────────┐ ┌──────────────────────┐ │EmailReminder │ │ SmsReminder │
+ │ EmailReminderService  │ │ SmsReminderService   │ └──────────────┘ └─────────────┘
+ │  (ConcreteCreator)    │ │  (ConcreteCreator)   │  (ConcreteProducts)
+ └───────────────────────┘ └──────────────────────┘</code></pre></div>
+<ul><li><strong>Product</strong> — interface of the objects created (<code>Reminder</code>).</li><li><strong>ConcreteProduct</strong> — actual classes (<code>EmailReminder</code>, <code>SmsReminder</code>).</li><li><strong>Creator</strong> — declares the factory method and contains the code that uses the product (<code>ReminderService</code>).</li><li><strong>ConcreteCreator</strong> — overrides the factory method to return a specific product.</li></ul>
+<h2 id="3-how-it-works">3. How It Works</h2>
+<ol><li>Client calls <code>service.remind("Asha")</code> on some ReminderService.</li><li><code>remind()</code> calls the <strong>virtual</strong> <code>createReminder()</code>.</li><li>Dynamic binding runs the <strong>subclass's</strong> version, which returns, say, an <code>EmailReminder</code>.</li><li><code>remind()</code> uses it through the <code>Reminder</code> interface — it never names a concrete class.</li></ol>
+<h2 id="4-implementing-it-step-by-step">4. Implementing It Step by Step</h2>
+<p><strong>Step 1 — the Product interface and concrete products. Step 2 — the Creator with the factory method. Step 3 — concrete creators. Step 4 — client code.</strong></p>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="pre">#include &lt;string&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="com">// STEP 1: Product + ConcreteProducts</span>
+<span class="kw">class</span> Reminder
+{
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;msg) <span class="kw">const</span> = <span class="num">0</span>;
+    <span class="kw">virtual</span> ~Reminder() { }
+};
+<span class="kw">class</span> EmailReminder : <span class="kw">public</span> Reminder
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;msg) <span class="kw">const</span> <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"[Email] "</span> &lt;&lt; msg &lt;&lt; <span class="lib">endl</span>; }
+};
+<span class="kw">class</span> SmsReminder : <span class="kw">public</span> Reminder
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;msg) <span class="kw">const</span> <span class="kw">override</span> { <span class="lib">cout</span> &lt;&lt; <span class="str">"[SMS] "</span> &lt;&lt; msg &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="com">// STEP 2: Creator with the FACTORY METHOD</span>
+<span class="kw">class</span> ReminderService
+{
+<span class="kw">protected</span>:
+    <span class="kw">virtual</span> Reminder* createReminder() <span class="kw">const</span> = <span class="num">0</span>;    <span class="com">// factory method</span>
+<span class="kw">public</span>:
+    <span class="kw">void</span> remind(<span class="kw">const</span> <span class="lib">string</span> &amp;member) <span class="kw">const</span>          <span class="com">// fixed logic, uses ANY product</span>
+    {
+        Reminder *r = createReminder();
+        r-&gt;send(member + <span class="str">", your book is due tomorrow."</span>);
+        <span class="kw">delete</span> r;
+    }
+    <span class="kw">virtual</span> ~ReminderService() { }
+};
+
+<span class="com">// STEP 3: ConcreteCreators decide WHICH product</span>
+<span class="kw">class</span> EmailReminderService : <span class="kw">public</span> ReminderService
+{
+<span class="kw">protected</span>:
+    Reminder* createReminder() <span class="kw">const</span> <span class="kw">override</span> { <span class="kw">return</span> <span class="kw">new</span> EmailReminder(); }
+};
+<span class="kw">class</span> SmsReminderService : <span class="kw">public</span> ReminderService
+{
+<span class="kw">protected</span>:
+    Reminder* createReminder() <span class="kw">const</span> <span class="kw">override</span> { <span class="kw">return</span> <span class="kw">new</span> SmsReminder(); }
+};
+
+<span class="com">// STEP 4: client code</span>
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    EmailReminderService email;
+    SmsReminderService sms;
+    ReminderService *services[<span class="num">2</span>] = {&amp;email, &amp;sms};
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i &lt; <span class="num">2</span>; i++) services[i]-&gt;remind(<span class="str">"Asha"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>[Email] Asha, your book is due tomorrow.
+[SMS] Asha, your book is due tomorrow.</code></pre></div>
+<p>Adding WhatsApp now means <strong>adding two small classes</strong> — <code>WhatsAppReminder</code> and <code>WhatsAppReminderService</code> — with <strong>no edits</strong> to existing code.</p>
+<h2 id="5-what-we-gained">5. What We Gained</h2>
+<ul><li><strong>Open/Closed:</strong> new products without modifying the creator's logic.</li><li><strong>Low coupling:</strong> <code>remind()</code> depends only on the <code>Reminder</code> interface.</li><li><strong>Single responsibility:</strong> creation is separated from use.</li><li><strong>No string-based <code>if/else</code></strong> dispatch.</li><li><em>Cost:</em> one creator subclass per product type → more classes.</li></ul>
+<h2 id="when-to-use-it">When to Use It</h2>
+<ul><li>A class can't know in advance <strong>which concrete class</strong> it must create.</li><li>You want <strong>subclasses</strong> to decide what gets created.</li><li>You want to keep "how an object is used" separate from "which object is made".</li></ul>
+<div class="box note"><div class="boxtitle">Larman's "Factory" ≠ Factory Method</div><p>Larman also uses a simpler, non-GoF <strong>Factory</strong> (also called <em>Simple/Concrete Factory</em>): one object whose only job is creating other objects — e.g. a <code>ServicesFactory</code> that reads a config file and returns the right adapter. It's a <strong>Pure Fabrication</strong>, often made a <strong>Singleton</strong>. Factory Method, by contrast, uses <strong>subclass overriding</strong>. Both appear in Lesson 14.8.</p></div>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Factory Method: a virtual "create" method in the creator; subclasses decide the concrete product.</li><li>Participants: Product, ConcreteProduct, Creator, ConcreteCreator.</li><li>Gains: open/closed, low coupling, no type-switches. Cost: more classes.</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Calling Factory Method "structural" — it's <strong>creational</strong>.</li><li>Making the creator's logic <code>switch</code> on type anyway (defeats the purpose).</li><li>Confusing it with Larman's simple Factory object.</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the Factory Method pattern with its structure and a C++ example."</em> → intent (word-for-word), problem, class diagram with 4 participants, code + output, consequences.</li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p><strong>Factory Method</strong> (creational): "Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses." Its participants are Product, ConcreteProduct, Creator (declaring the factory method) and ConcreteCreator (overriding it).</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · In the reminder example, which class is the Creator and which method is the factory method?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Creator: <strong><code>ReminderService</code></strong>; factory method: <strong><code>createReminder()</code></strong>.</p></div></details></div>
+<div class="q"><div class="qhead">Q2 · What must be added to support WhatsApp reminders?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>A <code>WhatsAppReminder</code> (ConcreteProduct) and a <code>WhatsAppReminderService</code> (ConcreteCreator) overriding <code>createReminder()</code>. No existing class changes.</p></div></details></div>
+<div class="pager"><a class="nav" href="14_1_intro_patterns.html">← Introduction to Design Patterns</a><span></span><a class="nav" href="14_3_singleton.html">Singleton Pattern →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>

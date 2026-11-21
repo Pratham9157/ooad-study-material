@@ -1,0 +1,45 @@
+<svg viewBox="0 0 860 470" width="100%" style="max-width:860px" xmlns="http://www.w3.org/2000/svg" font-size="13">
+<defs>
+ <marker id="mOpen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L10,6 L0,12" fill="none" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mTri" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0,0 L14,8 L0,16 z" fill="#fff" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mDiaH" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#fff" stroke="#222" stroke-width="1.4"/></marker>
+ <marker id="mDiaF" markerWidth="22" markerHeight="12" refX="1" refY="6" orient="auto"><path d="M1,6 L10,1 L19,6 L10,11 z" fill="#222" stroke="#222" stroke-width="1.4"/></marker>
+</defs>
+<g font-weight="bold"><text x="10" y="22">Relationship</text><text x="200" y="22">Notation</text><text x="560" y="22">Meaning / example</text></g>
+<line x1="5" y1="30" x2="855" y2="30" stroke="#999"/>
+<g stroke="#222" stroke-width="1.5" fill="none">
+ <rect x="200" y="45" width="80" height="28" fill="#fffbe8"/><rect x="440" y="45" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="59" x2="440" y2="59"/>
+ <rect x="200" y="105" width="80" height="28" fill="#fffbe8"/><rect x="440" y="105" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="119" x2="438" y2="119" marker-end="url(#mOpen)"/>
+ <rect x="200" y="165" width="80" height="28" fill="#fffbe8"/><rect x="440" y="165" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="179" x2="438" y2="179" marker-end="url(#mTri)"/>
+ <rect x="200" y="225" width="80" height="28" fill="#fffbe8"/><rect x="440" y="225" width="80" height="28" fill="#eef5ff"/><line x1="280" y1="239" x2="438" y2="239" stroke-dasharray="6,4" marker-end="url(#mTri)"/>
+ <rect x="200" y="285" width="80" height="28" fill="#fffbe8"/><rect x="440" y="285" width="80" height="28" fill="#fffbe8"/><line x1="280" y1="299" x2="438" y2="299" stroke-dasharray="6,4" marker-end="url(#mOpen)"/>
+ <rect x="200" y="345" width="80" height="28" fill="#fffbe8"/><rect x="440" y="345" width="80" height="28" fill="#fffbe8"/><line x1="281" y1="359" x2="440" y2="359" marker-start="url(#mDiaH)"/>
+ <rect x="200" y="405" width="80" height="28" fill="#fffbe8"/><rect x="440" y="405" width="80" height="28" fill="#fffbe8"/><line x1="281" y1="419" x2="440" y2="419" marker-start="url(#mDiaF)"/>
+</g>
+<g text-anchor="middle" font-size="12">
+ <text x="240" y="63">Member</text><text x="480" y="63">BookCopy</text><text x="360" y="52">Borrows ▶</text><text x="292" y="75">1</text><text x="425" y="75">0..5</text>
+ <text x="240" y="123">Loan</text><text x="480" y="123">BookCopy</text>
+ <text x="240" y="183">Librarian</text><text x="480" y="183">Staff</text>
+ <text x="240" y="243">CardPayment</text><text x="480" y="236">«interface»</text><text x="480" y="249">Payable</text>
+ <text x="240" y="303">FineCalculator</text><text x="480" y="303">Date</text>
+ <text x="240" y="363">Library</text><text x="480" y="363">Member</text><text x="300" y="350">0..1</text><text x="425" y="350">*</text>
+ <text x="240" y="423">Book</text><text x="480" y="423">Chapter</text><text x="298" y="410">1</text><text x="425" y="410">1..*</text>
+</g>
+<g font-weight="bold">
+ <text x="10" y="63">Association</text><text x="10" y="123">Directed association</text><text x="10" y="138" font-weight="normal" font-size="11">(navigability)</text>
+ <text x="10" y="183">Generalization</text><text x="10" y="198" font-weight="normal" font-size="11">(inheritance, is-a)</text>
+ <text x="10" y="243">Realization</text><text x="10" y="258" font-weight="normal" font-size="11">(implements interface)</text>
+ <text x="10" y="303">Dependency</text><text x="10" y="318" font-weight="normal" font-size="11">(uses temporarily)</text>
+ <text x="10" y="363">Aggregation</text><text x="10" y="378" font-weight="normal" font-size="11">(weak whole–part)</text>
+ <text x="10" y="423">Composition</text><text x="10" y="438" font-weight="normal" font-size="11">(strong whole–part)</text>
+</g>
+<g font-size="12">
+ <text x="560" y="56">Solid line. A structural link: objects are</text><text x="560" y="71">connected. Name, ▶ reading direction, multiplicity.</text>
+ <text x="560" y="116">Solid line + open arrowhead: Loan knows its</text><text x="560" y="131">BookCopy (can navigate); not the reverse.</text>
+ <text x="560" y="176">Solid line + hollow triangle pointing to</text><text x="560" y="191">the PARENT (superclass). Librarian is-a Staff.</text>
+ <text x="560" y="236">Dashed line + hollow triangle pointing to the</text><text x="560" y="251">INTERFACE. CardPayment implements Payable.</text>
+ <text x="560" y="296">Dashed line + open arrow to the SUPPLIER:</text><text x="560" y="311">uses Date as a parameter/local only.</text>
+ <text x="560" y="356">Hollow diamond at the WHOLE. Parts can exist</text><text x="560" y="371">independently and be shared.</text>
+ <text x="560" y="416">Filled diamond at the WHOLE. Part belongs to one</text><text x="560" y="431">whole; created/destroyed with it.</text>
+</g>
+</svg>

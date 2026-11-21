@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridge Pattern — OOAD Study Material</title>
+<script>if(localStorage.getItem('ooad-theme')==='dark')document.documentElement.classList.add('dark');</script>
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="home" href="index.html">📚 OOAD Course</a>
+  <span class="ptitle">Bridge Pattern</span>
+  <span class="tools">
+    <button id="toggleAns" type="button">Show all answers</button>
+    <button id="toggleTheme" type="button" title="Toggle dark mode">🌓</button>
+  </span>
+</header>
+<div class="layout">
+<aside class="sidebar"><div class="sbhead">On this page</div><ul class="toc"><li class="l2"><a href="#1-the-problem-class-explosion">1. The Problem: Class Explosion</a></li><li class="l3"><a href="#what-s-wrong-with-this">What's wrong with this?</a></li><li class="l2"><a href="#2-understanding-bridge">2. Understanding Bridge</a></li><li class="l3"><a href="#participants">Participants</a></li><li class="l2"><a href="#3-implementation">3. Implementation</a></li><li class="l2"><a href="#4-what-we-gained">4. What We Gained</a></li><li class="l2"><a href="#adapter-vs-bridge-a-favourite-question">Adapter vs Bridge (A Favourite Question)</a></li><li class="l2"><a href="#when-to-use-it">When to Use It</a></li><li class="l2"><a href="#quick-check">Quick Check</a></li></ul><div class="sbhead">Course</div><details><summary>Start Here</summary><ul class="pages"><li><a href="00_big_picture.html"><span class="ln"></span> The Big Picture: What Is OOAD and How to Study It</a></li></ul></details><details><summary>Chapter 1 · C++ Foundations</summary><ul class="pages"><li><a href="01_1_first_program.html"><span class="ln">1.1</span> Your First C++ Program</a></li><li><a href="01_2_variables_types.html"><span class="ln">1.2</span> Variables, Data Types &amp; Constants</a></li><li><a href="01_3_input_output.html"><span class="ln">1.3</span> Input and Output (cin / cout)</a></li><li><a href="01_4_operators.html"><span class="ln">1.4</span> Operators &amp; Expressions</a></li><li><a href="01_5_decisions.html"><span class="ln">1.5</span> Making Decisions: if, else &amp; switch</a></li><li><a href="01_6_loops.html"><span class="ln">1.6</span> Loops: Repeating Work</a></li><li><a href="01_7_arrays.html"><span class="ln">1.7</span> Arrays &amp; C-Strings</a></li></ul></details><details><summary>Chapter 2 · Functions</summary><ul class="pages"><li><a href="02_1_functions.html"><span class="ln">2.1</span> Functions, Top-Down Design &amp; Procedural Abstraction</a></li><li><a href="02_2_scope.html"><span class="ln">2.2</span> Scope: Local, Global &amp; Static Variables</a></li><li><a href="02_3_pointers_references.html"><span class="ln">2.3</span> Pointers &amp; References</a></li><li><a href="02_4_parameter_passing.html"><span class="ln">2.4</span> Parameter Passing</a></li><li><a href="02_5_overloading.html"><span class="ln">2.5</span> Function Overloading, Default Arguments &amp; Inline</a></li><li><a href="02_6_recursion.html"><span class="ln">2.6</span> Recursion</a></li><li><a href="02_7_dynamic_memory.html"><span class="ln">2.7</span> Dynamic Memory: new &amp; delete</a></li><li><a href="p1_practice.html"><span class="ln"></span> ✎ Practice Set 1 (Chapters 1–2)</a></li></ul></details><details><summary>Chapter 3 · OOP Fundamentals</summary><ul class="pages"><li><a href="03_1_why_oop.html"><span class="ln">3.1</span> Why OOP? Procedural vs Object-Oriented Thinking</a></li><li><a href="03_2_structures.html"><span class="ln">3.2</span> Structures: Grouping Different Data</a></li><li><a href="03_3_classes_objects.html"><span class="ln">3.3</span> Classes and Objects</a></li><li><a href="03_4_encapsulation.html"><span class="ln">3.4</span> Encapsulation &amp; Access Specifiers</a></li><li><a href="03_5_abstraction.html"><span class="ln">3.5</span> Abstraction</a></li><li><a href="03_6_object_references.html"><span class="ln">3.6</span> Object References: Pointers, References &amp; Passing Objects</a></li><li><a href="03_7_constructors.html"><span class="ln">3.7</span> Constructors &amp; Constructor Overloading</a></li><li><a href="03_8_destructors.html"><span class="ln">3.8</span> Destructors</a></li></ul></details><details><summary>Chapter 4 · Advanced Class Features</summary><ul class="pages"><li><a href="04_1_this_pointer.html"><span class="ln">4.1</span> The this Pointer</a></li><li><a href="04_2_copy_constructor.html"><span class="ln">4.2</span> Copy Constructor: Shallow vs Deep Copy</a></li><li><a href="04_3_assignment_operator.html"><span class="ln">4.3</span> Overloading the Assignment Operator</a></li><li><a href="04_4_operator_overloading.html"><span class="ln">4.4</span> Operator Overloading</a></li><li><a href="04_5_friends.html"><span class="ln">4.5</span> Friend Functions &amp; Friend Classes</a></li><li><a href="04_6_static_const.html"><span class="ln">4.6</span> Static Members, const Members &amp; Recursive Member Functions</a></li><li><a href="p2_practice.html"><span class="ln"></span> ✎ Practice Set 2 (Chapters 1–4)</a></li></ul></details><details><summary>Chapter 5 · Inheritance &amp; Polymorphism</summary><ul class="pages"><li><a href="05_1_inheritance.html"><span class="ln">5.1</span> Inheritance: Reusing Classes</a></li><li><a href="05_2_types_of_inheritance.html"><span class="ln">5.2</span> Types of Inheritance &amp; the Diamond Problem</a></li><li><a href="05_3_ctor_order_overriding.html"><span class="ln">5.3</span> Constructors in Inheritance &amp; Function Overriding</a></li><li><a href="05_4_polymorphism_virtual.html"><span class="ln">5.4</span> Polymorphism &amp; Virtual Functions</a></li><li><a href="05_5_abstract_classes.html"><span class="ln">5.5</span> Abstract Classes, Interfaces &amp; Virtual Destructors</a></li></ul></details><details><summary>Chapter 6 · Streams, Files &amp; Standard Classes</summary><ul class="pages"><li><a href="06_1_streams_formatting.html"><span class="ln">6.1</span> Streams &amp; Formatting Output</a></li><li><a href="06_2_character_io.html"><span class="ln">6.2</span> Character I/O</a></li><li><a href="06_3_files.html"><span class="ln">6.3</span> File Handling</a></li><li><a href="06_4_string_vector.html"><span class="ln">6.4</span> Standard Classes: string &amp; vector</a></li><li><a href="p3_practice.html"><span class="ln"></span> ✎ Practice Set 3 (Part I Complete)</a></li></ul></details><details><summary>Chapter 7 · Introduction to OOAD</summary><ul class="pages"><li><a href="07_1_ooa_ood.html"><span class="ln">7.1</span> What Are OOA and OOD?</a></li><li><a href="07_2_unified_process.html"><span class="ln">7.2</span> The Unified Process</a></li><li><a href="07_3_uml_intro.html"><span class="ln">7.3</span> Introduction to UML</a></li></ul></details><details><summary>Chapter 8 · Class Relationships</summary><ul class="pages"><li><a href="08_1_association.html"><span class="ln">8.1</span> Association &amp; Multiplicity</a></li><li><a href="08_2_aggregation_composition.html"><span class="ln">8.2</span> Aggregation &amp; Composition</a></li><li><a href="08_3_dependency_generalization_realization.html"><span class="ln">8.3</span> Dependency, Generalization &amp; Realization</a></li></ul></details><details><summary>Chapter 9 · Use Cases</summary><ul class="pages"><li><a href="09_1_use_cases.html"><span class="ln">9.1</span> Use Cases, Actors &amp; Scenarios</a></li><li><a href="09_2_use_case_diagrams.html"><span class="ln">9.2</span> Use Case Diagrams: Include, Extend &amp; Generalization</a></li></ul></details><details><summary>Chapter 10 · Class Diagrams &amp; the Domain Model</summary><ul class="pages"><li><a href="10_1_class_diagrams.html"><span class="ln">10.1</span> Class Diagrams</a></li><li><a href="10_2_domain_model.html"><span class="ln">10.2</span> The Domain Model: Finding Conceptual Classes</a></li><li><a href="10_3_associations_attributes.html"><span class="ln">10.3</span> Domain Model: Associations &amp; Attributes</a></li><li><a href="10_4_domain_refinement.html"><span class="ln">10.4</span> Domain Model Refinement &amp; Class Hierarchies</a></li><li><a href="p4_practice.html"><span class="ln"></span> ✎ Practice Set 4 (Chapters 7–10)</a></li></ul></details><details><summary>Chapter 11 · Interaction Diagrams</summary><ul class="pages"><li><a href="11_1_ssd.html"><span class="ln">11.1</span> System Sequence Diagrams</a></li><li><a href="11_2_sequence_diagrams.html"><span class="ln">11.2</span> Sequence Diagrams</a></li><li><a href="11_3_communication_diagrams.html"><span class="ln">11.3</span> Communication (Collaboration) Diagrams</a></li></ul></details><details><summary>Chapter 12 · State, Activity &amp; Implementation Diagrams</summary><ul class="pages"><li><a href="12_1_state_machine.html"><span class="ln">12.1</span> State Machine Diagrams</a></li><li><a href="12_2_activity.html"><span class="ln">12.2</span> Activity Diagrams</a></li><li><a href="12_3_implementation_diagrams.html"><span class="ln">12.3</span> Package, Component &amp; Deployment Diagrams</a></li></ul></details><details><summary>Chapter 13 · Design Principles &amp; GRASP</summary><ul class="pages"><li><a href="13_1_coupling_cohesion.html"><span class="ln">13.1</span> Coupling &amp; Cohesion</a></li><li><a href="13_2_grasp_expert_creator.html"><span class="ln">13.2</span> GRASP: Information Expert &amp; Creator</a></li><li><a href="13_3_grasp_controller.html"><span class="ln">13.3</span> GRASP: Controller, Low Coupling, High Cohesion (+4 more)</a></li><li><a href="13_4_solid.html"><span class="ln">13.4</span> Bonus: SOLID Principles</a></li></ul></details><details open><summary>Chapter 14 · Design Patterns</summary><ul class="pages"><li><a href="14_1_intro_patterns.html"><span class="ln">14.1</span> Introduction to Design Patterns</a></li><li><a href="14_2_factory_method.html"><span class="ln">14.2</span> Factory Method Pattern</a></li><li><a href="14_3_singleton.html"><span class="ln">14.3</span> Singleton Pattern</a></li><li><a href="14_4_adapter.html"><span class="ln">14.4</span> Adapter Pattern</a></li><li class=cur><a href="14_5_bridge.html"><span class="ln">14.5</span> Bridge Pattern</a></li><li><a href="14_6_strategy.html"><span class="ln">14.6</span> Strategy Pattern</a></li><li><a href="14_7_observer.html"><span class="ln">14.7</span> Observer Pattern</a></li><li><a href="14_8_applying_patterns_mapping.html"><span class="ln">14.8</span> Applying Patterns &amp; Mapping Design to Code</a></li><li><a href="p5_practice.html"><span class="ln"></span> ✎ Practice Set 5 + Full Mock Paper</a></li></ul></details></aside>
+<main>
+<div class="crumb">Chapter 14 · Design Patterns › Lesson 14.5</div><h1>Bridge Pattern</h1><div class="meta"><span>⏱ 5 min read</span><span>📚 Syllabus: Unit 6</span></div>
+<p><strong>The Bridge pattern (structural) splits one class hierarchy into two independent ones — the <em>abstraction</em> and the <em>implementation</em> — connected by a reference (the "bridge"), so each can grow without multiplying classes.</strong></p>
+<p>What varies: <strong>two independent dimensions</strong> (here: <em>kind of notice</em> and <em>delivery channel</em>).</p>
+<h2 id="1-the-problem-class-explosion">1. The Problem: Class Explosion</h2>
+<p>The library sends two kinds of notices — <strong>Reminder</strong> and <strong>OverdueNotice</strong> — through two channels — <strong>Email</strong> and <strong>SMS</strong>. Using inheritance alone:</p>
+<div class="codewrap text"><pre><code>                    Notice
+        ┌──────────┬─────┴──────┬────────────────┐
+  EmailReminder  SmsReminder  EmailOverdueNotice  SmsOverdueNotice     ← 2 × 2 = 4 classes</code></pre></div>
+<p>Add WhatsApp → 6 classes. Add a "Welcome" notice → 9. With <em>m</em> notice types and <em>n</em> channels you need <strong>m × n</strong> classes, and the channel-sending code is duplicated in every one.</p>
+<h3 id="what-s-wrong-with-this">What's wrong with this?</h3>
+<ul><li><strong>Class explosion</strong> (m × n).</li><li><strong>Duplication:</strong> "how to send an SMS" is copied into every SMS class.</li><li><strong>Rigid:</strong> a notice is permanently tied to one channel at compile time.</li></ul>
+<h2 id="2-understanding-bridge">2. Understanding Bridge</h2>
+<blockquote><strong>GoF intent:</strong> "Decouple an abstraction from its implementation so that the two can vary independently."</blockquote>
+<p>Split the two dimensions into <strong>two hierarchies</strong>: the <em>Notice</em> hierarchy (<strong>abstraction</strong> — <em>what</em> to say) and the <em>Channel</em> hierarchy (<strong>implementation</strong> — <em>how</em> to deliver). Each notice <strong>holds a reference</strong> to a channel — that reference is the "bridge". Now you need <strong>m + n</strong> classes.</p>
+<div class="box analogy"><div class="boxtitle">🧠 Real-World Analogy</div><p>A <strong>TV remote and a TV</strong>. Remotes (basic remote, advanced remote with voice) are one hierarchy; TVs (Sony, Samsung) are another. Any remote can work with any TV through the infrared "bridge". You don't need a "SonyBasicRemote", "SamsungVoiceRemote", … for every combination.</p></div>
+<h3 id="participants">Participants</h3>
+<div class="codewrap text"><pre><code>        Abstraction side                                       Implementation side
+ ┌────────────────────────────┐   channel  (the "bridge")   ┌──────────────────────────┐
+ │ Notice   (Abstraction)     │◇───────────────────────────►│ Channel  (Implementor)   │
+ │ # channel : Channel&amp;       │                              │ + deliver(to, text) = 0  │
+ │ + send(member) = 0         │                              └────────────△─────────────┘
+ └─────────────△──────────────┘                                    ┌──────┴────────┐
+        ┌──────┴─────────┐                                 ┌──────────────┐ ┌────────────┐
+ ┌─────────────┐ ┌──────────────┐                          │ EmailChannel │ │ SmsChannel │
+ │ Reminder    │ │ OverdueNotice│  (Refined Abstractions)  └──────────────┘ └────────────┘
+ └─────────────┘ └──────────────┘                          (Concrete Implementors)</code></pre></div>
+<ul><li><strong>Abstraction</strong> — high-level interface; holds a reference to an Implementor (<code>Notice</code>).</li><li><strong>Refined Abstraction</strong> — variants of the abstraction (<code>Reminder</code>, <code>OverdueNotice</code>).</li><li><strong>Implementor</strong> — interface for the low-level operations (<code>Channel::deliver</code>).</li><li><strong>Concrete Implementor</strong> — actual implementations (<code>EmailChannel</code>, <code>SmsChannel</code>).</li></ul>
+<h2 id="3-implementation">3. Implementation</h2>
+<div class="codewrap cpp"><div class="codelabel">C++</div><pre><code><span class="pre">#include &lt;iostream&gt;</span>
+<span class="pre">#include &lt;string&gt;</span>
+<span class="kw">using</span> <span class="kw">namespace</span> <span class="lib">std</span>;
+
+<span class="kw">class</span> Channel                                        <span class="com">// IMPLEMENTOR</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">virtual</span> <span class="kw">void</span> deliver(<span class="kw">const</span> <span class="lib">string</span> &amp;to, <span class="kw">const</span> <span class="lib">string</span> &amp;text) <span class="kw">const</span> = <span class="num">0</span>;
+    <span class="kw">virtual</span> ~Channel() { }
+};
+<span class="kw">class</span> EmailChannel : <span class="kw">public</span> Channel                  <span class="com">// CONCRETE IMPLEMENTOR</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> deliver(<span class="kw">const</span> <span class="lib">string</span> &amp;to, <span class="kw">const</span> <span class="lib">string</span> &amp;text) <span class="kw">const</span> <span class="kw">override</span>
+    { <span class="lib">cout</span> &lt;&lt; <span class="str">"Email to "</span> &lt;&lt; to &lt;&lt; <span class="str">": "</span> &lt;&lt; text &lt;&lt; <span class="lib">endl</span>; }
+};
+<span class="kw">class</span> SmsChannel : <span class="kw">public</span> Channel                    <span class="com">// CONCRETE IMPLEMENTOR</span>
+{
+<span class="kw">public</span>:
+    <span class="kw">void</span> deliver(<span class="kw">const</span> <span class="lib">string</span> &amp;to, <span class="kw">const</span> <span class="lib">string</span> &amp;text) <span class="kw">const</span> <span class="kw">override</span>
+    { <span class="lib">cout</span> &lt;&lt; <span class="str">"SMS to "</span> &lt;&lt; to &lt;&lt; <span class="str">": "</span> &lt;&lt; text &lt;&lt; <span class="lib">endl</span>; }
+};
+
+<span class="kw">class</span> Notice                                         <span class="com">// ABSTRACTION</span>
+{
+<span class="kw">protected</span>:
+    <span class="kw">const</span> Channel &amp;channel;                          <span class="com">// ← the bridge</span>
+<span class="kw">public</span>:
+    Notice(<span class="kw">const</span> Channel &amp;c) : channel(c) { }
+    <span class="kw">virtual</span> <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;member) <span class="kw">const</span> = <span class="num">0</span>;
+    <span class="kw">virtual</span> ~Notice() { }
+};
+<span class="kw">class</span> Reminder : <span class="kw">public</span> Notice                       <span class="com">// REFINED ABSTRACTION</span>
+{
+<span class="kw">public</span>:
+    Reminder(<span class="kw">const</span> Channel &amp;c) : Notice(c) { }
+    <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;member) <span class="kw">const</span> <span class="kw">override</span> { channel.deliver(member, <span class="str">"Book due tomorrow"</span>); }
+};
+<span class="kw">class</span> OverdueNotice : <span class="kw">public</span> Notice                  <span class="com">// REFINED ABSTRACTION</span>
+{
+    <span class="kw">int</span> days;
+<span class="kw">public</span>:
+    OverdueNotice(<span class="kw">const</span> Channel &amp;c, <span class="kw">int</span> d) : Notice(c), days(d) { }
+    <span class="kw">void</span> send(<span class="kw">const</span> <span class="lib">string</span> &amp;member) <span class="kw">const</span> <span class="kw">override</span>
+    { channel.deliver(member, <span class="str">"Overdue by "</span> + to_string(days) + <span class="str">" days, fine Rs "</span> + to_string(days * <span class="num">5</span>)); }
+};
+
+<span class="kw">int</span> <span class="lib">main</span>()
+{
+    EmailChannel email;
+    SmsChannel sms;
+    Reminder r1(email), r2(sms);         <span class="com">// any notice works with any channel</span>
+    OverdueNotice o1(sms, <span class="num">3</span>);
+    r1.send(<span class="str">"Asha"</span>);
+    r2.send(<span class="str">"Ravi"</span>);
+    o1.send(<span class="str">"Meena"</span>);
+    <span class="kw">return</span> <span class="num">0</span>;
+}</code></pre></div>
+<div class="codewrap output"><div class="codelabel">Output</div><pre><code>Email to Asha: Book due tomorrow
+SMS to Ravi: Book due tomorrow
+SMS to Meena: Overdue by 3 days, fine Rs 15</code></pre></div>
+<p>Adding WhatsApp = <strong>one</strong> new <code>Channel</code> class; adding a Welcome notice = <strong>one</strong> new <code>Notice</code> class.</p>
+<h2 id="4-what-we-gained">4. What We Gained</h2>
+<ul><li><strong>m + n</strong> classes instead of <strong>m × n</strong>.</li><li>Abstraction and implementation <strong>vary independently</strong>.</li><li>The implementation can be <strong>chosen or switched at run time</strong>.</li><li>Implementation details are hidden from clients.</li><li>Applies <strong>"favour composition over inheritance"</strong>.</li></ul>
+<h2 id="adapter-vs-bridge-a-favourite-question">Adapter vs Bridge (A Favourite Question)</h2>
+<div class="tablewrap"><table><thead><tr><th>Adapter</th><th>Bridge</th></tr></thead><tbody><tr><td>Makes <strong>existing, incompatible</strong> interfaces work together</td><td>Separates abstraction from implementation <strong>by design</strong></td></tr><tr><td>Applied <strong>after</strong> the classes exist (a retrofit)</td><td>Applied <strong>up-front</strong>, while designing</td></tr><tr><td>Usually wraps one adaptee for one target</td><td>Two hierarchies that <strong>vary independently</strong></td></tr><tr><td>Intent: <strong>interface conversion</strong></td><td>Intent: <strong>independent variation</strong>, avoid class explosion</td></tr></tbody></table></div>
+<h2 id="when-to-use-it">When to Use It</h2>
+<ul><li>A class varies along <strong>two (or more) independent dimensions</strong>.</li><li>You want to switch implementations at run time.</li><li>You want to avoid a permanent compile-time binding between abstraction and implementation.</li></ul>
+<div class="box key"><div class="boxtitle">🔑 Key Takeaways</div><ul><li>Bridge = abstraction hierarchy + implementation hierarchy, linked by composition.</li><li>Participants: Abstraction, Refined Abstraction, Implementor, Concrete Implementor.</li><li>Solves m × n class explosion; designed in up-front (unlike Adapter).</li></ul></div>
+<div class="box mistakes"><div class="boxtitle">⚠️ Common Mistakes Students Make</div><ul><li>Confusing Bridge with Adapter (see table).</li><li>Thinking "implementation" means C++ implementation code — here it means the <strong>low-level platform-specific side</strong> (channels).</li></ul></div>
+<div class="box exam"><div class="boxtitle">📝 How This Is Asked in Exams</div><ul><li><em>"Explain the Bridge pattern with structure and an example."</em></li><li><em>"Differentiate Adapter and Bridge."</em></li></ul></div>
+<div class="box def"><div class="boxtitle">📘 Exam-Ready Definition</div><p><strong>Bridge</strong> (structural): "Decouple an abstraction from its implementation so that the two can vary independently." The abstraction holds a reference to an implementor interface; refined abstractions and concrete implementors can be extended independently.</p></div>
+<h2 id="quick-check">Quick Check</h2>
+<div class="q"><div class="qhead">Q1 · Shapes (Circle, Square) must be drawn with two rendering engines (OpenGL, DirectX). Without Bridge, how many classes? With Bridge?</div><details class="ans"><summary>Show Answer</summary><div class="ansbody"><p>Without Bridge: one class per combination — 2 × 2 = <strong>4</strong> (<code>OpenGLCircle</code>, <code>DirectXCircle</code>, <code>OpenGLSquare</code>, <code>DirectXSquare</code>). With Bridge: 2 shape classes + 2 renderer classes = <strong>4</strong> as well — the same today, but growth differs: with 3 shapes and 3 renderers it's <strong>9</strong> classes without Bridge versus <strong>6</strong> with it (m × n vs m + n).</p></div></details></div>
+<div class="pager"><a class="nav" href="14_4_adapter.html">← Adapter Pattern</a><span></span><a class="nav" href="14_6_strategy.html">Strategy Pattern →</a></div>
+</main>
+</div>
+<script src="assets/app.js"></script>
+</body></html>
