@@ -1,13 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { course, lessonPath } from "../course";
-import type { TocEntry } from "../types";
 
 const SCROLL_KEY = "ooad-sidebar-scroll";
 
 interface SidebarProps {
   currentSlug: string;
-  toc: TocEntry[];
 }
 
 /** The chapter that contains a lesson, or null for the home page. */
@@ -17,12 +15,11 @@ function chapterOf(slug: string): string | null {
 }
 
 /**
- * Two stacked regions:
- *  - the course list, which is the scroll container whose position is kept, and
- *  - "On this page" (the lesson's headings), pinned to the bottom in its own scroll area.
- * Keeping the TOC out of the course list means the list never shifts when the lesson changes.
+ * Left sidebar: the course list. It is the scroll container whose position is kept while the
+ * reader moves between lessons. ("On this page" lives in the separate right-hand TocPanel, so
+ * the list never shifts when the lesson changes.)
  */
-export function Sidebar({ currentSlug, toc }: SidebarProps) {
+export function Sidebar({ currentSlug }: SidebarProps) {
   const navRef = useRef<HTMLElement>(null);
   const activeChapter = chapterOf(currentSlug);
 
@@ -97,18 +94,6 @@ export function Sidebar({ currentSlug, toc }: SidebarProps) {
           );
         })}
       </nav>
-      {toc.length > 0 && (
-        <div className="toc-panel">
-          <div className="sbhead">On this page</div>
-          <ul className="toc">
-            {toc.map((entry) => (
-              <li key={entry.id} className={`l${entry.level}`}>
-                <a href={`#${entry.id}`} dangerouslySetInnerHTML={{ __html: entry.html }} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </aside>
   );
 }

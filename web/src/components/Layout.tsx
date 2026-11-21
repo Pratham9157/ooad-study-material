@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { useDarkMode } from "../hooks";
 import { course, findLesson, HOME_SLUG } from "../course";
 import { Sidebar } from "./Sidebar";
+import { TocPanel } from "./TocPanel";
 
 /** Context passed to lesson pages through <Outlet />. */
 export interface LayoutContext {
@@ -10,9 +11,10 @@ export interface LayoutContext {
 }
 
 /**
- * The persistent shell. The sidebar, topbar and answer toggle live here, outside <Outlet />,
- * so they stay mounted while the reader moves between lessons. That keeps the sidebar's
- * scroll position and its open chapters intact.
+ * The persistent shell. The topbar, the left course sidebar and the answer toggle live here,
+ * outside <Outlet />, so they stay mounted while the reader moves between lessons. That keeps the
+ * sidebar's scroll position and its open chapters intact. The right-hand "On this page" panel
+ * lists the headings of whichever page is showing.
  */
 export function Layout() {
   const [dark, toggleDark] = useDarkMode();
@@ -42,10 +44,11 @@ export function Layout() {
         </span>
       </header>
       <div className="layout">
-        <Sidebar currentSlug={slug} toc={toc} />
+        <Sidebar currentSlug={slug} />
         <main>
           <Outlet context={{ showAll } satisfies LayoutContext} />
         </main>
+        <TocPanel toc={toc} pageKey={slug} />
       </div>
     </>
   );
