@@ -1,0 +1,445 @@
+{
+  "title": "Object Oriented Analysis & Design",
+  "chapters": [
+    {
+      "title": "Start Here",
+      "lessons": [
+        {
+          "slug": "00_big_picture",
+          "title": "The Big Picture: What Is OOAD and How to Study It",
+          "syllabus": "Overview"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 1 · C++ Foundations",
+      "lessons": [
+        {
+          "slug": "01_1_first_program",
+          "title": "Your First C++ Program",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "01_2_variables_types",
+          "title": "Variables, Data Types & Constants",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "01_3_input_output",
+          "title": "Input and Output (cin / cout)",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "01_4_operators",
+          "title": "Operators & Expressions",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "01_5_decisions",
+          "title": "Making Decisions: if, else & switch",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "01_6_loops",
+          "title": "Loops: Repeating Work",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "01_7_arrays",
+          "title": "Arrays & C-Strings",
+          "syllabus": "Connected"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 2 · Functions",
+      "lessons": [
+        {
+          "slug": "02_1_functions",
+          "title": "Functions, Top-Down Design & Procedural Abstraction",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "02_2_scope",
+          "title": "Scope: Local, Global & Static Variables",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "02_3_pointers_references",
+          "title": "Pointers & References",
+          "syllabus": "Connected"
+        },
+        {
+          "slug": "02_4_parameter_passing",
+          "title": "Parameter Passing",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "02_5_overloading",
+          "title": "Function Overloading, Default Arguments & Inline",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "02_6_recursion",
+          "title": "Recursion",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "02_7_dynamic_memory",
+          "title": "Dynamic Memory: new & delete",
+          "syllabus": "Connected"
+        },
+        {
+          "slug": "p1_practice",
+          "title": "✎ Practice Set 1 (Chapters 1–2)",
+          "syllabus": "Practice"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 3 · OOP Fundamentals",
+      "lessons": [
+        {
+          "slug": "03_1_why_oop",
+          "title": "Why OOP? Procedural vs Object-Oriented Thinking",
+          "syllabus": "Unit 1"
+        },
+        {
+          "slug": "03_2_structures",
+          "title": "Structures: Grouping Different Data",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "03_3_classes_objects",
+          "title": "Classes and Objects",
+          "syllabus": "Unit 1 · Unit 3"
+        },
+        {
+          "slug": "03_4_encapsulation",
+          "title": "Encapsulation & Access Specifiers",
+          "syllabus": "Unit 1 · Unit 3"
+        },
+        {
+          "slug": "03_5_abstraction",
+          "title": "Abstraction",
+          "syllabus": "Unit 1"
+        },
+        {
+          "slug": "03_6_object_references",
+          "title": "Object References: Pointers, References & Passing Objects",
+          "syllabus": "Unit 1"
+        },
+        {
+          "slug": "03_7_constructors",
+          "title": "Constructors & Constructor Overloading",
+          "syllabus": "Unit 1 · Unit 3"
+        },
+        {
+          "slug": "03_8_destructors",
+          "title": "Destructors",
+          "syllabus": "Unit 2"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 4 · Advanced Class Features",
+      "lessons": [
+        {
+          "slug": "04_1_this_pointer",
+          "title": "The this Pointer",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "04_2_copy_constructor",
+          "title": "Copy Constructor: Shallow vs Deep Copy",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "04_3_assignment_operator",
+          "title": "Overloading the Assignment Operator",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "04_4_operator_overloading",
+          "title": "Operator Overloading",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "04_5_friends",
+          "title": "Friend Functions & Friend Classes",
+          "syllabus": "Unit 2 · Unit 3"
+        },
+        {
+          "slug": "04_6_static_const",
+          "title": "Static Members, const Members & Recursive Member Functions",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "p2_practice",
+          "title": "✎ Practice Set 2 (Chapters 1–4)",
+          "syllabus": "Practice"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 5 · Inheritance & Polymorphism",
+      "lessons": [
+        {
+          "slug": "05_1_inheritance",
+          "title": "Inheritance: Reusing Classes",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "05_2_types_of_inheritance",
+          "title": "Types of Inheritance & the Diamond Problem",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "05_3_ctor_order_overriding",
+          "title": "Constructors in Inheritance & Function Overriding",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "05_4_polymorphism_virtual",
+          "title": "Polymorphism & Virtual Functions",
+          "syllabus": "Unit 2"
+        },
+        {
+          "slug": "05_5_abstract_classes",
+          "title": "Abstract Classes, Interfaces & Virtual Destructors",
+          "syllabus": "Unit 2"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 6 · Streams, Files & Standard Classes",
+      "lessons": [
+        {
+          "slug": "06_1_streams_formatting",
+          "title": "Streams & Formatting Output",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "06_2_character_io",
+          "title": "Character I/O",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "06_3_files",
+          "title": "File Handling",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "06_4_string_vector",
+          "title": "Standard Classes: string & vector",
+          "syllabus": "Unit 3"
+        },
+        {
+          "slug": "p3_practice",
+          "title": "✎ Practice Set 3 (Part I Complete)",
+          "syllabus": "Practice"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 7 · Introduction to OOAD",
+      "lessons": [
+        {
+          "slug": "07_1_ooa_ood",
+          "title": "What Are OOA and OOD?",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "07_2_unified_process",
+          "title": "The Unified Process",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "07_3_uml_intro",
+          "title": "Introduction to UML",
+          "syllabus": "Unit 4"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 8 · Class Relationships",
+      "lessons": [
+        {
+          "slug": "08_1_association",
+          "title": "Association & Multiplicity",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "08_2_aggregation_composition",
+          "title": "Aggregation & Composition",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "08_3_dependency_generalization_realization",
+          "title": "Dependency, Generalization & Realization",
+          "syllabus": "Unit 4"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 9 · Use Cases",
+      "lessons": [
+        {
+          "slug": "09_1_use_cases",
+          "title": "Use Cases, Actors & Scenarios",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "09_2_use_case_diagrams",
+          "title": "Use Case Diagrams: Include, Extend & Generalization",
+          "syllabus": "Unit 4"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 10 · Class Diagrams & the Domain Model",
+      "lessons": [
+        {
+          "slug": "10_1_class_diagrams",
+          "title": "Class Diagrams",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "10_2_domain_model",
+          "title": "The Domain Model: Finding Conceptual Classes",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "10_3_associations_attributes",
+          "title": "Domain Model: Associations & Attributes",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "10_4_domain_refinement",
+          "title": "Domain Model Refinement & Class Hierarchies",
+          "syllabus": "Unit 4"
+        },
+        {
+          "slug": "p4_practice",
+          "title": "✎ Practice Set 4 (Chapters 7–10)",
+          "syllabus": "Practice"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 11 · Interaction Diagrams",
+      "lessons": [
+        {
+          "slug": "11_1_ssd",
+          "title": "System Sequence Diagrams",
+          "syllabus": "Unit 4 · Unit 5"
+        },
+        {
+          "slug": "11_2_sequence_diagrams",
+          "title": "Sequence Diagrams",
+          "syllabus": "Unit 5"
+        },
+        {
+          "slug": "11_3_communication_diagrams",
+          "title": "Communication (Collaboration) Diagrams",
+          "syllabus": "Unit 5"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 12 · State, Activity & Implementation Diagrams",
+      "lessons": [
+        {
+          "slug": "12_1_state_machine",
+          "title": "State Machine Diagrams",
+          "syllabus": "Unit 5"
+        },
+        {
+          "slug": "12_2_activity",
+          "title": "Activity Diagrams",
+          "syllabus": "Unit 5"
+        },
+        {
+          "slug": "12_3_implementation_diagrams",
+          "title": "Package, Component & Deployment Diagrams",
+          "syllabus": "Unit 5"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 13 · Design Principles & GRASP",
+      "lessons": [
+        {
+          "slug": "13_1_coupling_cohesion",
+          "title": "Coupling & Cohesion",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "13_2_grasp_expert_creator",
+          "title": "GRASP: Information Expert & Creator",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "13_3_grasp_controller",
+          "title": "GRASP: Controller, Low Coupling, High Cohesion (+4 more)",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "13_4_solid",
+          "title": "Bonus: SOLID Principles",
+          "syllabus": "Connected"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 14 · Design Patterns",
+      "lessons": [
+        {
+          "slug": "14_1_intro_patterns",
+          "title": "Introduction to Design Patterns",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_2_factory_method",
+          "title": "Factory Method Pattern",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_3_singleton",
+          "title": "Singleton Pattern",
+          "syllabus": "Connected"
+        },
+        {
+          "slug": "14_4_adapter",
+          "title": "Adapter Pattern",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_5_bridge",
+          "title": "Bridge Pattern",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_6_strategy",
+          "title": "Strategy Pattern",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_7_observer",
+          "title": "Observer Pattern",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "14_8_applying_patterns_mapping",
+          "title": "Applying Patterns & Mapping Design to Code",
+          "syllabus": "Unit 6"
+        },
+        {
+          "slug": "p5_practice",
+          "title": "✎ Practice Set 5 + Full Mock Paper",
+          "syllabus": "Practice"
+        }
+      ]
+    }
+  ]
+}
