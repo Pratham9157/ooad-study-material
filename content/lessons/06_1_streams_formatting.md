@@ -48,15 +48,15 @@ Manipulators are inserted into the stream like values. The ones with arguments n
 
 | Manipulator | Effect | Stays in effect? |
 |---|---|---|
-| `setw(n)` | minimum field **width** n for the **next item only** | ❌ **no** |
-| `setfill(c)` | character used for padding (default space) | ✅ yes |
-| `setprecision(n)` | without `fixed`: n **significant digits**; with `fixed`: n digits **after the decimal point** | ✅ yes |
-| `fixed` | normal decimal notation (`123.456000`) | ✅ yes |
-| `scientific` | exponent notation (`1.23e+02`) | ✅ yes |
-| `left` / `right` | alignment inside the field | ✅ yes |
-| `showpoint` | always show the decimal point | ✅ yes |
-| `boolalpha` | print `true`/`false` instead of `1`/`0` | ✅ yes |
-| `hex` / `oct` / `dec` | number base | ✅ yes |
+| `setw(n)` | minimum field **width** n for the **next item only** | ✗ **no** |
+| `setfill(c)` | character used for padding (default space) | ✓ yes |
+| `setprecision(n)` | without `fixed`: n **significant digits**; with `fixed`: n digits **after the decimal point** | ✓ yes |
+| `fixed` | normal decimal notation (`123.456000`) | ✓ yes |
+| `scientific` | exponent notation (`1.23e+02`) | ✓ yes |
+| `left` / `right` | alignment inside the field | ✓ yes |
+| `showpoint` | always show the decimal point | ✓ yes |
+| `boolalpha` | print `true`/`false` instead of `1`/`0` | ✓ yes |
+| `hex` / `oct` / `dec` | number base | ✓ yes |
 | `endl` | new line + flush | — |
 
 Default precision is **6 significant digits**.

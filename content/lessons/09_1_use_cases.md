@@ -82,8 +82,8 @@ Open Issues:                   should members self-issue at a kiosk?
 
 ## Guidelines for Good Use Cases
 
-1. **Essential, UI-free style:** "Librarian enters member ID" ✅ — not "Librarian clicks the blue button and types in box 3" ❌. Describe **intent**, not screens.
-2. **Black-box:** say *what* the system does, not *how* internally. ✅ "System records the loan." ❌ "System runs an SQL INSERT into LOANS."
+1. **Essential, UI-free style:** "Librarian enters member ID" ✓ — not "Librarian clicks the blue button and types in box 3" ✗. Describe **intent**, not screens.
+2. **Black-box:** say *what* the system does, not *how* internally. ✓ "System records the loan." ✗ "System runs an SQL INSERT into LOANS."
 3. **Terse:** short, clear sentences.
 4. **Actor-goal perspective:** each use case delivers something of value to an actor.
 
@@ -92,8 +92,8 @@ Open Issues:                   should members self-issue at a kiosk?
 **Steps:** (1) choose the system boundary, (2) identify primary actors, (3) list each actor's goals, (4) one use case per goal.
 
 **Is it a good, user-goal level use case?**
-- **Boss test:** "What did you do all day?" — "I issued books" ✅. "I logged in" ❌ — the boss wouldn't be impressed.
-- **EBP test** (Elementary Business Process): a task done **by one person, in one place, at one time**, in response to a business event, that **adds measurable value** and leaves data **consistent**. *Issue Book* ✅; *Enter Member ID* ❌ (too small); *Run the Library* ❌ (too big).
+- **Boss test:** "What did you do all day?" — "I issued books" ✓. "I logged in" ✗ — the boss wouldn't be impressed.
+- **EBP test** (Elementary Business Process): a task done **by one person, in one place, at one time**, in response to a business event, that **adds measurable value** and leaves data **consistent**. *Issue Book* ✓; *Enter Member ID* ✗ (too small); *Run the Library* ✗ (too big).
 - **Size test:** a real use case has several steps, not just one.
 
 ## When to Use Use Cases

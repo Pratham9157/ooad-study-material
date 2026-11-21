@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ListChecks } from "lucide-react";
 import { course, lessonPath } from "../course";
 import type { Lesson } from "../types";
 
@@ -27,7 +28,10 @@ function Roadmap() {
                 {lessons.map((l) => (
                   <li key={l.slug}>
                     <Link to={lessonPath(l.slug)}>
-                      <span className="ln">{l.number}</span> {l.title}
+                      <span className="ln">
+                        {l.number || <ListChecks className="icon" size={14} aria-label="Practice set" />}
+                      </span>
+                      {l.title}
                     </Link>
                     <span className="rt">{l.minutes} min</span>
                   </li>

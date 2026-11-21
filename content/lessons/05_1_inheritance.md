@@ -33,7 +33,7 @@ The common parts are written **twice**. Add a field (say `phone`) or fix a bug i
 Children inherit features from their parents — eye colour, surname — and then develop their own skills. A child doesn't need to "re-invent" having eyes; they get them automatically, and add what makes them unique. Similarly, every `Car` **is a** `Vehicle`: it gets wheels and an engine from "vehicle" and adds air-conditioning.
 :::
 
-**The is-a test:** inheritance is right only if "Derived **is a** Base" makes sense. "Car is a Vehicle" ✅. "Car is an Engine" ❌ (a car **has** an engine — that's composition, Lesson 8.2).
+**The is-a test:** inheritance is right only if "Derived **is a** Base" makes sense. "Car is a Vehicle" ✓. "Car is an Engine" ✗ (a car **has** an engine — that's composition, Lesson 8.2).
 
 ## Syntax
 
@@ -174,6 +174,6 @@ int main()
 
 :::q Q2 · Should `Student` inherit from `Person`? Should `Library` inherit from `Book`? Why?
 :::ans
-`Student : Person` ✅ — a student **is a** person. `Library : Book` ❌ — a library **has** books (composition/aggregation), it isn't a book.
+`Student : Person` ✓ — a student **is a** person. `Library : Book` ✗ — a library **has** books (composition/aggregation), it isn't a book.
 :::
 :::

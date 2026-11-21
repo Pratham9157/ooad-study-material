@@ -166,16 +166,16 @@ def render_list(items: list[list]) -> str:
 # --------------------------------------------------------------------------- boxes
 
 BOXES = {
-    "def": ("def", "📘 Exam-Ready Definition"),
-    "analogy": ("analogy", "🧠 Real-World Analogy"),
-    "mistakes": ("mistakes", "⚠️ Common Mistakes Students Make"),
-    "exam": ("exam", "📝 How This Is Asked in Exams"),
-    "key": ("key", "🔑 Key Takeaways"),
-    "note": ("note", "📝 Note"),
-    "tip": ("tip", "💡 Tip"),
-    "warn": ("warn", "🚫 Important"),
-    "example": ("example", "🌍 Example"),
-    "summary": ("summary", "✅ Quick Revision"),
+    "def": ("def", "Exam-Ready Definition"),
+    "analogy": ("analogy", "Real-World Analogy"),
+    "mistakes": ("mistakes", "Common Mistakes Students Make"),
+    "exam": ("exam", "How This Is Asked in Exams"),
+    "key": ("key", "Key Takeaways"),
+    "note": ("note", "Note"),
+    "tip": ("tip", "Tip"),
+    "warn": ("warn", "Important"),
+    "example": ("example", "Example"),
+    "summary": ("summary", "Quick Revision"),
 }
 
 

@@ -99,7 +99,7 @@ double interest(double p, double rate, int years)   // don't repeat the defaults
 ```
 
 **Rules:**
-1. Defaults must be given **from right to left**: `f(int a, int b = 5)` ✅, `f(int a = 5, int b)` ❌.
+1. Defaults must be given **from right to left**: `f(int a, int b = 5)` ✓, `f(int a = 5, int b)` ✗.
 2. Give them **once** (usually in the prototype).
 3. You can only leave out arguments **from the right**.
 

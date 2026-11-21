@@ -29,8 +29,8 @@ Biology's classification: *Animal → Mammal → Dog*. Everything true of all ma
 
 ### Two rules to check a subclass
 
-1. **The 100% Rule** — **100% of the superclass's definition must apply to the subclass**: every attribute and association of `Payment` must make sense for `CardPayment`. (Every card payment has an amount and pays for a fine ✅.)
-2. **The Is-a Rule** — every member of the subclass set must be a member of the superclass set: "A CardPayment **is a** Payment" ✅. "A Member is a Library" ❌.
+1. **The 100% Rule** — **100% of the superclass's definition must apply to the subclass**: every attribute and association of `Payment` must make sense for `CardPayment`. (Every card payment has an amount and pays for a fine ✓.)
+2. **The Is-a Rule** — every member of the subclass set must be a member of the superclass set: "A CardPayment **is a** Payment" ✓. "A Member is a Library" ✗.
 
 A subclass passing both is a **conforming subclass**.
 

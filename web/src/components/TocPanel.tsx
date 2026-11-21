@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
+import { PanelRightClose, PanelRightOpen } from "lucide-react";
 import type { TocEntry } from "../types";
 
 interface TocPanelProps {
-  /** Headings of the current page. Changing this (a new lesson) resets the highlighted section. */
+  /** Headings of the current page. */
   toc: TocEntry[];
-  /** Key that changes on every page, so the scroll-spy re-attaches to the new headings. */
+  /** Changes on every page, so the scroll-spy re-attaches to the new headings. */
   pageKey: string;
-  /** Hidden but still mounted, so the scroll-spy keeps tracking the page. */
+  /** Collapsed to a slim rail. Stays mounted, so the scroll-spy keeps tracking the page. */
   collapsed: boolean;
+  onToggle: () => void;
 }
 
 /** Right-hand "On this page" navigation with a scroll-spy that highlights the section in view. */
-export function TocPanel({ toc, pageKey, collapsed }: TocPanelProps) {
+export function TocPanel({ toc, pageKey, collapsed, onToggle }: TocPanelProps) {
   const [activeId, setActiveId] = useState<string | null>(toc[0]?.id ?? null);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export function TocPanel({ toc, pageKey, collapsed }: TocPanelProps) {
       .map((entry) => document.getElementById(entry.id))
       .filter((el): el is HTMLElement => el !== null);
 
-    // A heading counts as "current" once it crosses the upper part of the viewport.
+    // A heading becomes "current" once it crosses the upper part of the viewport.
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -30,7 +32,7 @@ export function TocPanel({ toc, pageKey, collapsed }: TocPanelProps) {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
         if (visible.length > 0) setActiveId(visible[0].target.id);
       },
-      { rootMargin: "-70px 0px -65% 0px", threshold: 0 },
+      { rootMargin: "-72px 0px -65% 0px", threshold: 0 },
     );
     headings.forEach((h) => observer.observe(h));
     return () => observer.disconnect();
@@ -40,19 +42,41 @@ export function TocPanel({ toc, pageKey, collapsed }: TocPanelProps) {
   if (toc.length === 0) return null;
 
   return (
-    <aside className={`toc-aside${collapsed ? " collapsed" : ""}`} aria-label="On this page" aria-hidden={collapsed}>
-      <div className="sbhead">On this page</div>
-      <ul className="toc">
-        {toc.map((entry) => (
-          <li key={entry.id} className={`l${entry.level}${entry.id === activeId ? " active" : ""}`}>
-            <a
-              href={`#${entry.id}`}
-              aria-current={entry.id === activeId ? "location" : undefined}
-              dangerouslySetInnerHTML={{ __html: entry.html }}
-            />
-          </li>
-        ))}
-      </ul>
+    <aside className={`panel toc-aside${collapsed ? " collapsed" : ""}`} aria-label="On this page">
+      <button
+        type="button"
+        className="icon-btn rail-btn"
+        onClick={onToggle}
+        aria-label="Expand 'On this page'"
+        title="Show 'On this page'"
+      >
+        <PanelRightOpen size={18} aria-hidden="true" />
+      </button>
+      <div className="panel-head">
+        <span>On this page</span>
+        <button
+          type="button"
+          className="icon-btn"
+          onClick={onToggle}
+          aria-label="Collapse 'On this page'"
+          title="Hide 'On this page'"
+        >
+          <PanelRightClose size={18} aria-hidden="true" />
+        </button>
+      </div>
+      <div className="panel-body">
+        <ul className="toc">
+          {toc.map((entry) => (
+            <li key={entry.id} className={`l${entry.level}${entry.id === activeId ? " active" : ""}`}>
+              <a
+                href={`#${entry.id}`}
+                aria-current={entry.id === activeId ? "location" : undefined}
+                dangerouslySetInnerHTML={{ __html: entry.html }}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 }

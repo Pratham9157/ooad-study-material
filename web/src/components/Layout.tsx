@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { Eye, EyeOff, GraduationCap, Moon, Sun } from "lucide-react";
 import { useDarkMode, useStoredBoolean } from "../hooks";
 import { course, findLesson, HOME_SLUG } from "../course";
 import { Sidebar } from "./Sidebar";
@@ -11,10 +12,9 @@ export interface LayoutContext {
 }
 
 /**
- * The persistent shell. The topbar, the left course sidebar and the answer toggle live here,
- * outside <Outlet />, so they stay mounted while the reader moves between lessons. That keeps the
- * sidebar's scroll position and its open chapters intact. The right-hand "On this page" panel
- * lists the headings of whichever page is showing.
+ * The persistent shell: top bar, course sidebar (left) and "On this page" (right). These live
+ * outside <Outlet />, so they stay mounted while the reader moves between lessons. That keeps
+ * the course list's scroll position and open chapters intact.
  */
 export function Layout() {
   const [dark, toggleDark] = useDarkMode();
@@ -29,49 +29,59 @@ export function Layout() {
 
   const toggleAnswers = useCallback(() => setShowAll((s) => !s), []);
 
+  // Ctrl+B / Cmd+B toggles the course sidebar (the common docs/editor shortcut).
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === "b") {
+        e.preventDefault();
+        toggleLeft();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [toggleLeft]);
+
   return (
     <>
       <header className="topbar">
-        <button
-          type="button"
-          className="tool-left panel-toggle"
-          onClick={toggleLeft}
-          aria-pressed={!leftCollapsed}
-          aria-label={leftCollapsed ? "Show course list" : "Hide course list"}
-          title={leftCollapsed ? "Show course list" : "Hide course list"}
-        >
-          <span aria-hidden="true">☰</span> Course
-        </button>
-        <Link className="home" to="/">
-          📚 OOAD Course
+        <Link className="brand" to="/">
+          <GraduationCap className="icon" size={20} aria-hidden="true" />
+          OOAD Course
         </Link>
-        <span className="ptitle">{current ? current.title : "Course Home"}</span>
-        <span className="tools">
+        {current && (
+          <span className="topbar-sep" aria-hidden="true">
+            /
+          </span>
+        )}
+        <span className="ptitle">{current ? current.title : ""}</span>
+        <div className="topbar-actions">
+          <button type="button" className="btn-ghost" onClick={toggleAnswers} aria-pressed={showAll}>
+            {showAll ? (
+              <EyeOff className="icon" size={16} aria-hidden="true" />
+            ) : (
+              <Eye className="icon" size={16} aria-hidden="true" />
+            )}
+            {showAll ? "Hide answers" : "Show answers"}
+          </button>
           <button
             type="button"
-            className="tool-right panel-toggle"
-            onClick={toggleRight}
-            disabled={toc.length === 0}
-            aria-pressed={!rightCollapsed}
-            aria-label={rightCollapsed ? "Show on this page" : "Hide on this page"}
-            title={rightCollapsed ? "Show 'On this page'" : "Hide 'On this page'"}
+            className="icon-btn"
+            onClick={toggleDark}
+            aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+            title={dark ? "Light theme" : "Dark theme"}
           >
-            On this page <span aria-hidden="true">☰</span>
+            {dark ? <Sun className="icon" size={18} aria-hidden="true" /> : <Moon className="icon" size={18} aria-hidden="true" />}
           </button>
-          <button type="button" onClick={toggleAnswers}>
-            {showAll ? "Hide all answers" : "Show all answers"}
-          </button>
-          <button type="button" onClick={toggleDark} title="Toggle dark mode" aria-label="Toggle dark mode">
-            {dark ? "☀️" : "🌓"}
-          </button>
-        </span>
+        </div>
       </header>
-      <div className={`layout${leftCollapsed ? " left-collapsed" : ""}${rightCollapsed ? " right-collapsed" : ""}`}>
-        <Sidebar currentSlug={slug} collapsed={leftCollapsed} />
+      <div className="layout">
+        <Sidebar currentSlug={slug} collapsed={leftCollapsed} onToggle={toggleLeft} />
         <main>
-          <Outlet context={{ showAll } satisfies LayoutContext} />
+          <div className="content">
+            <Outlet context={{ showAll } satisfies LayoutContext} />
+          </div>
         </main>
-        <TocPanel toc={toc} pageKey={slug} collapsed={rightCollapsed} />
+        <TocPanel toc={toc} pageKey={slug} collapsed={rightCollapsed} onToggle={toggleRight} />
       </div>
     </>
   );

@@ -4,15 +4,15 @@ Welcome! This is your **one-stop study material** for the OOAD end-term exam. It
 
 The course is written so that **you can understand everything even if the topic is completely new to you**. Every idea is introduced the same friendly way:
 
-1. **🤔 The problem** — what goes wrong *without* this idea? (We usually show a small piece of "bad" code or a messy situation.)
-2. **💡 The idea in plain words** — what the concept is, explained like a friend would explain it.
-3. **🧠 A real-world analogy** — something from everyday life that works the same way.
-4. **⚙️ How it works** — step by step, often with a diagram.
-5. **👩‍💻 Code, built up in small steps** — every program here was **compiled and run**, and the output you see is the real output.
-6. **🔑 Key takeaways**, **⚠️ common mistakes**, and **📝 how it's asked in exams** (with an exam-ready definition you can write word-for-word).
-7. **✅ Quick check** — 2–4 short questions at the end of every lesson, with hidden answers.
+1. **The problem** — what goes wrong *without* this idea? (We usually show a small piece of "bad" code or a messy situation.)
+2. **The idea in plain words** — what the concept is, explained like a friend would explain it.
+3. **A real-world analogy** — something from everyday life that works the same way.
+4. **How it works** — step by step, often with a diagram.
+5. **Code, built up in small steps** — every program here was **compiled and run**, and the output you see is the real output.
+6. **Key takeaways**, **common mistakes**, and **how it's asked in exams** (with an exam-ready definition you can write word-for-word).
+7. **Quick check** — 2–4 short questions at the end of every lesson, with hidden answers.
 
-After every couple of chapters there is a **✎ Practice Set** that mixes everything you've learned so far: definitions, MCQs, "predict the output", "find the error", programs and long answers. The last practice set ends with a **full mock end-term paper**.
+After every couple of chapters there is a **Practice Set** that mixes everything you've learned so far: definitions, MCQs, "predict the output", "find the error", programs and long answers. The last practice set ends with a **full mock end-term paper**.
 
 ## Course Roadmap
 
@@ -36,13 +36,13 @@ Lessons marked **"Connected"** are not named in your syllabus, but you need them
 | If you have… | Do this |
 |---|---|
 | **5+ days** | One or two chapters per sitting, in order. Do every Quick Check. Do each Practice Set the same day you finish its chapters. Final day: the mock paper (timed, 3 hours). |
-| **2–3 days** | Read each lesson's *plain-words* section, the analogy, the code and the Key Takeaways. Skip nothing in the ⚠️ boxes. Do Practice Sets 3 and 5. |
-| **1 night** | Read only the 📘 Exam-Ready Definitions, 🔑 Key Takeaways and ⚠️ Common Mistakes boxes of every lesson, then attempt the mock paper. |
+| **2–3 days** | Read each lesson's *plain-words* section, the analogy, the code and the Key Takeaways. Skip nothing in the Common Mistakes boxes. Do Practice Sets 3 and 5. |
+| **1 night** | Read only the Exam-Ready Definition, Key Takeaways and Common Mistakes boxes of every lesson, then attempt the mock paper. |
 
 ## Exam-Writing Formula
 
 :::tip
-For almost any theory question, write in this order: **(1) definition** (the 📘 box) → **(2) a real-world example** (the 🧠 box) → **(3) a diagram or small program with output** → **(4) points/table** (advantages, rules, differences). This structure alone earns most of the marks.
+For almost any theory question, write in this order: **(1) definition** (the Exam-Ready Definition box) → **(2) a real-world example** (the Real-World Analogy box) → **(3) a diagram or small program with output** → **(4) points/table** (advantages, rules, differences). This structure alone earns most of the marks.
 :::
 
 ## Reference Books (from your syllabus)

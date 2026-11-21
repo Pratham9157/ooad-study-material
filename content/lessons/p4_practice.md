@@ -83,7 +83,7 @@ A requirements classification: **F**unctional (features), **U**sability (human f
 
 :::q A12 · Explain the EBP test and the Boss test for use cases.
 :::ans
-**EBP (Elementary Business Process) test:** a good user-goal use case is a task performed by **one person in one place at one time**, in response to a business event, that **adds measurable business value** and leaves data in a **consistent state** (e.g. *Process Sale* ✅, *Log In* ❌). **Boss test:** if your boss asks what you did all day and you answer with the use case name (e.g. "logged in"), would the boss be happy? If not, it's too low-level.
+**EBP (Elementary Business Process) test:** a good user-goal use case is a task performed by **one person in one place at one time**, in response to a business event, that **adds measurable business value** and leaves data in a **consistent state** (e.g. *Process Sale* ✓, *Log In* ✗). **Boss test:** if your boss asks what you did all day and you answer with the use case name (e.g. "logged in"), would the boss be happy? If not, it's too low-level.
 :::
 :::
 

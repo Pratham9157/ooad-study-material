@@ -96,9 +96,9 @@ Just as a sentence is made of words and punctuation, a C++ program is made of **
 ### Rules for naming identifiers
 
 1. Use letters, digits and underscore `_` only.
-2. **Cannot start with a digit** (`2marks` ❌, `marks2` ✅).
-3. No spaces or symbols like `-`, `@`, `$` (`total-marks` ❌).
-4. Cannot be a keyword (`float` ❌ — but `Float` ✅ because…)
+2. **Cannot start with a digit** (`2marks` ✗, `marks2` ✓).
+3. No spaces or symbols like `-`, `@`, `$` (`total-marks` ✗).
+4. Cannot be a keyword (`float` ✗ — but `Float` ✓ because…)
 5. C++ is **case-sensitive**: `total`, `Total` and `TOTAL` are three different names.
 
 :::key

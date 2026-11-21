@@ -62,9 +62,9 @@ A **medicine capsule**: the powder (data) is sealed inside a shell; you can't to
 
 | Specifier | Inside the class's own functions | Inside derived classes | Outside (e.g. `main`) |
 |---|---|---|---|
-| `private` | ✅ | ❌ | ❌ |
-| `protected` | ✅ | ✅ | ❌ |
-| `public` | ✅ | ✅ | ✅ |
+| `private` | ✓ | ✗ | ✗ |
+| `protected` | ✓ | ✓ | ✗ |
+| `public` | ✓ | ✓ | ✓ |
 
 - **`private`** — the default in a `class`. For data.
 - **`public`** — the interface. For the methods others should call.

@@ -1,13 +1,15 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { ChevronRight, ListChecks, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { course, lessonPath } from "../course";
 
 const SCROLL_KEY = "ooad-sidebar-scroll";
 
 interface SidebarProps {
   currentSlug: string;
-  /** Hidden but still mounted, so the list keeps its scroll position and open chapters. */
+  /** Collapsed to a slim rail. The list stays mounted, so it keeps its scroll position. */
   collapsed: boolean;
+  onToggle: () => void;
 }
 
 /** The chapter that contains a lesson, or null for the home page. */
@@ -16,17 +18,13 @@ function chapterOf(slug: string): string | null {
   return chapter ? chapter.title : null;
 }
 
-/**
- * Left sidebar: the course list. It is the scroll container whose position is kept while the
- * reader moves between lessons. ("On this page" lives in the separate right-hand TocPanel, so
- * the list never shifts when the lesson changes.)
- */
-export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
-  const navRef = useRef<HTMLElement>(null);
+/** Left sidebar: the course list. Its scroll position is kept across navigation and reloads. */
+export function Sidebar({ currentSlug, collapsed, onToggle }: SidebarProps) {
+  const bodyRef = useRef<HTMLDivElement>(null);
   const activeChapter = chapterOf(currentSlug);
 
-  // Chapters the reader has opened. The chapter of the current lesson starts open, and the
-  // first render already includes it, so the saved scroll position can be restored correctly.
+  // Chapters the reader has opened. The current lesson's chapter is open from the first render,
+  // so the saved scroll position can be restored against the final list height.
   const [openChapters, setOpenChapters] = useState<Set<string>>(
     () => new Set(activeChapter ? [activeChapter] : []),
   );
@@ -39,16 +37,16 @@ export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
   // Restore the saved scroll position on first mount (for example after a full page reload).
   useLayoutEffect(() => {
     const saved = Number(sessionStorage.getItem(SCROLL_KEY));
-    if (navRef.current && Number.isFinite(saved)) navRef.current.scrollTop = saved;
+    if (bodyRef.current && Number.isFinite(saved)) bodyRef.current.scrollTop = saved;
   }, []);
 
   // Remember the scroll position as the reader scrolls.
   useEffect(() => {
-    const nav = navRef.current;
-    if (!nav) return;
-    const onScroll = () => sessionStorage.setItem(SCROLL_KEY, String(nav.scrollTop));
-    nav.addEventListener("scroll", onScroll, { passive: true });
-    return () => nav.removeEventListener("scroll", onScroll);
+    const body = bodyRef.current;
+    if (!body) return;
+    const onScroll = () => sessionStorage.setItem(SCROLL_KEY, String(body.scrollTop));
+    body.addEventListener("scroll", onScroll, { passive: true });
+    return () => body.removeEventListener("scroll", onScroll);
   }, []);
 
   function toggleChapter(title: string) {
@@ -61,9 +59,29 @@ export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
   }
 
   return (
-    <aside className={`sidebar${collapsed ? " collapsed" : ""}`} aria-hidden={collapsed}>
-      <nav className="course-nav" ref={navRef} aria-label="Course">
-        <div className="sbhead">Course</div>
+    <aside className={`panel sidebar${collapsed ? " collapsed" : ""}`} aria-label="Course navigation">
+      <button
+        type="button"
+        className="icon-btn rail-btn"
+        onClick={onToggle}
+        aria-label="Expand course sidebar"
+        title="Expand sidebar (Ctrl+B)"
+      >
+        <PanelLeftOpen size={18} aria-hidden="true" />
+      </button>
+      <div className="panel-head">
+        <span>Course</span>
+        <button
+          type="button"
+          className="icon-btn"
+          onClick={onToggle}
+          aria-label="Collapse course sidebar"
+          title="Collapse sidebar (Ctrl+B)"
+        >
+          <PanelLeftClose size={18} aria-hidden="true" />
+        </button>
+      </div>
+      <div className="panel-body course-nav" ref={bodyRef}>
         {course.chapters.map((chapter) => {
           const open = openChapters.has(chapter.title);
           return (
@@ -74,7 +92,8 @@ export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
                 aria-expanded={open}
                 onClick={() => toggleChapter(chapter.title)}
               >
-                <span className="caret">{open ? "▾" : "▸"}</span> {chapter.title}
+                <ChevronRight className="chev" size={14} aria-hidden="true" />
+                {chapter.title}
               </button>
               {open && (
                 <ul className="pages">
@@ -85,7 +104,13 @@ export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
                     return (
                       <li key={slug} className={isCurrent ? "cur" : undefined}>
                         <Link to={lessonPath(slug)} aria-current={isCurrent ? "page" : undefined}>
-                          <span className="ln">{lesson.number}</span> {lesson.title}
+                          <span className="ln">
+                            {lesson.number ||
+                              (lesson.syllabus === "Practice" ? (
+                                <ListChecks className="icon" size={14} aria-label="Practice set" />
+                              ) : null)}
+                          </span>
+                          <span>{lesson.title}</span>
                         </Link>
                       </li>
                     );
@@ -95,7 +120,7 @@ export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
             </section>
           );
         })}
-      </nav>
+      </div>
     </aside>
   );
 }

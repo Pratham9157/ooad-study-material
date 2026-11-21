@@ -34,7 +34,7 @@ Include an attribute when the requirements suggest a need to **remember a piece 
 
 1. Attributes should be **simple data types**: number, text, date, time, Boolean — or common **data-type classes** like Address, Money, PhoneNumber, ISBN.
 2. **Connect classes with associations, not with attributes.**
-   ❌ `Loan { memberId }` (a "foreign key" attribute)  ✅ draw a `Member — Loan` association.
+   ✗ `Loan { memberId }` (a "foreign key" attribute)  ✓ draw a `Member — Loan` association.
 3. Create a **data-type class** when a value has parts (Address, Name), its own rules (validating an ISBN), extra attributes (a promotional price with start/end dates), or a unit (Money with currency).
 4. **Derived attributes** (calculable from others) are prefixed with `/`, e.g. `/numOfLoans`.
 5. In a domain model, types are optional and there are **no operations**.

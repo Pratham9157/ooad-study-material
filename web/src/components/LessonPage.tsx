@@ -1,5 +1,6 @@
 import { MouseEvent, useEffect, useRef } from "react";
 import { Link, Navigate, useLocation, useNavigate, useOutletContext, useParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight, BookMarked, Clock } from "lucide-react";
 import { findLesson, HOME_SLUG, lessonOrder, lessonPath } from "../course";
 import type { LayoutContext } from "./Layout";
 import { NotFound } from "./NotFound";
@@ -79,24 +80,30 @@ export function LessonPage() {
       </div>
       <h1>{lesson.title}</h1>
       <div className="meta">
-        <span>⏱ {lesson.minutes} min read</span>
-        <span>📚 Syllabus: {lesson.syllabus}</span>
+        <span>
+          <Clock className="icon" size={15} aria-hidden="true" /> {lesson.minutes} min read
+        </span>
+        <span>
+          <BookMarked className="icon" size={15} aria-hidden="true" /> Syllabus: {lesson.syllabus}
+        </span>
       </div>
       <div ref={bodyRef} onClick={onBodyClick} dangerouslySetInnerHTML={{ __html: lesson.html }} />
-      <nav className="pager">
+      <nav className="pager" aria-label="Lesson navigation">
         {prev ? (
-          <Link className="nav" to={lessonPath(prev.slug)}>
-            ← {prev.title}
+          <Link className="nav prev" to={lessonPath(prev.slug)}>
+            <ArrowLeft className="icon" size={16} aria-hidden="true" />
+            {prev.title}
           </Link>
         ) : (
-          <Link className="nav" to="/">
-            ← Course Home
+          <Link className="nav prev" to="/">
+            <ArrowLeft className="icon" size={16} aria-hidden="true" />
+            Course home
           </Link>
         )}
-        <span />
         {next && (
-          <Link className="nav" to={lessonPath(next.slug)}>
-            {next.title} →
+          <Link className="nav next" to={lessonPath(next.slug)}>
+            {next.title}
+            <ArrowRight className="icon" size={16} aria-hidden="true" />
           </Link>
         )}
       </nav>

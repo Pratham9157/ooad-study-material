@@ -44,3 +44,7 @@ The validator looks for `g++` on `PATH`. Set `OOAD_GXX` to a full compiler path 
 
 Vercel runs the export, then builds the React app, and serves `web/dist/` (see `vercel.json`).
 All routes rewrite to `index.html`, so lesson URLs are client-side routes such as `/14_6_strategy`.
+
+## Credits
+
+Icons are from [Lucide](https://lucide.dev) (ISC License): `lucide-react` in the app, and copies of the SVG files in `web/src/assets/icons/` for the lesson callouts.
