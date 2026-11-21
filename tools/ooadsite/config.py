@@ -10,9 +10,9 @@ CONTENT_DIR = ROOT / "content"
 LESSONS_DIR = CONTENT_DIR / "lessons"
 DIAGRAMS_DIR = CONTENT_DIR / "diagrams"
 COURSE_FILE = CONTENT_DIR / "course.json"
-ASSETS_DIR = ROOT / "src" / "assets"
-TEMPLATES_DIR = ROOT / "src" / "templates"
-DIST_DIR = ROOT / "dist"
+WEB_DIR = ROOT / "web"
+WEB_DATA_FILE = WEB_DIR / "src" / "data" / "lessons.json"
+DIST_DIR = WEB_DIR / "dist"
 CACHE_DIR = ROOT / ".cache"
 
 INDEX_SLUG = "index"  # content/lessons/index.md is the home page

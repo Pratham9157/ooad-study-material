@@ -1,0 +1,105 @@
+import { MouseEvent, useEffect, useRef } from "react";
+import { Link, Navigate, useLocation, useNavigate, useOutletContext, useParams } from "react-router-dom";
+import { findLesson, HOME_SLUG, lessonOrder, lessonPath } from "../course";
+import type { LayoutContext } from "./Layout";
+import { NotFound } from "./NotFound";
+
+/** Matches links to lesson pages inside lesson HTML, e.g. "08_1_association.html#sec". */
+const PAGE_LINK = /^([\w-]+)\.html(#.*)?$/;
+
+export function LessonPage() {
+  const { slug: rawSlug = "" } = useParams();
+  const navigate = useNavigate();
+  const { pathname, hash } = useLocation();
+  const { showAll } = useOutletContext<LayoutContext>();
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  // Old links look like /03_4_encapsulation.html; send them to the clean route.
+  const slug = rawSlug.endsWith(".html") ? rawSlug.slice(0, -".html".length) : rawSlug;
+  const lesson = findLesson(slug);
+  const redirectTo = slug === HOME_SLUG ? "/" : lessonPath(slug);
+
+  // Scroll the content back to the top on navigation, unless the URL points at an anchor.
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
+
+  // Open or close every answer block when the topbar toggle changes, and on each new lesson.
+  useEffect(() => {
+    bodyRef.current?.querySelectorAll<HTMLDetailsElement>("details.ans").forEach((d) => {
+      d.open = showAll;
+    });
+  }, [showAll, slug]);
+
+  // Add a copy button to every C++ block.
+  useEffect(() => {
+    const blocks = bodyRef.current?.querySelectorAll<HTMLDivElement>(".codewrap.cpp") ?? [];
+    blocks.forEach((block) => {
+      if (block.querySelector(".copybtn")) return;
+      const button = document.createElement("button");
+      button.className = "copybtn";
+      button.type = "button";
+      button.textContent = "copy";
+      button.addEventListener("click", () => {
+        const code = block.querySelector("pre")?.innerText ?? "";
+        void navigator.clipboard.writeText(code);
+        button.textContent = "copied!";
+        window.setTimeout(() => (button.textContent = "copy"), 1200);
+      });
+      block.appendChild(button);
+    });
+  }, [slug]);
+
+  if (rawSlug !== slug) return <Navigate to={redirectTo} replace />;
+  if (slug === HOME_SLUG) return <Navigate to="/" replace />;
+  if (!lesson) return <NotFound />;
+
+  // Links between lessons are rendered as plain <a href="x.html">, so intercept them and
+  // navigate inside the app. The sidebar stays mounted and keeps its scroll position.
+  function onBodyClick(event: MouseEvent<HTMLDivElement>) {
+    const anchor = (event.target as HTMLElement).closest("a");
+    const href = anchor?.getAttribute("href");
+    if (!href) return;
+    const match = PAGE_LINK.exec(href);
+    if (!match) return;
+    event.preventDefault();
+    const target = match[1] === HOME_SLUG ? "/" : `/${match[1]}`;
+    navigate(target + (match[2] ?? ""));
+  }
+
+  const index = lessonOrder.indexOf(slug);
+  const prev = index > 0 ? findLesson(lessonOrder[index - 1]) : undefined;
+  const next = index < lessonOrder.length - 1 ? findLesson(lessonOrder[index + 1]) : undefined;
+
+  return (
+    <article className="lesson">
+      <div className="crumb">
+        {lesson.chapter}
+        {lesson.number ? ` › Lesson ${lesson.number}` : ""}
+      </div>
+      <h1>{lesson.title}</h1>
+      <div className="meta">
+        <span>⏱ {lesson.minutes} min read</span>
+        <span>📚 Syllabus: {lesson.syllabus}</span>
+      </div>
+      <div ref={bodyRef} onClick={onBodyClick} dangerouslySetInnerHTML={{ __html: lesson.html }} />
+      <nav className="pager">
+        {prev ? (
+          <Link className="nav" to={lessonPath(prev.slug)}>
+            ← {prev.title}
+          </Link>
+        ) : (
+          <Link className="nav" to="/">
+            ← Course Home
+          </Link>
+        )}
+        <span />
+        {next && (
+          <Link className="nav" to={lessonPath(next.slug)}>
+            {next.title} →
+          </Link>
+        )}
+      </nav>
+    </article>
+  );
+}

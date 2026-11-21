@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "python3 tools/ooad.py build",
-  "outputDirectory": "dist",
-  "cleanUrls": false
+  "buildCommand": "python3 tools/ooad.py export && cd web && npm ci && npm run build",
+  "outputDirectory": "web/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
