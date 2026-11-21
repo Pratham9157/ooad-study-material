@@ -6,10 +6,12 @@ interface TocPanelProps {
   toc: TocEntry[];
   /** Key that changes on every page, so the scroll-spy re-attaches to the new headings. */
   pageKey: string;
+  /** Hidden but still mounted, so the scroll-spy keeps tracking the page. */
+  collapsed: boolean;
 }
 
 /** Right-hand "On this page" navigation with a scroll-spy that highlights the section in view. */
-export function TocPanel({ toc, pageKey }: TocPanelProps) {
+export function TocPanel({ toc, pageKey, collapsed }: TocPanelProps) {
   const [activeId, setActiveId] = useState<string | null>(toc[0]?.id ?? null);
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export function TocPanel({ toc, pageKey }: TocPanelProps) {
   if (toc.length === 0) return null;
 
   return (
-    <aside className="toc-aside" aria-label="On this page">
+    <aside className={`toc-aside${collapsed ? " collapsed" : ""}`} aria-label="On this page" aria-hidden={collapsed}>
       <div className="sbhead">On this page</div>
       <ul className="toc">
         {toc.map((entry) => (

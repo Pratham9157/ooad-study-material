@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { useDarkMode } from "../hooks";
+import { useDarkMode, useStoredBoolean } from "../hooks";
 import { course, findLesson, HOME_SLUG } from "../course";
 import { Sidebar } from "./Sidebar";
 import { TocPanel } from "./TocPanel";
@@ -19,6 +19,8 @@ export interface LayoutContext {
 export function Layout() {
   const [dark, toggleDark] = useDarkMode();
   const [showAll, setShowAll] = useState(false);
+  const [leftCollapsed, toggleLeft] = useStoredBoolean("ooad-left-collapsed");
+  const [rightCollapsed, toggleRight] = useStoredBoolean("ooad-right-collapsed");
   const { pathname } = useLocation();
 
   const slug = pathname === "/" ? HOME_SLUG : pathname.replace(/^\//, "");
@@ -30,11 +32,32 @@ export function Layout() {
   return (
     <>
       <header className="topbar">
+        <button
+          type="button"
+          className="tool-left panel-toggle"
+          onClick={toggleLeft}
+          aria-pressed={!leftCollapsed}
+          aria-label={leftCollapsed ? "Show course list" : "Hide course list"}
+          title={leftCollapsed ? "Show course list" : "Hide course list"}
+        >
+          <span aria-hidden="true">☰</span> Course
+        </button>
         <Link className="home" to="/">
           📚 OOAD Course
         </Link>
         <span className="ptitle">{current ? current.title : "Course Home"}</span>
         <span className="tools">
+          <button
+            type="button"
+            className="tool-right panel-toggle"
+            onClick={toggleRight}
+            disabled={toc.length === 0}
+            aria-pressed={!rightCollapsed}
+            aria-label={rightCollapsed ? "Show on this page" : "Hide on this page"}
+            title={rightCollapsed ? "Show 'On this page'" : "Hide 'On this page'"}
+          >
+            On this page <span aria-hidden="true">☰</span>
+          </button>
           <button type="button" onClick={toggleAnswers}>
             {showAll ? "Hide all answers" : "Show all answers"}
           </button>
@@ -43,12 +66,12 @@ export function Layout() {
           </button>
         </span>
       </header>
-      <div className="layout">
-        <Sidebar currentSlug={slug} />
+      <div className={`layout${leftCollapsed ? " left-collapsed" : ""}${rightCollapsed ? " right-collapsed" : ""}`}>
+        <Sidebar currentSlug={slug} collapsed={leftCollapsed} />
         <main>
           <Outlet context={{ showAll } satisfies LayoutContext} />
         </main>
-        <TocPanel toc={toc} pageKey={slug} />
+        <TocPanel toc={toc} pageKey={slug} collapsed={rightCollapsed} />
       </div>
     </>
   );

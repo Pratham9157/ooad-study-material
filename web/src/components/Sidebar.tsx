@@ -6,6 +6,8 @@ const SCROLL_KEY = "ooad-sidebar-scroll";
 
 interface SidebarProps {
   currentSlug: string;
+  /** Hidden but still mounted, so the list keeps its scroll position and open chapters. */
+  collapsed: boolean;
 }
 
 /** The chapter that contains a lesson, or null for the home page. */
@@ -19,7 +21,7 @@ function chapterOf(slug: string): string | null {
  * reader moves between lessons. ("On this page" lives in the separate right-hand TocPanel, so
  * the list never shifts when the lesson changes.)
  */
-export function Sidebar({ currentSlug }: SidebarProps) {
+export function Sidebar({ currentSlug, collapsed }: SidebarProps) {
   const navRef = useRef<HTMLElement>(null);
   const activeChapter = chapterOf(currentSlug);
 
@@ -59,7 +61,7 @@ export function Sidebar({ currentSlug }: SidebarProps) {
   }
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar${collapsed ? " collapsed" : ""}`} aria-hidden={collapsed}>
       <nav className="course-nav" ref={navRef} aria-label="Course">
         <div className="sbhead">Course</div>
         {course.chapters.map((chapter) => {
