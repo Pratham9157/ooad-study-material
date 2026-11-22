@@ -29,3 +29,18 @@ export function useStoredBoolean(key: string, initial = false): [boolean, () => 
   const toggle = useCallback(() => setValue((v) => !v), []);
   return [value, toggle];
 }
+
+/** Whether a CSS media query currently matches (re-evaluated when the window changes). */
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState<boolean>(() => window.matchMedia(query).matches);
+
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = () => setMatches(mql.matches);
+    onChange();
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+
+  return matches;
+}

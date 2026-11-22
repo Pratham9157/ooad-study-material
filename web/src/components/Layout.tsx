@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Eye, EyeOff, GraduationCap, Moon, Sun } from "lucide-react";
-import { useDarkMode, useStoredBoolean } from "../hooks";
+import { Eye, EyeOff, GraduationCap, Menu, Moon, Sun } from "lucide-react";
+import { useDarkMode, useMediaQuery, useStoredBoolean } from "../hooks";
 import { course, findLesson, HOME_SLUG } from "../course";
 import { Sidebar } from "./Sidebar";
 import { TocPanel } from "./TocPanel";
@@ -23,27 +23,59 @@ export function Layout() {
   const [rightCollapsed, toggleRight] = useStoredBoolean("ooad-right-collapsed");
   const { pathname } = useLocation();
 
+  // On phones the course list is an off-canvas drawer instead of a docked panel.
+  const isMobile = useMediaQuery("(max-width: 900px)");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const closeDrawer = useCallback(() => setDrawerOpen(false), []);
+
   const slug = pathname === "/" ? HOME_SLUG : pathname.replace(/^\//, "");
   const current = findLesson(slug);
   const toc = current ? current.toc : slug === HOME_SLUG ? course.intro.toc : [];
 
   const toggleAnswers = useCallback(() => setShowAll((s) => !s), []);
 
-  // Ctrl+B / Cmd+B toggles the course sidebar (the common docs/editor shortcut).
+  // Close the drawer after navigating, on Escape, and when the window grows past phone width.
+  useEffect(() => closeDrawer(), [pathname, closeDrawer]);
+  useEffect(() => {
+    if (!isMobile) closeDrawer();
+  }, [isMobile, closeDrawer]);
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeDrawer();
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden"; // keep the page from scrolling behind the drawer
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [drawerOpen, closeDrawer]);
+
+  // Ctrl+B / Cmd+B toggles the course sidebar (the drawer on phones).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === "b") {
         e.preventDefault();
-        toggleLeft();
+        if (isMobile) setDrawerOpen((o) => !o);
+        else toggleLeft();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [toggleLeft]);
+  }, [toggleLeft, isMobile]);
 
   return (
     <>
       <header className="topbar">
+        <button
+          type="button"
+          className="icon-btn menu-btn"
+          onClick={() => setDrawerOpen((o) => !o)}
+          aria-label={drawerOpen ? "Close course menu" : "Open course menu"}
+          aria-expanded={drawerOpen}
+          aria-controls="course-sidebar"
+        >
+          <Menu size={22} aria-hidden="true" />
+        </button>
         <Link className="brand" to="/">
           <GraduationCap className="icon" size={20} aria-hidden="true" />
           OOAD Course
@@ -61,7 +93,7 @@ export function Layout() {
             ) : (
               <Eye className="icon" size={16} aria-hidden="true" />
             )}
-            {showAll ? "Hide answers" : "Show answers"}
+            <span className="label">{showAll ? "Hide answers" : "Show answers"}</span>
           </button>
           <button
             type="button"
@@ -75,7 +107,13 @@ export function Layout() {
         </div>
       </header>
       <div className="layout">
-        <Sidebar currentSlug={slug} collapsed={leftCollapsed} onToggle={toggleLeft} />
+        <div className={`drawer-backdrop${drawerOpen ? " open" : ""}`} onClick={closeDrawer} aria-hidden="true" />
+        <Sidebar
+          currentSlug={slug}
+          collapsed={leftCollapsed}
+          onToggle={isMobile ? closeDrawer : toggleLeft}
+          drawerOpen={drawerOpen}
+        />
         <main>
           <div className="content">
             <Outlet context={{ showAll } satisfies LayoutContext} />

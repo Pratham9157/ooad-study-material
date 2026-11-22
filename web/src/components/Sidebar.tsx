@@ -10,6 +10,8 @@ interface SidebarProps {
   /** Collapsed to a slim rail. The list stays mounted, so it keeps its scroll position. */
   collapsed: boolean;
   onToggle: () => void;
+  /** Phones only: the sidebar is an off-canvas drawer, shown when true. */
+  drawerOpen?: boolean;
 }
 
 /** The chapter that contains a lesson, or null for the home page. */
@@ -19,7 +21,7 @@ function chapterOf(slug: string): string | null {
 }
 
 /** Left sidebar: the course list. Its scroll position is kept across navigation and reloads. */
-export function Sidebar({ currentSlug, collapsed, onToggle }: SidebarProps) {
+export function Sidebar({ currentSlug, collapsed, onToggle, drawerOpen = false }: SidebarProps) {
   const bodyRef = useRef<HTMLDivElement>(null);
   const activeChapter = chapterOf(currentSlug);
 
@@ -59,7 +61,11 @@ export function Sidebar({ currentSlug, collapsed, onToggle }: SidebarProps) {
   }
 
   return (
-    <aside className={`panel sidebar${collapsed ? " collapsed" : ""}`} aria-label="Course navigation">
+    <aside
+      id="course-sidebar"
+      className={`panel sidebar${collapsed ? " collapsed" : ""}${drawerOpen ? " drawer-open" : ""}`}
+      aria-label="Course navigation"
+    >
       <button
         type="button"
         className="icon-btn rail-btn"

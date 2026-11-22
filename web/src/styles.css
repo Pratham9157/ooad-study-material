@@ -232,8 +232,8 @@ code { background: var(--inline-code-bg); padding: .1em .35em; border-radius: 4p
 
 /* ---------- questions & answers ---------- */
 .q { margin: 18px 0; padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); }
-.qhead { display: flex; align-items: flex-start; gap: 8px; font-weight: 600; color: var(--fg); }
-.q .qhead::before { margin-top: 5px; color: var(--c-q); -webkit-mask-image: url("./assets/icons/circle-help.svg"); mask-image: url("./assets/icons/circle-help.svg"); }
+.qhead { position: relative; padding-left: 24px; font-weight: 600; color: var(--fg); }
+.q .qhead::before { position: absolute; left: 0; top: 6px; color: var(--c-q); -webkit-mask-image: url("./assets/icons/circle-help.svg"); mask-image: url("./assets/icons/circle-help.svg"); }
 details.ans { margin-top: 10px; }
 details.ans summary {
   display: inline-flex; align-items: center; gap: 6px; list-style: none; cursor: pointer; user-select: none;
@@ -278,7 +278,7 @@ svg text { font-family: system-ui, "Segoe UI", sans-serif; }
 
 /* ---------- responsive & print ---------- */
 @media (max-width: 1200px) { .toc-aside { display: none; } }
-@media (max-width: 900px) { .sidebar { display: none; } main { padding: 24px 18px 64px; } }
+
 @media print {
   .topbar, .panel, .pager { display: none; }
   main { padding: 0; }
@@ -287,3 +287,49 @@ svg text { font-family: system-ui, "Segoe UI", sans-serif; }
 
 /* C++ must read literally: no programming ligatures (<< as ≪, == as one glyph, etc.) */
 code, pre, .codewrap pre { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+
+/* ---------- phones: the course list becomes an off-canvas drawer ---------- */
+.menu-btn { display: none; }
+.drawer-backdrop { display: none; }
+@media (max-width: 900px) {
+  main { padding: 24px 18px 64px; }
+  .menu-btn { display: inline-flex; width: 40px; height: 40px; margin-left: -6px; color: var(--fg); }
+
+  .sidebar, .sidebar.collapsed {
+    position: fixed; top: var(--topbar-h); bottom: 0; left: 0; z-index: 40;
+    width: min(86vw, 330px); height: auto;
+    background: var(--bg); border-right: 1px solid var(--line);
+    transform: translateX(-102%); visibility: hidden;
+    transition: transform .22s ease, visibility 0s linear .22s;
+  }
+  .sidebar.drawer-open {
+    transform: none; visibility: visible;
+    box-shadow: 0 0 48px rgba(0, 0, 0, .35);
+    transition: transform .22s ease, visibility 0s;
+  }
+  /* the desktop "collapsed rail" state doesn't apply to the drawer */
+  .sidebar .panel-head, .sidebar .panel-body,
+  .sidebar.collapsed .panel-head, .sidebar.collapsed .panel-body { width: 100%; visibility: inherit; }
+  .sidebar .rail-btn, .sidebar.collapsed .rail-btn { display: none; }
+
+  .drawer-backdrop {
+    display: block; position: fixed; top: var(--topbar-h); right: 0; bottom: 0; left: 0; z-index: 35;
+    background: rgba(0, 0, 0, .45); opacity: 0; pointer-events: none; transition: opacity .2s;
+  }
+  .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+}
+@media (max-width: 600px) {
+  .topbar { gap: 6px; padding: 0 10px; }
+  .topbar-sep, .ptitle { display: none; }
+  .brand { flex: 1; min-width: 0; }
+  .topbar .icon-btn, .topbar .btn-ghost { width: 40px; height: 40px; padding: 0; }
+  .btn-ghost .label { display: none; }
+  .codelabel { display: none; }   /* the language tag would overlap the first line of code */
+  h1 { font-size: 1.7rem; }
+  .pager { flex-direction: column; }
+  .pager .nav, .pager .nav.next { max-width: 100%; margin-left: 0; }
+}
+
+/* inline code may wrap anywhere so a long snippet can never force the page wider than the screen */
+:not(pre) > code { overflow-wrap: anywhere; }
+td, th, li, p, .boxtitle { overflow-wrap: break-word; }
