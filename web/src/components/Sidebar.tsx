@@ -4,6 +4,7 @@ import { ChevronRight, ListChecks, PanelLeftClose, PanelLeftOpen } from "lucide-
 import { course, lessonPath } from "../course";
 
 const SCROLL_KEY = "ooad-sidebar-scroll";
+const OPEN_KEY = "ooad-sidebar-open-chapters";
 
 interface SidebarProps {
   currentSlug: string;
@@ -20,6 +21,16 @@ function chapterOf(slug: string): string | null {
   return chapter ? chapter.title : null;
 }
 
+/** Chapters that were open earlier in this browser session. */
+function readOpenChapters(): string[] {
+  try {
+    const parsed: unknown = JSON.parse(sessionStorage.getItem(OPEN_KEY) ?? "[]");
+    return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+  } catch {
+    return [];
+  }
+}
+
 /** Left sidebar: the course list. Its scroll position is kept across navigation and reloads. */
 export function Sidebar({ currentSlug, collapsed, onToggle, drawerOpen = false }: SidebarProps) {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -27,9 +38,17 @@ export function Sidebar({ currentSlug, collapsed, onToggle, drawerOpen = false }
 
   // Chapters the reader has opened. The current lesson's chapter is open from the first render,
   // so the saved scroll position can be restored against the final list height.
-  const [openChapters, setOpenChapters] = useState<Set<string>>(
-    () => new Set(activeChapter ? [activeChapter] : []),
-  );
+  // They are also remembered for the browser session: restoring the scroll position after a reload
+  // only works if the list is as tall as it was, i.e. the same chapters are open.
+  const [openChapters, setOpenChapters] = useState<Set<string>>(() => {
+    const open = new Set<string>(readOpenChapters());
+    if (activeChapter) open.add(activeChapter);
+    return open;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem(OPEN_KEY, JSON.stringify([...openChapters]));
+  }, [openChapters]);
 
   useEffect(() => {
     if (!activeChapter) return;
