@@ -44,12 +44,15 @@ function Roadmap() {
   );
 }
 
+/**
+ * Home page: the intro Markdown (which owns the "Course Roadmap" heading), then the generated
+ * roadmap cards where the <<ROADMAP>> placeholder sits, then the rest of the Markdown.
+ */
 export function Home() {
   const { beforeRoadmap, afterRoadmap } = course.intro;
   return (
     <>
       <div dangerouslySetInnerHTML={{ __html: beforeRoadmap }} />
-      <h2>Course Roadmap</h2>
       <Roadmap />
       <div dangerouslySetInnerHTML={{ __html: afterRoadmap }} />
     </>
